@@ -22,24 +22,24 @@ int main(int argc, char* argv[])
 			a1[i] = rand() % MAXRANGE + 1;
 		} 
 		SortingClass qs_last = SortingClass(a1,N);
-		//SortingClass hs = SortingClass(a1,N);
+		SortingClass hs = SortingClass(a1,N);
 		SortingClass qs_rand = SortingClass(a1,N);
-		qs_rand.toString("Unsorted:", N);
+		//qs_rand.toString("Unsorted:", N);
 
-		//duration<double,ratio<1,1000>> 
-		//time_span_q_last = qs_last.QS(0, N-1);
+		duration<double,ratio<1,1000>> 
+		time_span_q_last = qs_last.QS(0, N-1);
 
-		//duration<double,ratio<1,1000>> 
-		//time_span_h = hs.HS(0, N-1);
-		
+		duration<double,ratio<1,1000>> 
+		time_span_h = hs.HS(0, N-1);
 		
 		duration<double,ratio<1,1000>> 
 		time_span_q_rand = qs_rand.QS_rand(0, N-1);
 
-		//cout << "hs EXEC TIME: " << time_span_h.count() << " ms\n";
-		//cout << "qs_last EXEC TIME: " << time_span_q_last.count() << " ms\n";
-		qs_rand.toString("Sorted:", N);
-		cout << "qs_rand EXEC TIME: " << time_span_q_rand.count() << " ms\n";
+		cout << "hs <------> " << time_span_h.count() << " ms\n";
+		//qs_last.toString("Sorted:", N);
+		cout << "qs_last <-> " << time_span_q_last.count() << " ms\n";
+		//qs_rand.toString("Sorted:", N);
+		cout << "qs_rand <-> " << time_span_q_rand.count() << " ms\n";
 
 
 		return 0;

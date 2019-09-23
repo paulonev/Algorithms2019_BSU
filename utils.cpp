@@ -37,15 +37,30 @@ void Utils::QSort(int* arr, int l, int r)
 	}
 }
 
-void Utils::QSort_rand(int* arr, int l, int r)
+void Utils::QSort_rand(int* arr, int left, int right)
 {
-	if (l<r)
+	//srand(time(NULL));
+	int pivot = arr[left + rand() % (right - left)];
+	int i = left; int j = right;
+
+	while (i <= j)
 	{
-		//as the result arr[pi] will stand in the right place
-		int pi = findPosition(arr, l, r);
-		QSort_rand(arr, l, pi - 1);
-		QSort_rand(arr, pi + 1, r);
+		while (arr[i] < pivot)  i++;
+		while (arr[j] > pivot)	j--;
+
+		if (i <= j) {
+			int temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
+			i++;
+			j--;
+		}
 	}
+	if (left < j)
+		QSort_rand(arr, left, j);
+	if (right > i)
+		QSort_rand(arr, i, right);
+	
 }
 
 /*
@@ -58,10 +73,7 @@ left  ----> starting index, right - ending index
 */
 int Utils::findPosition(int* arr, int left, int right)
 {
-	//TODO: select elem with mid index (l,r) range
-	srand(time(NULL));
-	int pivot = arr[left + rand() % (right-left)];
-	//int pivot = *(arr+right);
+	int pivot = *(arr+right);
 	int i = left; int j = right;
 	
 	do
@@ -83,31 +95,6 @@ int Utils::findPosition(int* arr, int left, int right)
 	return i;
 	
 }
-
-/*int Utils::findPosition_r(int* arr, int left, int right)
-{
-	int pivot = arr[rand()%]
-	int i = left; int j = right;
-	
-	do
-	{
-		while (arr[i] < pivot)  i++; 
-		while (arr[j] >= pivot) j--;
-
-		if (i <= j) {
-			int temp = arr[i];
-			arr[i] = arr[j];
-			arr[j] = temp;
-		}
-	} while (i <= j);
-
-	int temp1 = arr[i];
-	arr[i] = arr[right];
-	arr[right] = temp1;
-
-	return i;
-	
-}*/
 
 void Utils::InsertionSort(int* arr, int size){
 //insertion sort
