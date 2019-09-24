@@ -2,7 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 //#include <cstdio>
-#define MIN_SIZE 6
+#define MIN_SIZE 50
 
 /*HSort or Hybrid Sort method is a mix
 * of Qsort and Insertion Sort algorithms
