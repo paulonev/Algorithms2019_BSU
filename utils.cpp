@@ -9,7 +9,7 @@
 arr	----> pointer to array to be sorted
 l  	----> starting index
 r 	----> ending index
-*/
+
 void Utils::HSort(int* arr, int l, int r)
 {
 	if(r-l+1 <= MIN_SIZE)
@@ -17,6 +17,21 @@ void Utils::HSort(int* arr, int l, int r)
 		InsertionSort(arr,r-l+1);
 	}
 	else QSort(arr,l,r);
+}*/
+
+void Utils::HSort(int* arr, int l, int r)
+{
+	if (l<r)
+	{
+		int pi = findPosition(arr,l,r);
+		
+		if(r-l+1 <= MIN_SIZE)
+			InsertionSort(arr,r,l);
+		else{
+			HSort(arr,l,pi-1);
+			HSort(arr,pi+1,r);
+		}
+	}
 }
 
 /*
@@ -96,12 +111,18 @@ int Utils::findPosition(int* arr, int left, int right)
 	
 }
 
-void Utils::InsertionSort(int* arr, int size){
-//insertion sort
-	for(int i=1; i<size; i++)
+void Utils::InsertionSort(int* arr, int l, int r){
+//insertion sort; N = r-l+1 - size of array
+	int t,j; // 2
+	//		1		1	 1  => N times => 3*N
+	for(int i=1+l; i<=r; i++) 
 	{
-		int t = arr[i]; int j;
-		for(j=i; j>0 && arr[j-1] > t; j--) arr[j] = arr[j-1];
-		arr[j] = t;
+		t = arr[i]; //2
+		//   1	 1		1			  1
+		for(j=i; j>0 && arr[j-1] > t; j--) //N-1 in worst case => 4(N-1)
+			arr[j] = arr[j-1]; //3
+		arr[j] = t; //2
+		//inside first FOR loop => 7 + 4(N-1)
 	}
+	// 3*N * (7+4(N-1)) = 21*N + 12 N(N-1)= 12N^2 + 9 N = O(N^2)
 }

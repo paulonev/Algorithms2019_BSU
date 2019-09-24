@@ -35,6 +35,7 @@ int main(int argc, char* argv[])
 		duration<double,ratio<1,1000>> 
 		time_span_q_rand = qs_rand.QS_rand(0, N-1);
 
+		//hs.toString("Sorted:", N);
 		cout << "hs <------> " << time_span_h.count() << " ms\n";
 		//qs_last.toString("Sorted:", N);
 		cout << "qs_last <-> " << time_span_q_last.count() << " ms\n";
