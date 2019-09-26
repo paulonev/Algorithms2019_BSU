@@ -4,6 +4,10 @@
 
 using namespace std;
 
+SortingClass::SortingClass()
+{
+}
+
 SortingClass::SortingClass(int* array, int N)
 {
     a = new int[N];
@@ -17,16 +21,28 @@ SortingClass::~SortingClass()
     delete[] a;
 }
 
-duration<double,ratio<1,1000>> SortingClass::HS(int l, int r)
+/*
+Starts hybrid_sort method of Utils class and measure time of execution
+l     <-----> lower bound of array
+r     <-----> upper bound of array
+min_size <--> minimum size of array from which to start insertion_sort of subarrays
+*/
+duration<double,ratio<1,1000>> SortingClass::HS(int l, int r, int min_size)
 {
     Utils ut = Utils();
     steady_clock::time_point time11 = steady_clock::now();
-    ut.HSort(a,l,r);
+    ut.HSort(a,l,r, min_size);
 	steady_clock::time_point time21 = steady_clock::now();
 	return duration_cast<duration<double,ratio<1,1000>>>(time21 - time11);
 
 }
 
+/*
+Starts quick sort algorithm with partition for last elem
+of each subarray it works with. Measure time of execution
+l     <-----> lower bound of array
+r     <-----> upper bound of array
+*/
 duration<double,ratio<1,1000>> SortingClass::QS(int l, int r)
 {
     Utils ut = Utils();
