@@ -17,7 +17,6 @@ SortingClass::SortingClass(int* array, int N)
 
 SortingClass::~SortingClass()
 {
-    //TODO: удаление ссылки на массив
     delete[] a;
 }
 
@@ -35,6 +34,34 @@ duration<double,ratio<1,1000>> SortingClass::HS(int l, int r, int min_size)
 	steady_clock::time_point time21 = steady_clock::now();
 	return duration_cast<duration<double,ratio<1,1000>>>(time21 - time11);
 
+}
+
+/*
+Starts merge sort algorithm and measure time of execution
+left     <-----> lower bound of array
+right    <-----> upper bound of array
+*/
+duration<double,ratio<1,1000>> SortingClass::MS(int left, int right)
+{
+    Utils ut = Utils();
+    steady_clock::time_point time1 = steady_clock::now();
+    ut.MSort(a,left,right);
+    steady_clock::time_point time2 = steady_clock::now();
+    return duration_cast<duration<double,ratio<1,1000>>>(time2-time1);
+}
+
+/*
+Starts hybrid merge sort algorithm and measure time of execution
+left     <-----> lower bound of array
+right    <-----> upper bound of array
+*/
+duration<double,ratio<1,1000>> SortingClass::H_MS(int left, int right,int min_size)
+{
+    Utils ut = Utils();
+    steady_clock::time_point time1 = steady_clock::now();
+    ut.Hybrid_MSort(a,left,right, min_size);
+    steady_clock::time_point time2 = steady_clock::now();
+    return duration_cast<duration<double,ratio<1,1000>>>(time2-time1);
 }
 
 /*

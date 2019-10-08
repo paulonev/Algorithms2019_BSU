@@ -117,3 +117,87 @@ int Utils::partition(int* arr, int left, int right)
 	return i;
 	
 }
+
+/*
+This is merge sort execution function
+*/
+void Utils::MSort(int* a, int left, int right)
+{
+	if(left<right)
+	{
+		int midIdx = (left+right) / 2;
+		MSort(a,left,midIdx);
+		MSort(a,midIdx + 1,right);
+		Merge(a,left,midIdx,right);
+	}
+}
+
+/*
+firstIndex ->	left edge of join
+midIndex ---> 	what is the center of two subarrays to join
+lastIndex --> 	right edge of join
+Indexes of 1st subarray : [firstIndex, midIndex]
+Indexes of 2nd subarray : [midIndex+1,lastIndex]
+*/
+void Utils::Merge(int* arr, int firstIndex, int midIndex, int lastIndex)
+{
+	//amount of elems of joined array & reserve array for those
+	int totalElems = lastIndex - firstIndex + 1;
+	int* temp_arr = new int[totalElems];
+
+	//create iterators for 2 subarray and temparr
+	int leftIter = firstIndex, rightIter = midIndex + 1, tempIter = 0;
+	
+	//put elems sorted in temparr
+	while(leftIter <= midIndex && rightIter <= lastIndex)
+	{
+		if(arr[leftIter] <= arr[rightIter])
+		{
+			temp_arr[tempIter++] = arr[leftIter++];
+		}
+		else 
+		{
+			temp_arr[tempIter++] = arr[rightIter++];
+		}
+	}
+
+	//if there're any elems in left subarray that were not added
+	while(leftIter <= midIndex)
+		temp_arr[tempIter++] = arr[leftIter++];
+	
+	//if there're any elems in right subarray that were not added
+	while(rightIter <= lastIndex)
+		temp_arr[tempIter++] = arr[rightIter++];
+	
+	//Merged array is sorted
+	//Imply changes to initial array
+	for (int i = 0; i< totalElems; i++)
+	{
+		arr[firstIndex + i] = temp_arr[i];
+	}
+	
+	delete[] temp_arr;
+}
+
+/*Hybrib_MSort is a mix
+* of Merge Sort and Insertion Sort algorithms
+arr	     ----> pointer to array to be sorted
+l  	     ----> starting index
+r 	     ----> ending index
+min_size ----> if size(subarray) <= min_size then start insertion_sort
+*/
+void Utils::Hybrid_MSort(int* a, int left, int right, int min_size)
+{
+	if(left<right)
+	{
+		if(right-left+1 <= min_size)
+			InsertionSort(a,left,right);
+		else 
+		{
+			int mid = (left+right)/2;
+			Hybrid_MSort(a,left,mid,min_size);
+			Hybrid_MSort(a,mid+1,right,min_size);
+			Merge(a,left,mid,right);
+		}
+	}
+}

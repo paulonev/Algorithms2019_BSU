@@ -1,0 +1,1657 @@
+MIN_SIZE = 6 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.181551 ms
+qs_last <-> 0.210299 ms
+qs_rand <-> 0.23282 ms
+h_ms <----> 0.303088 ms
+ms <------> 0.339212 ms
+MIN_SIZE = 6 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.181135 ms
+qs_last <-> 0.207221 ms
+qs_rand <-> 0.241145 ms
+h_ms <----> 0.337892 ms
+ms <------> 0.321184 ms
+MIN_SIZE = 6 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.200511 ms
+qs_last <-> 0.306433 ms
+qs_rand <-> 0.233553 ms
+h_ms <----> 0.317203 ms
+ms <------> 0.319594 ms
+MIN_SIZE = 6 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 2.10123 ms
+qs_last <-> 2.90442 ms
+qs_rand <-> 2.10703 ms
+h_ms <----> 3.72518 ms
+ms <------> 2.98853 ms
+MIN_SIZE = 6 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.84122 ms
+qs_last <-> 2.01387 ms
+qs_rand <-> 2.22664 ms
+h_ms <----> 3.41986 ms
+ms <------> 3.08092 ms
+MIN_SIZE = 6 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.85214 ms
+qs_last <-> 2.01764 ms
+qs_rand <-> 2.20412 ms
+h_ms <----> 3.76635 ms
+ms <------> 3.07505 ms
+MIN_SIZE = 6 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 59.2569 ms
+qs_last <-> 58.3101 ms
+qs_rand <-> 18.9562 ms
+h_ms <----> 52.2941 ms
+ms <------> 34.6961 ms
+MIN_SIZE = 6 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 22.7798 ms
+qs_last <-> 24.3676 ms
+qs_rand <-> 25.6066 ms
+h_ms <----> 49.9345 ms
+ms <------> 38.2597 ms
+MIN_SIZE = 6 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 22.6751 ms
+qs_last <-> 24.3661 ms
+qs_rand <-> 26.166 ms
+h_ms <----> 50.3006 ms
+ms <------> 37.3832 ms
+MIN_SIZE = 6 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 4111.21 ms
+qs_last <-> 4139.45 ms
+qs_rand <-> 195.406 ms
+h_ms <----> 464.771 ms
+ms <------> 375.617 ms
+MIN_SIZE = 6 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 262.027 ms
+qs_last <-> 289.684 ms
+qs_rand <-> 261.743 ms
+h_ms <----> 520.594 ms
+ms <------> 423.985 ms
+MIN_SIZE = 6 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 272.849 ms
+qs_last <-> 290.27 ms
+qs_rand <-> 298.935 ms
+h_ms <----> 574.844 ms
+ms <------> 432.053 ms
+MIN_SIZE = 8 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.138451 ms
+qs_last <-> 0.162974 ms
+qs_rand <-> 0.19411 ms
+h_ms <----> 0.232648 ms
+ms <------> 0.253993 ms
+MIN_SIZE = 8 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.135143 ms
+qs_last <-> 0.157651 ms
+qs_rand <-> 0.186705 ms
+h_ms <----> 0.275287 ms
+ms <------> 0.250634 ms
+MIN_SIZE = 8 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.138631 ms
+qs_last <-> 0.164025 ms
+qs_rand <-> 0.184065 ms
+h_ms <----> 0.275646 ms
+ms <------> 0.246997 ms
+MIN_SIZE = 8 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.67744 ms
+qs_last <-> 2.07923 ms
+qs_rand <-> 1.86413 ms
+h_ms <----> 4.02379 ms
+ms <------> 3.06641 ms
+MIN_SIZE = 8 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.79376 ms
+qs_last <-> 2.00881 ms
+qs_rand <-> 2.24921 ms
+h_ms <----> 3.48191 ms
+ms <------> 3.04463 ms
+MIN_SIZE = 8 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.83906 ms
+qs_last <-> 2.07944 ms
+qs_rand <-> 2.18862 ms
+h_ms <----> 3.52984 ms
+ms <------> 3.03393 ms
+MIN_SIZE = 8 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 54.4073 ms
+qs_last <-> 58.1128 ms
+qs_rand <-> 18.738 ms
+h_ms <----> 53.681 ms
+ms <------> 34.0006 ms
+MIN_SIZE = 8 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.9566 ms
+qs_last <-> 24.2022 ms
+qs_rand <-> 25.1603 ms
+h_ms <----> 55.3923 ms
+ms <------> 36.9011 ms
+MIN_SIZE = 8 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 22.3592 ms
+qs_last <-> 24.5385 ms
+qs_rand <-> 26.1477 ms
+h_ms <----> 54.4986 ms
+ms <------> 36.9972 ms
+MIN_SIZE = 8 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 4104.15 ms
+qs_last <-> 4137.2 ms
+qs_rand <-> 195.562 ms
+h_ms <----> 633.039 ms
+ms <------> 372.004 ms
+MIN_SIZE = 8 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 252.438 ms
+qs_last <-> 290.992 ms
+qs_rand <-> 263.041 ms
+h_ms <----> 833.506 ms
+ms <------> 424.038 ms
+MIN_SIZE = 8 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 261.624 ms
+qs_last <-> 284.096 ms
+qs_rand <-> 297.118 ms
+h_ms <----> 790.45 ms
+ms <------> 432.124 ms
+MIN_SIZE = 10 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.137574 ms
+qs_last <-> 0.166104 ms
+qs_rand <-> 0.179897 ms
+h_ms <----> 0.263932 ms
+ms <------> 0.261918 ms
+MIN_SIZE = 10 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.137515 ms
+qs_last <-> 0.175173 ms
+qs_rand <-> 0.185682 ms
+h_ms <----> 0.275296 ms
+ms <------> 0.248667 ms
+MIN_SIZE = 10 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.132638 ms
+qs_last <-> 0.15769 ms
+qs_rand <-> 0.182205 ms
+h_ms <----> 0.262197 ms
+ms <------> 0.249478 ms
+MIN_SIZE = 10 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.58175 ms
+qs_last <-> 2.04633 ms
+qs_rand <-> 1.88168 ms
+h_ms <----> 5.19835 ms
+ms <------> 2.98448 ms
+MIN_SIZE = 10 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.81242 ms
+qs_last <-> 2.04974 ms
+qs_rand <-> 2.20977 ms
+h_ms <----> 5.09692 ms
+ms <------> 3.04484 ms
+MIN_SIZE = 10 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.78269 ms
+qs_last <-> 2.0239 ms
+qs_rand <-> 2.22704 ms
+h_ms <----> 4.37996 ms
+ms <------> 3.04852 ms
+MIN_SIZE = 10 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 53.6365 ms
+qs_last <-> 57.8231 ms
+qs_rand <-> 18.8265 ms
+h_ms <----> 49.2206 ms
+ms <------> 34.0091 ms
+MIN_SIZE = 10 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.8891 ms
+qs_last <-> 24.2504 ms
+qs_rand <-> 25.6274 ms
+h_ms <----> 57.0007 ms
+ms <------> 37.0019 ms
+MIN_SIZE = 10 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 22.555 ms
+qs_last <-> 25.1308 ms
+qs_rand <-> 25.8122 ms
+h_ms <----> 53.8388 ms
+ms <------> 37.1676 ms
+MIN_SIZE = 10 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 4090.78 ms
+qs_last <-> 4128.9 ms
+qs_rand <-> 197.678 ms
+h_ms <----> 664.782 ms
+ms <------> 371.351 ms
+MIN_SIZE = 10 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 248.085 ms
+qs_last <-> 293.488 ms
+qs_rand <-> 261.732 ms
+h_ms <----> 786.691 ms
+ms <------> 424.943 ms
+MIN_SIZE = 10 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 259.289 ms
+qs_last <-> 283.769 ms
+qs_rand <-> 300.295 ms
+h_ms <----> 833.772 ms
+ms <------> 431.492 ms
+MIN_SIZE = 12 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.131993 ms
+qs_last <-> 0.161357 ms
+qs_rand <-> 0.177339 ms
+h_ms <----> 0.277292 ms
+ms <------> 0.256975 ms
+MIN_SIZE = 12 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.130778 ms
+qs_last <-> 0.158345 ms
+qs_rand <-> 0.186406 ms
+h_ms <----> 0.283025 ms
+ms <------> 0.25271 ms
+MIN_SIZE = 12 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.134651 ms
+qs_last <-> 0.159844 ms
+qs_rand <-> 0.183851 ms
+h_ms <----> 0.231891 ms
+ms <------> 0.261143 ms
+MIN_SIZE = 12 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.56409 ms
+qs_last <-> 2.05181 ms
+qs_rand <-> 1.82405 ms
+h_ms <----> 5.29342 ms
+ms <------> 2.99564 ms
+MIN_SIZE = 12 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.75322 ms
+qs_last <-> 2.04468 ms
+qs_rand <-> 2.1865 ms
+h_ms <----> 4.46764 ms
+ms <------> 3.05125 ms
+MIN_SIZE = 12 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.77561 ms
+qs_last <-> 2.03115 ms
+qs_rand <-> 2.20437 ms
+h_ms <----> 4.17192 ms
+ms <------> 3.03764 ms
+MIN_SIZE = 12 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 52.6753 ms
+qs_last <-> 57.7432 ms
+qs_rand <-> 18.7051 ms
+h_ms <----> 60.8921 ms
+ms <------> 33.9134 ms
+MIN_SIZE = 12 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.4794 ms
+qs_last <-> 24.2039 ms
+qs_rand <-> 25.5038 ms
+h_ms <----> 78.7712 ms
+ms <------> 36.9001 ms
+MIN_SIZE = 12 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.751 ms
+qs_last <-> 24.2836 ms
+qs_rand <-> 26.4959 ms
+h_ms <----> 71.489 ms
+ms <------> 36.9856 ms
+MIN_SIZE = 12 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 4083.38 ms
+qs_last <-> 4130.83 ms
+qs_rand <-> 194.836 ms
+h_ms <----> 616.426 ms
+ms <------> 371.522 ms
+MIN_SIZE = 12 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 241.704 ms
+qs_last <-> 291.135 ms
+qs_rand <-> 261.151 ms
+h_ms <----> 812.533 ms
+ms <------> 423.829 ms
+MIN_SIZE = 12 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 266.075 ms
+qs_last <-> 291.9 ms
+qs_rand <-> 297.879 ms
+h_ms <----> 804.242 ms
+ms <------> 431.924 ms
+MIN_SIZE = 14 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.129169 ms
+qs_last <-> 0.161359 ms
+qs_rand <-> 0.18092 ms
+h_ms <----> 0.294916 ms
+ms <------> 0.258277 ms
+MIN_SIZE = 14 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.130557 ms
+qs_last <-> 0.155439 ms
+qs_rand <-> 0.329491 ms
+h_ms <----> 0.231408 ms
+ms <------> 0.249365 ms
+MIN_SIZE = 14 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.129466 ms
+qs_last <-> 0.159983 ms
+qs_rand <-> 0.184991 ms
+h_ms <----> 0.248509 ms
+ms <------> 0.246828 ms
+MIN_SIZE = 14 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.54673 ms
+qs_last <-> 2.05904 ms
+qs_rand <-> 1.82056 ms
+h_ms <----> 4.08584 ms
+ms <------> 2.98722 ms
+MIN_SIZE = 14 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 2.25879 ms
+qs_last <-> 2.91099 ms
+qs_rand <-> 2.7986 ms
+h_ms <----> 5.29926 ms
+ms <------> 3.67644 ms
+MIN_SIZE = 14 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.75175 ms
+qs_last <-> 2.25567 ms
+qs_rand <-> 2.22034 ms
+h_ms <----> 4.7769 ms
+ms <------> 3.03894 ms
+MIN_SIZE = 14 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 52.4326 ms
+qs_last <-> 58.0048 ms
+qs_rand <-> 18.6554 ms
+h_ms <----> 83.6976 ms
+ms <------> 34.0415 ms
+MIN_SIZE = 14 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.8648 ms
+qs_last <-> 24.615 ms
+qs_rand <-> 25.5442 ms
+h_ms <----> 95.5766 ms
+ms <------> 38.0896 ms
+MIN_SIZE = 14 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.6257 ms
+qs_last <-> 24.3367 ms
+qs_rand <-> 25.9985 ms
+h_ms <----> 83.91 ms
+ms <------> 36.9787 ms
+MIN_SIZE = 14 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 4073.67 ms
+qs_last <-> 4130.62 ms
+qs_rand <-> 194.76 ms
+h_ms <----> 631.139 ms
+ms <------> 372.041 ms
+MIN_SIZE = 14 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 239.28 ms
+qs_last <-> 290.63 ms
+qs_rand <-> 264.04 ms
+h_ms <----> 858.768 ms
+ms <------> 423.763 ms
+MIN_SIZE = 14 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 259.685 ms
+qs_last <-> 287.214 ms
+qs_rand <-> 299.576 ms
+h_ms <----> 753.049 ms
+ms <------> 432.197 ms
+MIN_SIZE = 16 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.129704 ms
+qs_last <-> 0.163145 ms
+qs_rand <-> 0.182713 ms
+h_ms <----> 0.249563 ms
+ms <------> 0.254232 ms
+MIN_SIZE = 16 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.126927 ms
+qs_last <-> 0.157018 ms
+qs_rand <-> 0.185176 ms
+h_ms <----> 0.292003 ms
+ms <------> 0.245673 ms
+MIN_SIZE = 16 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.12917 ms
+qs_last <-> 0.157488 ms
+qs_rand <-> 0.184134 ms
+h_ms <----> 0.285782 ms
+ms <------> 0.307249 ms
+MIN_SIZE = 16 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.70027 ms
+qs_last <-> 2.05353 ms
+qs_rand <-> 1.84644 ms
+h_ms <----> 4.22097 ms
+ms <------> 3.05646 ms
+MIN_SIZE = 16 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.71038 ms
+qs_last <-> 1.98687 ms
+qs_rand <-> 2.22261 ms
+h_ms <----> 4.15898 ms
+ms <------> 3.04415 ms
+MIN_SIZE = 16 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.72801 ms
+qs_last <-> 2.01879 ms
+qs_rand <-> 2.25045 ms
+h_ms <----> 4.48067 ms
+ms <------> 3.04471 ms
+MIN_SIZE = 16 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 51.0532 ms
+qs_last <-> 58.07 ms
+qs_rand <-> 18.5693 ms
+h_ms <----> 70.8157 ms
+ms <------> 33.9025 ms
+MIN_SIZE = 16 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 22.0185 ms
+qs_last <-> 24.8606 ms
+qs_rand <-> 25.7108 ms
+h_ms <----> 84.653 ms
+ms <------> 37.3474 ms
+MIN_SIZE = 16 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.1721 ms
+qs_last <-> 23.9903 ms
+qs_rand <-> 26.5613 ms
+h_ms <----> 74.0114 ms
+ms <------> 36.9596 ms
+MIN_SIZE = 16 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 4071.37 ms
+qs_last <-> 4165.95 ms
+qs_rand <-> 194.619 ms
+h_ms <----> 1140.03 ms
+ms <------> 371.297 ms
+MIN_SIZE = 16 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 238.004 ms
+qs_last <-> 290.217 ms
+qs_rand <-> 262.982 ms
+h_ms <----> 1433.83 ms
+ms <------> 424.359 ms
+MIN_SIZE = 16 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 257.496 ms
+qs_last <-> 285.519 ms
+qs_rand <-> 296.846 ms
+h_ms <----> 1135.46 ms
+ms <------> 432.553 ms
+MIN_SIZE = 18 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.12988 ms
+qs_last <-> 0.161941 ms
+qs_rand <-> 0.182189 ms
+h_ms <----> 0.281622 ms
+ms <------> 0.255501 ms
+MIN_SIZE = 18 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.1271 ms
+qs_last <-> 0.155497 ms
+qs_rand <-> 0.185898 ms
+h_ms <----> 0.293288 ms
+ms <------> 0.246153 ms
+MIN_SIZE = 18 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.127363 ms
+qs_last <-> 0.169201 ms
+qs_rand <-> 0.187127 ms
+h_ms <----> 0.287913 ms
+ms <------> 0.246222 ms
+MIN_SIZE = 18 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.53259 ms
+qs_last <-> 2.04658 ms
+qs_rand <-> 1.84131 ms
+h_ms <----> 4.12911 ms
+ms <------> 3.0127 ms
+MIN_SIZE = 18 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.70839 ms
+qs_last <-> 2.01694 ms
+qs_rand <-> 2.21465 ms
+h_ms <----> 3.67264 ms
+ms <------> 3.04888 ms
+MIN_SIZE = 18 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.74119 ms
+qs_last <-> 2.02511 ms
+qs_rand <-> 2.23481 ms
+h_ms <----> 4.69345 ms
+ms <------> 3.07934 ms
+MIN_SIZE = 18 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 49.7414 ms
+qs_last <-> 57.9746 ms
+qs_rand <-> 18.5494 ms
+h_ms <----> 69.8155 ms
+ms <------> 34.0045 ms
+MIN_SIZE = 18 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.2189 ms
+qs_last <-> 24.1741 ms
+qs_rand <-> 25.2225 ms
+h_ms <----> 82.0362 ms
+ms <------> 36.984 ms
+MIN_SIZE = 18 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.5058 ms
+qs_last <-> 24.3505 ms
+qs_rand <-> 26.0858 ms
+h_ms <----> 73.1344 ms
+ms <------> 37.2535 ms
+MIN_SIZE = 18 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 4058.43 ms
+qs_last <-> 4129.57 ms
+qs_rand <-> 194.901 ms
+h_ms <----> 1042.31 ms
+ms <------> 371.5 ms
+MIN_SIZE = 18 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 240.203 ms
+qs_last <-> 292.24 ms
+qs_rand <-> 263.126 ms
+h_ms <----> 1413.07 ms
+ms <------> 423.937 ms
+MIN_SIZE = 18 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 255.862 ms
+qs_last <-> 284.846 ms
+qs_rand <-> 299.106 ms
+h_ms <----> 1263.54 ms
+ms <------> 431.695 ms
+MIN_SIZE = 20 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.131158 ms
+qs_last <-> 0.16515 ms
+qs_rand <-> 0.184005 ms
+h_ms <----> 0.310722 ms
+ms <------> 0.258374 ms
+MIN_SIZE = 20 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.126833 ms
+qs_last <-> 0.156562 ms
+qs_rand <-> 0.184451 ms
+h_ms <----> 0.354467 ms
+ms <------> 0.250082 ms
+MIN_SIZE = 20 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.129457 ms
+qs_last <-> 0.158073 ms
+qs_rand <-> 0.187241 ms
+h_ms <----> 0.263279 ms
+ms <------> 0.246417 ms
+MIN_SIZE = 20 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.56236 ms
+qs_last <-> 2.07858 ms
+qs_rand <-> 1.84338 ms
+h_ms <----> 6.05523 ms
+ms <------> 3.00673 ms
+MIN_SIZE = 20 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.70982 ms
+qs_last <-> 2.01399 ms
+qs_rand <-> 2.20521 ms
+h_ms <----> 6.08315 ms
+ms <------> 3.04117 ms
+MIN_SIZE = 20 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.74084 ms
+qs_last <-> 2.05428 ms
+qs_rand <-> 2.22531 ms
+h_ms <----> 6.35033 ms
+ms <------> 3.06759 ms
+MIN_SIZE = 20 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 48.8946 ms
+qs_last <-> 57.6856 ms
+qs_rand <-> 18.8148 ms
+h_ms <----> 71.3452 ms
+ms <------> 33.9419 ms
+MIN_SIZE = 20 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.6127 ms
+qs_last <-> 24.5602 ms
+qs_rand <-> 25.2672 ms
+h_ms <----> 83.4852 ms
+ms <------> 37.0542 ms
+MIN_SIZE = 20 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.2814 ms
+qs_last <-> 24.3248 ms
+qs_rand <-> 26.1527 ms
+h_ms <----> 71.5115 ms
+ms <------> 36.9883 ms
+MIN_SIZE = 20 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 4048.89 ms
+qs_last <-> 4126.69 ms
+qs_rand <-> 196.28 ms
+h_ms <----> 1023.72 ms
+ms <------> 371.315 ms
+MIN_SIZE = 20 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 238.75 ms
+qs_last <-> 291.206 ms
+qs_rand <-> 262.637 ms
+h_ms <----> 1470.55 ms
+ms <------> 423.901 ms
+MIN_SIZE = 20 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 259.736 ms
+qs_last <-> 289.021 ms
+qs_rand <-> 300.244 ms
+h_ms <----> 1276.17 ms
+ms <------> 432.405 ms
+MIN_SIZE = 22 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.127427 ms
+qs_last <-> 0.16076 ms
+qs_rand <-> 0.178626 ms
+h_ms <----> 0.361624 ms
+ms <------> 0.257239 ms
+MIN_SIZE = 22 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.127628 ms
+qs_last <-> 0.171394 ms
+qs_rand <-> 0.183806 ms
+h_ms <----> 0.316982 ms
+ms <------> 0.247798 ms
+MIN_SIZE = 22 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.13141 ms
+qs_last <-> 0.158813 ms
+qs_rand <-> 0.184649 ms
+h_ms <----> 0.347563 ms
+ms <------> 0.246627 ms
+MIN_SIZE = 22 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.5646 ms
+qs_last <-> 2.10104 ms
+qs_rand <-> 1.84731 ms
+h_ms <----> 8.02376 ms
+ms <------> 2.984 ms
+MIN_SIZE = 22 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.72038 ms
+qs_last <-> 2.04339 ms
+qs_rand <-> 2.22316 ms
+h_ms <----> 7.46867 ms
+ms <------> 3.04098 ms
+MIN_SIZE = 22 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.74327 ms
+qs_last <-> 2.01338 ms
+qs_rand <-> 2.21396 ms
+h_ms <----> 6.89901 ms
+ms <------> 3.06728 ms
+MIN_SIZE = 22 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 48.5398 ms
+qs_last <-> 58.1395 ms
+qs_rand <-> 18.7467 ms
+h_ms <----> 72.3521 ms
+ms <------> 33.989 ms
+MIN_SIZE = 22 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.4694 ms
+qs_last <-> 24.3576 ms
+qs_rand <-> 25.4877 ms
+h_ms <----> 72.1208 ms
+ms <------> 37.1648 ms
+MIN_SIZE = 22 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.6925 ms
+qs_last <-> 24.6475 ms
+qs_rand <-> 26.0607 ms
+h_ms <----> 78.4786 ms
+ms <------> 36.9542 ms
+MIN_SIZE = 22 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 4040.11 ms
+qs_last <-> 4126.67 ms
+qs_rand <-> 196.83 ms
+h_ms <----> 973.389 ms
+ms <------> 372.2 ms
+MIN_SIZE = 22 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 239.092 ms
+qs_last <-> 291.854 ms
+qs_rand <-> 259.95 ms
+h_ms <----> 1419.62 ms
+ms <------> 423.964 ms
+MIN_SIZE = 22 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 258.575 ms
+qs_last <-> 288.495 ms
+qs_rand <-> 299.15 ms
+h_ms <----> 1303.41 ms
+ms <------> 431.861 ms
+MIN_SIZE = 24 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.131029 ms
+qs_last <-> 0.16605 ms
+qs_rand <-> 0.178029 ms
+h_ms <----> 0.312125 ms
+ms <------> 0.252882 ms
+MIN_SIZE = 24 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.132648 ms
+qs_last <-> 0.162459 ms
+qs_rand <-> 0.198088 ms
+h_ms <----> 0.420803 ms
+ms <------> 0.250674 ms
+MIN_SIZE = 24 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.127685 ms
+qs_last <-> 0.157729 ms
+qs_rand <-> 0.183742 ms
+h_ms <----> 0.447756 ms
+ms <------> 0.250411 ms
+MIN_SIZE = 24 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.54743 ms
+qs_last <-> 2.07396 ms
+qs_rand <-> 1.85519 ms
+h_ms <----> 6.84162 ms
+ms <------> 2.98579 ms
+MIN_SIZE = 24 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.68016 ms
+qs_last <-> 2.0002 ms
+qs_rand <-> 2.23597 ms
+h_ms <----> 6.69614 ms
+ms <------> 3.03175 ms
+MIN_SIZE = 24 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.67993 ms
+qs_last <-> 1.99608 ms
+qs_rand <-> 2.1993 ms
+h_ms <----> 6.90637 ms
+ms <------> 3.02491 ms
+MIN_SIZE = 24 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 47.1649 ms
+qs_last <-> 57.712 ms
+qs_rand <-> 18.6683 ms
+h_ms <----> 88.8591 ms
+ms <------> 33.9753 ms
+MIN_SIZE = 24 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.723 ms
+qs_last <-> 24.6817 ms
+qs_rand <-> 25.5859 ms
+h_ms <----> 126.683 ms
+ms <------> 36.9701 ms
+MIN_SIZE = 24 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.2478 ms
+qs_last <-> 24.1931 ms
+qs_rand <-> 26.0279 ms
+h_ms <----> 91.3127 ms
+ms <------> 36.8892 ms
+MIN_SIZE = 24 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 4033.97 ms
+qs_last <-> 4129.06 ms
+qs_rand <-> 196.071 ms
+h_ms <----> 1071.59 ms
+ms <------> 371.857 ms
+MIN_SIZE = 24 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 240.44 ms
+qs_last <-> 292.719 ms
+qs_rand <-> 264.733 ms
+h_ms <----> 1137.49 ms
+ms <------> 423.902 ms
+MIN_SIZE = 24 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 258.055 ms
+qs_last <-> 287.884 ms
+qs_rand <-> 298.558 ms
+h_ms <----> 1366.82 ms
+ms <------> 431.607 ms
+MIN_SIZE = 26 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.127069 ms
+qs_last <-> 0.165244 ms
+qs_rand <-> 0.181499 ms
+h_ms <----> 0.281009 ms
+ms <------> 0.265932 ms
+MIN_SIZE = 26 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.132154 ms
+qs_last <-> 0.165397 ms
+qs_rand <-> 0.183568 ms
+h_ms <----> 0.327432 ms
+ms <------> 0.249095 ms
+MIN_SIZE = 26 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.131263 ms
+qs_last <-> 0.159255 ms
+qs_rand <-> 0.183428 ms
+h_ms <----> 0.314021 ms
+ms <------> 0.24668 ms
+MIN_SIZE = 26 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.52755 ms
+qs_last <-> 2.06133 ms
+qs_rand <-> 1.84977 ms
+h_ms <----> 6.77433 ms
+ms <------> 2.99195 ms
+MIN_SIZE = 26 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.72204 ms
+qs_last <-> 2.03886 ms
+qs_rand <-> 2.22334 ms
+h_ms <----> 6.29876 ms
+ms <------> 3.03204 ms
+MIN_SIZE = 26 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.73181 ms
+qs_last <-> 2.03454 ms
+qs_rand <-> 2.19767 ms
+h_ms <----> 5.68206 ms
+ms <------> 3.03753 ms
+MIN_SIZE = 26 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 46.1289 ms
+qs_last <-> 57.6636 ms
+qs_rand <-> 18.7943 ms
+h_ms <----> 131.354 ms
+ms <------> 33.9557 ms
+MIN_SIZE = 26 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.1139 ms
+qs_last <-> 24.1783 ms
+qs_rand <-> 25.3073 ms
+h_ms <----> 150.45 ms
+ms <------> 37.0238 ms
+MIN_SIZE = 26 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.3978 ms
+qs_last <-> 24.2142 ms
+qs_rand <-> 26.4052 ms
+h_ms <----> 131.168 ms
+ms <------> 36.934 ms
+MIN_SIZE = 26 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 4025.08 ms
+qs_last <-> 4130.99 ms
+qs_rand <-> 194.773 ms
+h_ms <----> 926.543 ms
+ms <------> 371.439 ms
+MIN_SIZE = 26 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 238.597 ms
+qs_last <-> 289.66 ms
+qs_rand <-> 259.871 ms
+h_ms <----> 1375.39 ms
+ms <------> 424.089 ms
+MIN_SIZE = 26 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 256.012 ms
+qs_last <-> 285.195 ms
+qs_rand <-> 298.482 ms
+h_ms <----> 1501.4 ms
+ms <------> 431.656 ms
+MIN_SIZE = 28 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.140825 ms
+qs_last <-> 0.159615 ms
+qs_rand <-> 0.182288 ms
+h_ms <----> 0.328962 ms
+ms <------> 0.258544 ms
+MIN_SIZE = 28 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.12937 ms
+qs_last <-> 0.158464 ms
+qs_rand <-> 0.188337 ms
+h_ms <----> 0.303643 ms
+ms <------> 0.25153 ms
+MIN_SIZE = 28 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.125863 ms
+qs_last <-> 0.157052 ms
+qs_rand <-> 0.185862 ms
+h_ms <----> 0.251875 ms
+ms <------> 0.246567 ms
+MIN_SIZE = 28 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.59463 ms
+qs_last <-> 2.0745 ms
+qs_rand <-> 1.87322 ms
+h_ms <----> 7.60773 ms
+ms <------> 3.00086 ms
+MIN_SIZE = 28 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.7375 ms
+qs_last <-> 2.06796 ms
+qs_rand <-> 2.20489 ms
+h_ms <----> 6.22788 ms
+ms <------> 3.05947 ms
+MIN_SIZE = 28 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.73317 ms
+qs_last <-> 2.01459 ms
+qs_rand <-> 2.20908 ms
+h_ms <----> 6.58781 ms
+ms <------> 3.03719 ms
+MIN_SIZE = 28 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 45.7611 ms
+qs_last <-> 58.0885 ms
+qs_rand <-> 18.8403 ms
+h_ms <----> 86.6652 ms
+ms <------> 33.9108 ms
+MIN_SIZE = 28 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.1129 ms
+qs_last <-> 24.0578 ms
+qs_rand <-> 25.325 ms
+h_ms <----> 122.58 ms
+ms <------> 36.8857 ms
+MIN_SIZE = 28 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.468 ms
+qs_last <-> 24.3179 ms
+qs_rand <-> 26.1813 ms
+h_ms <----> 121.684 ms
+ms <------> 36.8779 ms
+MIN_SIZE = 28 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 4016.7 ms
+qs_last <-> 4141.14 ms
+qs_rand <-> 195.43 ms
+h_ms <----> 939.248 ms
+ms <------> 371.456 ms
+MIN_SIZE = 28 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 241.737 ms
+qs_last <-> 292.084 ms
+qs_rand <-> 261.646 ms
+h_ms <----> 1196.32 ms
+ms <------> 424.512 ms
+MIN_SIZE = 28 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 257.757 ms
+qs_last <-> 287.104 ms
+qs_rand <-> 299.89 ms
+h_ms <----> 1334.89 ms
+ms <------> 431.548 ms
+MIN_SIZE = 30 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.126204 ms
+qs_last <-> 0.159154 ms
+qs_rand <-> 0.180675 ms
+h_ms <----> 0.270582 ms
+ms <------> 0.258256 ms
+MIN_SIZE = 30 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.130423 ms
+qs_last <-> 0.158789 ms
+qs_rand <-> 0.194661 ms
+h_ms <----> 0.385915 ms
+ms <------> 0.251463 ms
+MIN_SIZE = 30 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.129234 ms
+qs_last <-> 0.15733 ms
+qs_rand <-> 0.186511 ms
+h_ms <----> 0.22874 ms
+ms <------> 0.24774 ms
+MIN_SIZE = 30 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.5602 ms
+qs_last <-> 2.06319 ms
+qs_rand <-> 1.80522 ms
+h_ms <----> 6.04977 ms
+ms <------> 2.99356 ms
+MIN_SIZE = 30 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.73476 ms
+qs_last <-> 1.99204 ms
+qs_rand <-> 2.22072 ms
+h_ms <----> 6.22951 ms
+ms <------> 3.03812 ms
+MIN_SIZE = 30 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.70905 ms
+qs_last <-> 1.98826 ms
+qs_rand <-> 2.27912 ms
+h_ms <----> 5.2764 ms
+ms <------> 3.03037 ms
+MIN_SIZE = 30 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 44.8497 ms
+qs_last <-> 57.6069 ms
+qs_rand <-> 18.6079 ms
+h_ms <----> 142.614 ms
+ms <------> 34.0667 ms
+MIN_SIZE = 30 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.0599 ms
+qs_last <-> 24.1407 ms
+qs_rand <-> 25.4591 ms
+h_ms <----> 112.867 ms
+ms <------> 37.2405 ms
+MIN_SIZE = 30 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.3557 ms
+qs_last <-> 24.1756 ms
+qs_rand <-> 26.4793 ms
+h_ms <----> 127.65 ms
+ms <------> 36.9545 ms
+MIN_SIZE = 30 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 4010.28 ms
+qs_last <-> 4130.59 ms
+qs_rand <-> 198.203 ms
+h_ms <----> 1156.34 ms
+ms <------> 371.169 ms
+MIN_SIZE = 30 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 242.329 ms
+qs_last <-> 292.425 ms
+qs_rand <-> 259.811 ms
+h_ms <----> 1719.97 ms
+ms <------> 424.406 ms
+MIN_SIZE = 30 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 257.64 ms
+qs_last <-> 287.637 ms
+qs_rand <-> 299.77 ms
+h_ms <----> 1605.35 ms
+ms <------> 431.605 ms
+MIN_SIZE = 32 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.127414 ms
+qs_last <-> 0.159724 ms
+qs_rand <-> 0.18282 ms
+h_ms <----> 0.334782 ms
+ms <------> 0.252853 ms
+MIN_SIZE = 32 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.128938 ms
+qs_last <-> 0.157189 ms
+qs_rand <-> 0.184619 ms
+h_ms <----> 0.371892 ms
+ms <------> 0.248238 ms
+MIN_SIZE = 32 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.130787 ms
+qs_last <-> 0.158234 ms
+qs_rand <-> 0.188767 ms
+h_ms <----> 0.240139 ms
+ms <------> 0.274431 ms
+MIN_SIZE = 32 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.61467 ms
+qs_last <-> 2.08584 ms
+qs_rand <-> 1.82258 ms
+h_ms <----> 8.58892 ms
+ms <------> 2.98603 ms
+MIN_SIZE = 32 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.71975 ms
+qs_last <-> 2.01856 ms
+qs_rand <-> 2.23024 ms
+h_ms <----> 7.52733 ms
+ms <------> 3.04248 ms
+MIN_SIZE = 32 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.74547 ms
+qs_last <-> 2.0041 ms
+qs_rand <-> 2.20846 ms
+h_ms <----> 6.42789 ms
+ms <------> 3.06309 ms
+MIN_SIZE = 32 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 44.1485 ms
+qs_last <-> 58.3408 ms
+qs_rand <-> 18.8869 ms
+h_ms <----> 139.894 ms
+ms <------> 34.1463 ms
+MIN_SIZE = 32 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.3852 ms
+qs_last <-> 24.2672 ms
+qs_rand <-> 25.304 ms
+h_ms <----> 104.746 ms
+ms <------> 36.9173 ms
+MIN_SIZE = 32 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 22.002 ms
+qs_last <-> 24.6786 ms
+qs_rand <-> 26.1665 ms
+h_ms <----> 116.135 ms
+ms <------> 36.8753 ms
+MIN_SIZE = 32 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 4002.39 ms
+qs_last <-> 4130.11 ms
+qs_rand <-> 197.136 ms
+h_ms <----> 1690.36 ms
+ms <------> 371.768 ms
+MIN_SIZE = 32 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 243.571 ms
+qs_last <-> 291.692 ms
+qs_rand <-> 260.801 ms
+h_ms <----> 2211.83 ms
+ms <------> 424.167 ms
+MIN_SIZE = 32 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 257.711 ms
+qs_last <-> 287.206 ms
+qs_rand <-> 300.223 ms
+h_ms <----> 2012.17 ms
+ms <------> 431.433 ms
+MIN_SIZE = 34 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.13113 ms
+qs_last <-> 0.164057 ms
+qs_rand <-> 0.181537 ms
+h_ms <----> 0.358739 ms
+ms <------> 0.250574 ms
+MIN_SIZE = 34 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.133818 ms
+qs_last <-> 0.164003 ms
+qs_rand <-> 0.188803 ms
+h_ms <----> 0.352862 ms
+ms <------> 0.247525 ms
+MIN_SIZE = 34 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.134341 ms
+qs_last <-> 0.162132 ms
+qs_rand <-> 0.186459 ms
+h_ms <----> 0.290259 ms
+ms <------> 0.263658 ms
+MIN_SIZE = 34 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.61859 ms
+qs_last <-> 2.07567 ms
+qs_rand <-> 1.85839 ms
+h_ms <----> 6.95657 ms
+ms <------> 3.00127 ms
+MIN_SIZE = 34 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.75525 ms
+qs_last <-> 2.03169 ms
+qs_rand <-> 2.20361 ms
+h_ms <----> 7.12902 ms
+ms <------> 3.07024 ms
+MIN_SIZE = 34 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.72021 ms
+qs_last <-> 2.00966 ms
+qs_rand <-> 2.25964 ms
+h_ms <----> 8.00501 ms
+ms <------> 3.02774 ms
+MIN_SIZE = 34 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 42.9739 ms
+qs_last <-> 57.8118 ms
+qs_rand <-> 18.6171 ms
+h_ms <----> 96.0314 ms
+ms <------> 33.9969 ms
+MIN_SIZE = 34 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 22.0886 ms
+qs_last <-> 24.8824 ms
+qs_rand <-> 25.3495 ms
+h_ms <----> 141.47 ms
+ms <------> 37.4975 ms
+MIN_SIZE = 34 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.3947 ms
+qs_last <-> 24.2273 ms
+qs_rand <-> 26.0505 ms
+h_ms <----> 106.827 ms
+ms <------> 36.8968 ms
+MIN_SIZE = 34 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 3995.35 ms
+qs_last <-> 4131.94 ms
+qs_rand <-> 199.354 ms
+h_ms <----> 1798.39 ms
+ms <------> 371.312 ms
+MIN_SIZE = 34 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 250.418 ms
+qs_last <-> 299.018 ms
+qs_rand <-> 259.783 ms
+h_ms <----> 2129.76 ms
+ms <------> 423.87 ms
+MIN_SIZE = 34 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 257.809 ms
+qs_last <-> 286.923 ms
+qs_rand <-> 299.402 ms
+h_ms <----> 2034.32 ms
+ms <------> 432.955 ms
+MIN_SIZE = 36 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.12978 ms
+qs_last <-> 0.164433 ms
+qs_rand <-> 0.180123 ms
+h_ms <----> 0.496803 ms
+ms <------> 0.254942 ms
+MIN_SIZE = 36 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.127933 ms
+qs_last <-> 0.157669 ms
+qs_rand <-> 0.182813 ms
+h_ms <----> 0.471747 ms
+ms <------> 0.251436 ms
+MIN_SIZE = 36 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.12945 ms
+qs_last <-> 0.158491 ms
+qs_rand <-> 0.182223 ms
+h_ms <----> 0.54462 ms
+ms <------> 0.24888 ms
+MIN_SIZE = 36 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.59284 ms
+qs_last <-> 2.0685 ms
+qs_rand <-> 1.80088 ms
+h_ms <----> 7.09186 ms
+ms <------> 2.99226 ms
+MIN_SIZE = 36 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.73297 ms
+qs_last <-> 2.02673 ms
+qs_rand <-> 2.22142 ms
+h_ms <----> 6.12684 ms
+ms <------> 3.03255 ms
+MIN_SIZE = 36 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.75663 ms
+qs_last <-> 2.05474 ms
+qs_rand <-> 2.21874 ms
+h_ms <----> 6.53711 ms
+ms <------> 3.03089 ms
+MIN_SIZE = 36 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 42.1635 ms
+qs_last <-> 57.8725 ms
+qs_rand <-> 19.0575 ms
+h_ms <----> 147.715 ms
+ms <------> 33.9575 ms
+MIN_SIZE = 36 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.3041 ms
+qs_last <-> 24.1613 ms
+qs_rand <-> 25.4959 ms
+h_ms <----> 142.975 ms
+ms <------> 36.9351 ms
+MIN_SIZE = 36 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 22.2783 ms
+qs_last <-> 24.9712 ms
+qs_rand <-> 25.9619 ms
+h_ms <----> 102.105 ms
+ms <------> 36.9718 ms
+MIN_SIZE = 36 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 3985.63 ms
+qs_last <-> 4127.77 ms
+qs_rand <-> 196.791 ms
+h_ms <----> 1676.33 ms
+ms <------> 371.341 ms
+MIN_SIZE = 36 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 245.042 ms
+qs_last <-> 291.549 ms
+qs_rand <-> 261.719 ms
+h_ms <----> 2072.44 ms
+ms <------> 425.024 ms
+MIN_SIZE = 36 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 260.813 ms
+qs_last <-> 287.971 ms
+qs_rand <-> 299.066 ms
+h_ms <----> 2112.54 ms
+ms <------> 431.748 ms
+MIN_SIZE = 38 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.134704 ms
+qs_last <-> 0.164144 ms
+qs_rand <-> 0.180321 ms
+h_ms <----> 0.373545 ms
+ms <------> 0.254559 ms
+MIN_SIZE = 38 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.146046 ms
+qs_last <-> 0.163578 ms
+qs_rand <-> 0.183804 ms
+h_ms <----> 0.342021 ms
+ms <------> 0.251503 ms
+MIN_SIZE = 38 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.130962 ms
+qs_last <-> 0.159141 ms
+qs_rand <-> 0.181314 ms
+h_ms <----> 0.445898 ms
+ms <------> 0.249088 ms
+MIN_SIZE = 38 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.62946 ms
+qs_last <-> 2.07321 ms
+qs_rand <-> 1.85845 ms
+h_ms <----> 7.55698 ms
+ms <------> 2.98742 ms
+MIN_SIZE = 38 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.77459 ms
+qs_last <-> 2.07988 ms
+qs_rand <-> 2.20064 ms
+h_ms <----> 5.84477 ms
+ms <------> 3.04806 ms
+MIN_SIZE = 38 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.76003 ms
+qs_last <-> 2.04096 ms
+qs_rand <-> 2.30464 ms
+h_ms <----> 6.29729 ms
+ms <------> 3.04077 ms
+MIN_SIZE = 38 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 41.2257 ms
+qs_last <-> 57.926 ms
+qs_rand <-> 18.4875 ms
+h_ms <----> 102.631 ms
+ms <------> 34.1941 ms
+MIN_SIZE = 38 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.5409 ms
+qs_last <-> 24.2257 ms
+qs_rand <-> 25.2469 ms
+h_ms <----> 107.325 ms
+ms <------> 36.9866 ms
+MIN_SIZE = 38 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.498 ms
+qs_last <-> 24.1738 ms
+qs_rand <-> 26.1136 ms
+h_ms <----> 136.285 ms
+ms <------> 36.9443 ms
+MIN_SIZE = 38 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 3977.92 ms
+qs_last <-> 4129.5 ms
+qs_rand <-> 197.148 ms
+h_ms <----> 1785.21 ms
+ms <------> 371.625 ms
+MIN_SIZE = 38 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 247.616 ms
+qs_last <-> 292.63 ms
+qs_rand <-> 260.632 ms
+h_ms <----> 2084.75 ms
+ms <------> 425.063 ms
+MIN_SIZE = 38 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 260.622 ms
+qs_last <-> 287.509 ms
+qs_rand <-> 298.872 ms
+h_ms <----> 2135.66 ms
+ms <------> 432.096 ms
+MIN_SIZE = 40 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.131757 ms
+qs_last <-> 0.163221 ms
+qs_rand <-> 0.18129 ms
+h_ms <----> 0.491424 ms
+ms <------> 0.255946 ms
+MIN_SIZE = 40 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.136225 ms
+qs_last <-> 0.162591 ms
+qs_rand <-> 0.184896 ms
+h_ms <----> 0.323558 ms
+ms <------> 0.249679 ms
+MIN_SIZE = 40 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.132165 ms
+qs_last <-> 0.157341 ms
+qs_rand <-> 0.187159 ms
+h_ms <----> 0.329976 ms
+ms <------> 0.250047 ms
+MIN_SIZE = 40 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.62437 ms
+qs_last <-> 2.08811 ms
+qs_rand <-> 1.8609 ms
+h_ms <----> 11.2971 ms
+ms <------> 2.98652 ms
+MIN_SIZE = 40 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.75407 ms
+qs_last <-> 2.05304 ms
+qs_rand <-> 2.20262 ms
+h_ms <----> 7.06125 ms
+ms <------> 3.04347 ms
+MIN_SIZE = 40 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.76295 ms
+qs_last <-> 2.03162 ms
+qs_rand <-> 2.19065 ms
+h_ms <----> 9.32665 ms
+ms <------> 3.07542 ms
+MIN_SIZE = 40 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 40.8383 ms
+qs_last <-> 58.2999 ms
+qs_rand <-> 18.821 ms
+h_ms <----> 127.65 ms
+ms <------> 34.0068 ms
+MIN_SIZE = 40 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.7479 ms
+qs_last <-> 24.1825 ms
+qs_rand <-> 25.5206 ms
+h_ms <----> 112.383 ms
+ms <------> 36.9342 ms
+MIN_SIZE = 40 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.8407 ms
+qs_last <-> 24.4566 ms
+qs_rand <-> 25.9468 ms
+h_ms <----> 109.129 ms
+ms <------> 36.943 ms
+MIN_SIZE = 40 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 3966.25 ms
+qs_last <-> 4126.13 ms
+qs_rand <-> 196.079 ms
+h_ms <----> 1862.57 ms
+ms <------> 371.564 ms
+MIN_SIZE = 40 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 246.034 ms
+qs_last <-> 290.56 ms
+qs_rand <-> 262.425 ms
+h_ms <----> 2167.66 ms
+ms <------> 424.449 ms
+MIN_SIZE = 40 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 264.083 ms
+qs_last <-> 289.53 ms
+qs_rand <-> 298.484 ms
+h_ms <----> 2238.29 ms
+ms <------> 431.646 ms
+MIN_SIZE = 42 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.134027 ms
+qs_last <-> 0.162879 ms
+qs_rand <-> 0.180281 ms
+h_ms <----> 0.287484 ms
+ms <------> 0.254944 ms
+MIN_SIZE = 42 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.132702 ms
+qs_last <-> 0.159495 ms
+qs_rand <-> 0.181644 ms
+h_ms <----> 0.429055 ms
+ms <------> 0.25037 ms
+MIN_SIZE = 42 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.131978 ms
+qs_last <-> 0.160696 ms
+qs_rand <-> 0.180991 ms
+h_ms <----> 0.305087 ms
+ms <------> 0.251088 ms
+MIN_SIZE = 42 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.6323 ms
+qs_last <-> 2.05054 ms
+qs_rand <-> 1.82089 ms
+h_ms <----> 7.48664 ms
+ms <------> 2.99683 ms
+MIN_SIZE = 42 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.75609 ms
+qs_last <-> 2.00918 ms
+qs_rand <-> 2.21225 ms
+h_ms <----> 9.96594 ms
+ms <------> 3.03288 ms
+MIN_SIZE = 42 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.7575 ms
+qs_last <-> 2.01686 ms
+qs_rand <-> 2.20403 ms
+h_ms <----> 10.3076 ms
+ms <------> 3.13176 ms
+MIN_SIZE = 42 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 39.3518 ms
+qs_last <-> 57.8536 ms
+qs_rand <-> 18.7082 ms
+h_ms <----> 109.682 ms
+ms <------> 33.8773 ms
+MIN_SIZE = 42 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.9529 ms
+qs_last <-> 24.5695 ms
+qs_rand <-> 25.4625 ms
+h_ms <----> 115.926 ms
+ms <------> 36.8494 ms
+MIN_SIZE = 42 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.9673 ms
+qs_last <-> 24.2844 ms
+qs_rand <-> 25.8739 ms
+h_ms <----> 106.509 ms
+ms <------> 37.0634 ms
+MIN_SIZE = 42 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 3959.97 ms
+qs_last <-> 4128.14 ms
+qs_rand <-> 196.884 ms
+h_ms <----> 1757.9 ms
+ms <------> 372.291 ms
+MIN_SIZE = 42 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 248.495 ms
+qs_last <-> 293.181 ms
+qs_rand <-> 261.252 ms
+h_ms <----> 2451.77 ms
+ms <------> 425.404 ms
+MIN_SIZE = 42 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 259.013 ms
+qs_last <-> 284.295 ms
+qs_rand <-> 297.516 ms
+h_ms <----> 2140.4 ms
+ms <------> 431.817 ms
+MIN_SIZE = 44 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.131771 ms
+qs_last <-> 0.162355 ms
+qs_rand <-> 0.181976 ms
+h_ms <----> 0.423685 ms
+ms <------> 0.257132 ms
+MIN_SIZE = 44 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.140838 ms
+qs_last <-> 0.161553 ms
+qs_rand <-> 0.185738 ms
+h_ms <----> 0.346494 ms
+ms <------> 0.252574 ms
+MIN_SIZE = 44 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.13162 ms
+qs_last <-> 0.156474 ms
+qs_rand <-> 0.185199 ms
+h_ms <----> 0.349899 ms
+ms <------> 0.247839 ms
+MIN_SIZE = 44 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.62536 ms
+qs_last <-> 2.04786 ms
+qs_rand <-> 1.8123 ms
+h_ms <----> 10.8297 ms
+ms <------> 2.98817 ms
+MIN_SIZE = 44 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.76211 ms
+qs_last <-> 2.01659 ms
+qs_rand <-> 2.18159 ms
+h_ms <----> 8.10169 ms
+ms <------> 3.04208 ms
+MIN_SIZE = 44 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.74266 ms
+qs_last <-> 1.99957 ms
+qs_rand <-> 2.20175 ms
+h_ms <----> 13.3963 ms
+ms <------> 3.04426 ms
+MIN_SIZE = 44 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 38.9228 ms
+qs_last <-> 58.2621 ms
+qs_rand <-> 18.9497 ms
+h_ms <----> 103.481 ms
+ms <------> 33.9553 ms
+MIN_SIZE = 44 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 22.0515 ms
+qs_last <-> 24.6238 ms
+qs_rand <-> 25.3037 ms
+h_ms <----> 141.169 ms
+ms <------> 37.1358 ms
+MIN_SIZE = 44 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 22.1104 ms
+qs_last <-> 24.4044 ms
+qs_rand <-> 26.1388 ms
+h_ms <----> 119.825 ms
+ms <------> 36.9759 ms
+MIN_SIZE = 44 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 3953.37 ms
+qs_last <-> 4129.01 ms
+qs_rand <-> 200.781 ms
+h_ms <----> 1677.99 ms
+ms <------> 371.483 ms
+MIN_SIZE = 44 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 249.472 ms
+qs_last <-> 291.442 ms
+qs_rand <-> 261.015 ms
+h_ms <----> 2065.03 ms
+ms <------> 423.787 ms
+MIN_SIZE = 44 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 266.147 ms
+qs_last <-> 291.473 ms
+qs_rand <-> 300.153 ms
+h_ms <----> 2113.99 ms
+ms <------> 431.841 ms
+MIN_SIZE = 46 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.130468 ms
+qs_last <-> 0.163034 ms
+qs_rand <-> 0.198255 ms
+h_ms <----> 0.302626 ms
+ms <------> 0.254857 ms
+MIN_SIZE = 46 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.13317 ms
+qs_last <-> 0.156484 ms
+qs_rand <-> 0.186776 ms
+h_ms <----> 0.357036 ms
+ms <------> 0.250538 ms
+MIN_SIZE = 46 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.135185 ms
+qs_last <-> 0.160337 ms
+qs_rand <-> 0.187736 ms
+h_ms <----> 0.360682 ms
+ms <------> 0.249398 ms
+MIN_SIZE = 46 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.68188 ms
+qs_last <-> 2.11254 ms
+qs_rand <-> 1.85163 ms
+h_ms <----> 7.60266 ms
+ms <------> 3.0475 ms
+MIN_SIZE = 46 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.79411 ms
+qs_last <-> 2.02489 ms
+qs_rand <-> 2.25972 ms
+h_ms <----> 12.6938 ms
+ms <------> 3.03831 ms
+MIN_SIZE = 46 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.80192 ms
+qs_last <-> 2.02967 ms
+qs_rand <-> 2.22798 ms
+h_ms <----> 11.5359 ms
+ms <------> 3.25849 ms
+MIN_SIZE = 46 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 37.7303 ms
+qs_last <-> 57.8286 ms
+qs_rand <-> 18.6075 ms
+h_ms <----> 104.601 ms
+ms <------> 33.9185 ms
+MIN_SIZE = 46 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.735 ms
+qs_last <-> 24.2004 ms
+qs_rand <-> 25.4704 ms
+h_ms <----> 110.788 ms
+ms <------> 36.9134 ms
+MIN_SIZE = 46 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 21.9335 ms
+qs_last <-> 24.2889 ms
+qs_rand <-> 25.9642 ms
+h_ms <----> 130.826 ms
+ms <------> 36.9456 ms
+MIN_SIZE = 46 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 3944.86 ms
+qs_last <-> 4125.99 ms
+qs_rand <-> 199.261 ms
+h_ms <----> 1705.33 ms
+ms <------> 371.837 ms
+MIN_SIZE = 46 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 248.147 ms
+qs_last <-> 289.35 ms
+qs_rand <-> 263.057 ms
+h_ms <----> 2219.59 ms
+ms <------> 423.541 ms
+MIN_SIZE = 46 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 263.336 ms
+qs_last <-> 286.976 ms
+qs_rand <-> 299.714 ms
+h_ms <----> 2041.74 ms
+ms <------> 431.745 ms
+MIN_SIZE = 48 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.131731 ms
+qs_last <-> 0.164362 ms
+qs_rand <-> 0.17702 ms
+h_ms <----> 0.341059 ms
+ms <------> 0.25282 ms
+MIN_SIZE = 48 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.130065 ms
+qs_last <-> 0.157421 ms
+qs_rand <-> 0.187373 ms
+h_ms <----> 0.431554 ms
+ms <------> 0.248233 ms
+MIN_SIZE = 48 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.136943 ms
+qs_last <-> 0.174007 ms
+qs_rand <-> 0.18515 ms
+h_ms <----> 0.365549 ms
+ms <------> 0.249518 ms
+MIN_SIZE = 48 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.64236 ms
+qs_last <-> 2.04022 ms
+qs_rand <-> 1.827 ms
+h_ms <----> 9.70667 ms
+ms <------> 2.99204 ms
+MIN_SIZE = 48 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.7887 ms
+qs_last <-> 2.01366 ms
+qs_rand <-> 2.18414 ms
+h_ms <----> 9.48291 ms
+ms <------> 3.04463 ms
+MIN_SIZE = 48 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.77639 ms
+qs_last <-> 2.02368 ms
+qs_rand <-> 2.23423 ms
+h_ms <----> 8.41864 ms
+ms <------> 3.06882 ms
+MIN_SIZE = 48 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 36.7632 ms
+qs_last <-> 57.7551 ms
+qs_rand <-> 18.6131 ms
+h_ms <----> 112.815 ms
+ms <------> 33.9393 ms
+MIN_SIZE = 48 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 21.9396 ms
+qs_last <-> 24.3522 ms
+qs_rand <-> 25.1342 ms
+h_ms <----> 117.931 ms
+ms <------> 37.2332 ms
+MIN_SIZE = 48 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 22.3961 ms
+qs_last <-> 24.6274 ms
+qs_rand <-> 25.9402 ms
+h_ms <----> 133.665 ms
+ms <------> 36.9574 ms
+MIN_SIZE = 48 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 3939.95 ms
+qs_last <-> 4130.11 ms
+qs_rand <-> 197.913 ms
+h_ms <----> 1884.82 ms
+ms <------> 371.362 ms
+MIN_SIZE = 48 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 253.618 ms
+qs_last <-> 293.782 ms
+qs_rand <-> 262.404 ms
+h_ms <----> 2426.7 ms
+ms <------> 423.561 ms
+MIN_SIZE = 48 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 263.244 ms
+qs_last <-> 285.81 ms
+qs_rand <-> 303.533 ms
+h_ms <----> 2225.88 ms
+ms <------> 432.074 ms
+MIN_SIZE = 50 SIZE = 1000 MAXRANGE = [0,1000]
+hs <------> 0.139618 ms
+qs_last <-> 0.168988 ms
+qs_rand <-> 0.17716 ms
+h_ms <----> 0.444288 ms
+ms <------> 0.255056 ms
+MIN_SIZE = 50 SIZE = 1000 MAXRANGE = [0,100000]
+hs <------> 0.13556 ms
+qs_last <-> 0.160046 ms
+qs_rand <-> 0.184277 ms
+h_ms <----> 0.421322 ms
+ms <------> 0.248797 ms
+MIN_SIZE = 50 SIZE = 1000 MAXRANGE = [0,10000000]
+hs <------> 0.144917 ms
+qs_last <-> 0.155528 ms
+qs_rand <-> 0.186392 ms
+h_ms <----> 0.317063 ms
+ms <------> 0.250451 ms
+MIN_SIZE = 50 SIZE = 10000 MAXRANGE = [0,1000]
+hs <------> 1.7267 ms
+qs_last <-> 2.08477 ms
+qs_rand <-> 1.85037 ms
+h_ms <----> 8.15674 ms
+ms <------> 2.99271 ms
+MIN_SIZE = 50 SIZE = 10000 MAXRANGE = [0,100000]
+hs <------> 1.7597 ms
+qs_last <-> 2.00986 ms
+qs_rand <-> 2.21684 ms
+h_ms <----> 9.03295 ms
+ms <------> 3.10854 ms
+MIN_SIZE = 50 SIZE = 10000 MAXRANGE = [0,10000000]
+hs <------> 1.82378 ms
+qs_last <-> 2.03233 ms
+qs_rand <-> 2.20382 ms
+h_ms <----> 12.7044 ms
+ms <------> 3.05194 ms
+MIN_SIZE = 50 SIZE = 100000 MAXRANGE = [0,1000]
+hs <------> 35.9564 ms
+qs_last <-> 57.7006 ms
+qs_rand <-> 19.1593 ms
+h_ms <----> 184.977 ms
+ms <------> 34.0506 ms
+MIN_SIZE = 50 SIZE = 100000 MAXRANGE = [0,100000]
+hs <------> 22.5527 ms
+qs_last <-> 24.7976 ms
+qs_rand <-> 25.5484 ms
+h_ms <----> 196.684 ms
+ms <------> 37.0029 ms
+MIN_SIZE = 50 SIZE = 100000 MAXRANGE = [0,10000000]
+hs <------> 22.0774 ms
+qs_last <-> 27.8313 ms
+qs_rand <-> 26.0137 ms
+h_ms <----> 193.963 ms
+ms <------> 36.9818 ms
+MIN_SIZE = 50 SIZE = 1000000 MAXRANGE = [0,1000]
+hs <------> 3931.42 ms
+qs_last <-> 4128.64 ms
+qs_rand <-> 198.248 ms
+h_ms <----> 1767.57 ms
+ms <------> 371.431 ms
+MIN_SIZE = 50 SIZE = 1000000 MAXRANGE = [0,100000]
+hs <------> 253.216 ms
+qs_last <-> 292.998 ms
+qs_rand <-> 261.798 ms
+h_ms <----> 2000.64 ms
+ms <------> 424.23 ms
+MIN_SIZE = 50 SIZE = 1000000 MAXRANGE = [0,10000000]
+hs <------> 264.218 ms
+qs_last <-> 285.938 ms
+qs_rand <-> 298.472 ms
+h_ms <----> 1954.54 ms
+ms <------> 431.924 ms
+Program terminated in 381.833 seconds ...
