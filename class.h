@@ -16,5 +16,6 @@ public:
     duration<double,ratio<1,1000>> MS(int, int);
     duration<double,ratio<1,1000>> QS_rand(int, int);
     duration<double,ratio<1,1000>> H_MS(int,int,int);
+    
     void toString(string, int);
 };
