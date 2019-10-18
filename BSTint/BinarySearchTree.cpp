@@ -21,24 +21,15 @@ int main(void)
     int nodeVal = 5;
     cout << "SubTree from root=" << nodeVal << ": ";
     tree->PrintTreeFromNode(nodeVal);
-
-    //cout << tree->Search(8)->getSizeofLeftSubtree() << endl;
-    
+  
     int k = 3;
     cout << k << "-th smallest element of tree=" << tree->kth_Smallest(k)->getValue() << endl;
     
-    cout << "Root of the tree: " << tree->getRoot()->getValue() << endl;
+    cout << "old root: " << tree->getRoot()->getValue() << endl;
     tree->PrintTreeFromNode(10);
-
-    ////tree->RotateLeft(9);
-    //tree->RotateLeft(22);
-    //tree->PrintTree();
-
-    //cout << "old root: " << tree->getRoot()->getValue() << endl;
-    //tree->PutInRoot(3);
-    //cout << "new root: " << tree->getRoot()->getValue() << endl;
-
-    //tree->PrintTree();
+    tree->PutInRoot(15);
+    cout << "new root: " << tree->getRoot()->getValue() << endl;
+    tree->PrintTreeFromNode(9);
     return 0;
 }
 

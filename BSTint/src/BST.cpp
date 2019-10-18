@@ -199,11 +199,33 @@ BSTNode* BST::kth_Smallest(BSTNode* node, int key)
     
 }
 
+//Returns parent fpr a CHILD node or NULL if it's root
+BSTNode* BST::findParent(BSTNode* child)
+{
+    if(child == root){
+        return NULL;
+    }
+    else
+        return findParent(root,child);
+}
+
+BSTNode* BST::findParent(BSTNode* parent, BSTNode* child)
+{
+    if(parent->getLeftChild() == child ||
+       parent->getRightChild() == child)
+       return parent;
+    else if(parent->getValue() > child->getValue())
+        findParent(parent->getLeftChild(), child);
+    else findParent(parent->getRightChild(), child);
+}
+
 /*
-Returns NULL if node wasn't found
-Returns node with node.value = key
+Change roles of parent(given by key) and it's left child
+Return pointer to exChild of parent
+Return NULL if node wasn't found
+key - reference to parent
 */
-/*BSTNode* BST::RotateRight(int key)
+BSTNode* BST::RotateRight(int key)
 {
     BSTNode* node = this->Search(key);
     if(node)
@@ -211,42 +233,39 @@ Returns node with node.value = key
         return RotateRight(node);
     }
     else return NULL;
-}*/
-
-/*
-Changes roles of node & node's parent vice a verse
-Where node.value < node->parent.value
-Also called Clock-wise rotation
-*/
-/*BSTNode* BST::RotateRight(BSTNode* node)
-{
-    if(node == NULL) return NULL;
-    else
-    {
-        node->getParent()->setleft(node->getRightChild());
-        //set new right for node
-        node->setright(node->getParent());
-        if(node->getParent()->getParent() == NULL)
-        {
-            node->getParent()->setParent(node);
-            setAsRoot(node);
-        }
-        else 
-        {
-            //set new parent for node
-            node->setParent(node->getParent()->getParent());
-            //set new left for node's parent, if parent not null
-            node->getParent()->setleft(node);
-            node->getRightChild
-()->setParent(node);
-        }
-        return node;
-    }  
 }
 
 /*
-Returns NULL if node wasn't found
-Returns node with node.value = key
+Changes roles of PARENT & LEFT CHILD
+*/
+BSTNode* BST::RotateRight(BSTNode* parent)
+{
+    if(parent == NULL) return NULL;
+    else
+    {
+        //get child
+        BSTNode* child = parent->getLeftChild();
+        //find parent for parent
+        BSTNode* parentParent = findParent(parent);
+                
+        parent->setLeftChild(child->getRightChild());
+        //changing roles
+        child->setRightChild(parent);
+        //give parent of parent new child
+        if(parentParent)
+            parentParent->setRightChild(child);
+        else
+            this->root = child;
+
+        return child; 
+    } 
+}
+
+/*
+Change roles of parent(given by key) and it's right child
+Return pointer to exChild of parent
+Return NULL if node wasn't found
+key - reference to parent
 */
 BSTNode* BST::RotateLeft(int key)
 {
@@ -259,16 +278,27 @@ BSTNode* BST::RotateLeft(int key)
 }
 
 /*
-Changes roles of node & node->parent vice a verse
-Where node.value > node->parent.value
-Also called Counter-Clockwise rotation
+Change roles of PARENT & RIGHT CHILD
 */
-BSTNode* BST::RotateLeft(BSTNode* node)
+BSTNode* BST::RotateLeft(BSTNode* parent)
 {
-    if(node == NULL) return NULL;
+    if(parent == NULL) return NULL;
     else
     {
-        
+        //get child
+        BSTNode* child = parent->getRightChild();
+        //find parent for parent
+        BSTNode* parentParent = findParent(parent);
+                
+        parent->setRightChild(child->getLeftChild());
+        //changing roles
+        child->setLeftChild(parent);
+        //give parent of parent new child
+        if(parentParent)
+            parentParent->setLeftChild(child);
+        else{
+            this->root = child;
+        }
         // BSTNode* temp = node->getParent()->getParent();
 
         // node->getParent()->setright(node->getLeftChild());
@@ -278,35 +308,38 @@ BSTNode* BST::RotateLeft(BSTNode* node)
         // node->setleft(node->getParent());
         
         // node->setParent(temp);        
-        return node;
+        return child;
     }
     
 }
 
-/*BSTNode* BST::PutInRoot(int key)
+void BST::PutInRoot(int key)
 {
     BSTNode* node = this->Search(key);
     if(node)
     {
-        return PutInRoot(node);
+        root = PutInRoot(node);
     }
-    else return NULL;
+    else cout << "Node with key=" << key << " wasn't found\n";
 }
 
 //Returns new root of the BST
 //TODO: find mistakes 
 BSTNode* BST::PutInRoot(BSTNode* node)
 {
-    while(node->getParent() != NULL)
+    BSTNode* parent = findParent(node);
+    while(parent != NULL)
     {
-        if(node->getValue() > node->getParent()->getValue())
+        if(node->getValue() < parent->getValue())
         {
-            node = RotateLeft(node);
+            node = RotateRight(parent);
+            parent = findParent(node);
         }
-        else if(node->getValue() < node->getParent()->getValue())
+        else
         {
-            node = RotateRight(node);
-        }
+            node = RotateLeft(parent);
+            parent = findParent(node);
+        } 
     }
-    return this->root;
-}*/
+    return node;
+}

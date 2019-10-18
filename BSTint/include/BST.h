@@ -53,19 +53,16 @@ public:
     {
         return root;
     }
-    //void setAsRoot(BSTNode* node)
-    //{
-     //   root = node;
-     //   root->setParent(NULL);
-    //}
     
     void Insert(int key);
     void PrintTreeFromNode(int key, bool ascendingOrder=true);
     BSTNode* Search(int key);
     BSTNode* kth_Smallest(int key);
+    
+    BSTNode* findParent(BSTNode* child);
     BSTNode* RotateRight(int key);
     BSTNode* RotateLeft(int key);
-    BSTNode* PutInRoot(int key);
+    void PutInRoot(int key);
     ~BST();
 
 private:
@@ -74,6 +71,8 @@ private:
     void PrintTreeDESC(BSTNode* node);
     BSTNode* Search(BSTNode* node, int key);
     BSTNode* kth_Smallest(BSTNode* node, int key);
+    
+    BSTNode* findParent(BSTNode* node, BSTNode* child);
     BSTNode* RotateRight(BSTNode* node);
     BSTNode* RotateLeft(BSTNode* node);
     BSTNode* PutInRoot(BSTNode* node);
