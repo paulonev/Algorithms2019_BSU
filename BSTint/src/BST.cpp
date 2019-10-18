@@ -253,7 +253,13 @@ BSTNode* BST::RotateRight(BSTNode* parent)
         child->setRightChild(parent);
         //give parent of parent new child
         if(parentParent)
-            parentParent->setRightChild(child);
+        {
+            if(parent->getValue() < parentParent->getValue())
+            {
+                parentParent->setLeftChild(child);
+            }
+            else parentParent->setRightChild(child);
+        }
         else
             this->root = child;
 
@@ -295,10 +301,14 @@ BSTNode* BST::RotateLeft(BSTNode* parent)
         child->setLeftChild(parent);
         //give parent of parent new child
         if(parentParent)
-            parentParent->setLeftChild(child);
-        else{
-            this->root = child;
+        {
+            if(parent->getValue()<parentParent->getValue())
+            {
+                parentParent->setLeftChild(child);    
+            }
+            else parentParent->setRightChild(child);
         }
+        else this->root = child;
         // BSTNode* temp = node->getParent()->getParent();
 
         // node->getParent()->setright(node->getLeftChild());

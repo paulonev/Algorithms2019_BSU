@@ -27,9 +27,9 @@ int main(void)
     
     cout << "old root: " << tree->getRoot()->getValue() << endl;
     tree->PrintTreeFromNode(10);
-    tree->PutInRoot(15);
+    tree->PutInRoot(22);
     cout << "new root: " << tree->getRoot()->getValue() << endl;
-    tree->PrintTreeFromNode(9);
+    tree->PrintTreeFromNode(tree->getRoot()->getValue());
     return 0;
 }
 
