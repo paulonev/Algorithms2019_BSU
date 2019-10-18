@@ -157,6 +157,10 @@ int BSTNode::getSizeofLeftSubtree()
     return count;
 }
 
+/*
+Returns amount of direct and indirect
+successors of NODE
+*/
 int BSTNode::getAllSuccessors(BSTNode* node)
 {
     int count=0;
@@ -244,7 +248,7 @@ Also called Clock-wise rotation
 Returns NULL if node wasn't found
 Returns node with node.value = key
 */
-/*BSTNode* BST::RotateLeft(int key)
+BSTNode* BST::RotateLeft(int key)
 {
     BSTNode* node = this->Search(key);
     if(node)
@@ -252,33 +256,34 @@ Returns node with node.value = key
         return RotateLeft(node);
     }
     else return NULL;
-}*/
+}
 
 /*
 Changes roles of node & node->parent vice a verse
 Where node.value > node->parent.value
 Also called Counter-Clockwise rotation
 */
-/*BSTNode* BST::RotateLeft(BSTNode* node)
+BSTNode* BST::RotateLeft(BSTNode* node)
 {
     if(node == NULL) return NULL;
     else
     {
-        BSTNode* temp = node->getParent()->getParent();
-
-        node->getParent()->setright(node->getLeftChild());
-        node->getLeftChild()->setParent(node->getParent());
-        node->getParent()->getParent()->setleft(node);
-        node->getParent()->setParent(node);
-        node->setleft(node->getParent());
         
-        node->setParent(temp);        
+        // BSTNode* temp = node->getParent()->getParent();
+
+        // node->getParent()->setright(node->getLeftChild());
+        // node->getLeftChild()->setParent(node->getParent());
+        // node->getParent()->getParent()->setleft(node);
+        // node->getParent()->setParent(node);
+        // node->setleft(node->getParent());
+        
+        // node->setParent(temp);        
         return node;
     }
     
 }
 
-BSTNode* BST::PutInRoot(int key)
+/*BSTNode* BST::PutInRoot(int key)
 {
     BSTNode* node = this->Search(key);
     if(node)

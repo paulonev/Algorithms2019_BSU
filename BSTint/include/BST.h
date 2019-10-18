@@ -49,20 +49,20 @@ private:
 
 public:
     BST();
-    void Insert(int key);
-    void PrintTreeFromNode(int key, bool ascendingOrder=true);
-    BSTNode* Search(int key);
-    BSTNode* kth_Smallest(int key);
     BSTNode* getRoot()
     {
         return root;
     }
-    
     //void setAsRoot(BSTNode* node)
     //{
      //   root = node;
      //   root->setParent(NULL);
     //}
+    
+    void Insert(int key);
+    void PrintTreeFromNode(int key, bool ascendingOrder=true);
+    BSTNode* Search(int key);
+    BSTNode* kth_Smallest(int key);
     BSTNode* RotateRight(int key);
     BSTNode* RotateLeft(int key);
     BSTNode* PutInRoot(int key);

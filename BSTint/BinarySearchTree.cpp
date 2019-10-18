@@ -18,15 +18,17 @@ int main(void)
 
     tree->Insert(8);
 
-    cout << "Tree: ";
-    tree->PrintTreeFromNode(-5);
+    int nodeVal = 5;
+    cout << "SubTree from root=" << nodeVal << ": ";
+    tree->PrintTreeFromNode(nodeVal);
 
     //cout << tree->Search(8)->getSizeofLeftSubtree() << endl;
     
-    //int k = 5;
-    //cout << k << "-th smallest element of tree=" << tree->kth_Smallest(k)->getValue() << endl;
+    int k = 3;
+    cout << k << "-th smallest element of tree=" << tree->kth_Smallest(k)->getValue() << endl;
     
-    //cout << "Root of the tree: " << tree->getRoot()->getValue() << endl;
+    cout << "Root of the tree: " << tree->getRoot()->getValue() << endl;
+    tree->PrintTreeFromNode(10);
 
     ////tree->RotateLeft(9);
     //tree->RotateLeft(22);
