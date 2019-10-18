@@ -63,12 +63,19 @@ BSTNode* BST::Insert(BSTNode* node, int key)
     }
 }
 
-//Prints tree from low to high if order not specified
-void BST::PrintTree(bool ascendingOrder)
+//Prints tree from the specified NODE given by KEY
+//from low to high if ORDER not specified
+void BST::PrintTreeFromNode(int key, bool ascendingOrder)
 {
-    if(ascendingOrder) PrintTreeASC(root);
-    else PrintTreeDESC(root);
-    cout << endl;
+    BSTNode* node = this->Search(key);
+    //if node == root - prints the whole tree
+    if(node)
+    {
+        if(ascendingOrder) PrintTreeASC(node);
+        else PrintTreeDESC(node);
+        cout << endl;
+    }
+    else cout << "Node with key=" << key << "wasn't found\n";
 }
 
 void BST::PrintTreeASC(BSTNode* node)
@@ -109,7 +116,7 @@ void BST::PrintTreeDESC(BSTNode* node)
 
 //Returns NULL if node with KEY not found
 //Returns pointer to node otherwise
-/*BSTNode* BST::Search(int key)
+BSTNode* BST::Search(int key)
 {
     BSTNode* result = Search(root,key);
 
@@ -120,8 +127,7 @@ void BST::PrintTreeDESC(BSTNode* node)
 //Returns pointer to node otherwise
 BSTNode* BST::Search(BSTNode* node, int key)
 {
-    if (node == NULL) 
-        return NULL;
+    if(node == NULL) return NULL;
     
     if(node->getValue() > key)
     {

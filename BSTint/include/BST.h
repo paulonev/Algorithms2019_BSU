@@ -10,7 +10,6 @@ private:
     int value;
     BSTNode* left;
     BSTNode* right;
-    //BSTNode* parent;
 public:
     BSTNode(int _value, BSTNode* _left=NULL, BSTNode* _right=NULL);
 
@@ -35,12 +34,8 @@ public:
         right = _node;
     }
     
-    
-    int PrintNode()
-    {
-        return this->getValue();
-    }    
     int getSizeofLeftSubtree();
+    //void PrintNode(int key, BST* tree);
 
     ~BSTNode();
 private:
@@ -55,13 +50,14 @@ private:
 public:
     BST();
     void Insert(int key);
-    void PrintTree(bool ascendingOrder = true);
+    void PrintTreeFromNode(int key, bool ascendingOrder=true);
     BSTNode* Search(int key);
     BSTNode* kth_Smallest(int key);
     BSTNode* getRoot()
     {
         return root;
     }
+    
     //void setAsRoot(BSTNode* node)
     //{
      //   root = node;

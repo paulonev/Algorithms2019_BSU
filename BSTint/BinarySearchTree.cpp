@@ -19,7 +19,7 @@ int main(void)
     tree->Insert(8);
 
     cout << "Tree: ";
-    tree->PrintTree();
+    tree->PrintTreeFromNode(-5);
 
     //cout << tree->Search(8)->getSizeofLeftSubtree() << endl;
     
