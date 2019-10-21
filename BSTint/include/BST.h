@@ -2,6 +2,7 @@
 //#define BST_H
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class BSTNode
@@ -34,12 +35,7 @@ public:
         right = _node;
     }
     
-    int getSizeofLeftSubtree();
-    //void PrintNode(int key, BST* tree);
-
     ~BSTNode();
-private:
-    int getAllSuccessors(BSTNode* node);
 };
 
 class BST
@@ -56,6 +52,9 @@ public:
     
     void Insert(int key);
     void PrintTreeFromNode(int key, bool ascendingOrder=true);
+    void PrintInOrder(BSTNode* root);
+    void PrintPreOrder(BSTNode* root);
+
     BSTNode* Search(int key);
     BSTNode* kth_Smallest(int key);
     
@@ -63,6 +62,12 @@ public:
     BSTNode* RotateRight(int key);
     BSTNode* RotateLeft(int key);
     void PutInRoot(int key);
+    
+    int getSize();
+    int getSizeofLeftSubtree(BSTNode* node);
+
+    BSTNode* BalanceTree();
+
     ~BST();
 
 private:
@@ -76,6 +81,10 @@ private:
     BSTNode* RotateRight(BSTNode* node);
     BSTNode* RotateLeft(BSTNode* node);
     BSTNode* PutInRoot(BSTNode* node);
+    void StoreBSTNodes(BSTNode* node, vector<BSTNode*> &nodes);
+    BSTNode* BuildBalancedBST(vector<BSTNode*> &nodes, int left, int right);
+
+    int CountAllSuccessors(BSTNode* node);
 };
 
 //#endif

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "include/BST.h"
 
 using namespace std;
@@ -28,6 +29,12 @@ BST::BST()
 BST::~BST()
 {
     delete root;
+}
+
+//Return size of the BST
+int BST::getSize()
+{
+    return this->CountAllSuccessors(this->root) + 1;
 }
 
 //Inserts node by it's key
@@ -61,6 +68,31 @@ BSTNode* BST::Insert(BSTNode* node, int key)
     {
         node->setLeftChild(Insert(node->getLeftChild(), key));
     }
+}
+
+//Print BST in inorder sequence, like left->root->right
+//root  --->  starting node
+void BST::PrintInOrder(BSTNode* root)
+{
+    if(root == NULL)
+        return;
+    PrintInOrder(root->getLeftChild());
+
+    cout << root->getValue() << " ";
+
+    PrintInOrder(root->getRightChild());
+}
+
+//Print BST in preorder sequence, like root->left->right
+//root  --->  starting node
+void BST::PrintPreOrder(BSTNode* root)
+{
+    if(root == NULL)
+        return;
+    cout << root->getValue() << " ";
+
+    PrintInOrder(root->getLeftChild());
+    PrintInOrder(root->getRightChild());
 }
 
 //Prints tree from the specified NODE given by KEY
@@ -114,6 +146,29 @@ void BST::PrintTreeDESC(BSTNode* node)
     PrintTreeDESC(node->getLeftChild());
 }
 
+//
+/*int* BST::CreateArray()
+{
+    int size = this->getSize();
+    int* values = new int[size];
+    return CreateArray(this->root, values, -1);
+}
+
+//Store nodes values in inorder sequence
+int* BST::CreateArray(BSTNode* node, int* arr, int iter)
+{
+    //iter++;
+    if(node == NULL)
+        return arr;
+    CreateArray(node->getLeftChild(), arr, iter);
+
+    arr[++iter] = node->getValue();
+
+    CreateArray(node->getRightChild(), arr, iter);
+    
+    return arr;
+}*/
+
 //Returns NULL if node with KEY not found
 //Returns pointer to node otherwise
 BSTNode* BST::Search(int key)
@@ -144,14 +199,14 @@ BSTNode* BST::Search(BSTNode* node, int key)
 Returns size of left subtree from current node
 Returns -1 if current node is null
 */
-int BSTNode::getSizeofLeftSubtree()
+int BST::getSizeofLeftSubtree(BSTNode* node)
 {
     int count = 0;
-    if(this == NULL) return -1;
-    if(this->left)
+    if(node == NULL) return -1;
+    if(node->getLeftChild())
     {
         //find all successors of this->left
-        count = count + 1 + getAllSuccessors(this->left);
+        count += 1 + CountAllSuccessors(node->getLeftChild());
     }
 
     return count;
@@ -161,16 +216,16 @@ int BSTNode::getSizeofLeftSubtree()
 Returns amount of direct and indirect
 successors of NODE
 */
-int BSTNode::getAllSuccessors(BSTNode* node)
+int BST::CountAllSuccessors(BSTNode* node)
 {
     int count=0;
     if(node->getLeftChild())
     {
-        count += 1+ getAllSuccessors(node->getLeftChild());
+        count += 1+ CountAllSuccessors(node->getLeftChild());
     }
     if(node->getRightChild())
     {
-        count += 1+ getAllSuccessors(node->getRightChild());
+        count += 1+ CountAllSuccessors(node->getRightChild());
     }
     
     return count;
@@ -181,15 +236,17 @@ BSTNode* BST::kth_Smallest(int key)
     return kth_Smallest(root, key);
 }
 
+//Introduce changes to getSizeofLeftSubtree function
+//kth_Smallest may get broken
 BSTNode* BST::kth_Smallest(BSTNode* node, int key)
 {
-    if(key == node->getSizeofLeftSubtree() + 1)
+    if(key == getSizeofLeftSubtree(node) + 1)
     {
         return node;
     }
-    else if (key > node->getSizeofLeftSubtree())
+    else if (key > getSizeofLeftSubtree(node))
     {
-        key -= node->getSizeofLeftSubtree()+1;
+        key -= getSizeofLeftSubtree(node)+1;
         return kth_Smallest(node->getRightChild(), key);
     }
     else
@@ -352,4 +409,49 @@ BSTNode* BST::PutInRoot(BSTNode* node)
         } 
     }
     return node;
+}
+
+//Return root of new balanced BST
+BSTNode* BST::BalanceTree()
+{
+    //1. make a storage of tree nodes in sorted order
+    vector<BSTNode*> nodes;
+    StoreBSTNodes(this->root, nodes);
+    //2. use time complexity O(n) solution to build new bst
+    int N = nodes.size();
+    //3. return root of new balanced BST
+    return BuildBalancedBST(nodes, 0, N);
+}
+
+void BST::StoreBSTNodes(BSTNode* node, vector<BSTNode*> &nodes)
+{
+    if(node == NULL)
+        return;
+
+    StoreBSTNodes(node->getLeftChild(), nodes);
+    
+    nodes.push_back(node);
+
+    StoreBSTNodes(node->getRightChild(), nodes);
+}
+
+//Build balanced BST and Return it's root
+BSTNode* BST::BuildBalancedBST(vector<BSTNode*> &nodes, int left, int right)
+{
+    //Get middle element of array and make it root
+    //Recursively do the same for left and right halves
+        //Get the middle of left half and make if [left child]
+        //of the root  
+        //Get the middle of right half and make if [right child]
+        //of the root  
+    if(left > right) 
+        return NULL;
+
+    int mid = left + (right - left) / 2;
+    BSTNode* root = nodes[mid];
+
+    root->setLeftChild(BuildBalancedBST(nodes, left, mid-1));
+    root->setRightChild(BuildBalancedBST(nodes, mid+1, right));
+
+    return root;
 }
