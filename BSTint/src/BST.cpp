@@ -97,9 +97,8 @@ void BST::PrintPreOrder(BSTNode* root)
 
 //Prints tree from the specified NODE given by KEY
 //from low to high if ORDER not specified
-void BST::PrintTreeFromNode(int key, bool ascendingOrder)
+void BST::PrintTreeFromNode(BSTNode* node, bool ascendingOrder)
 {
-    BSTNode* node = this->Search(key);
     //if node == root - prints the whole tree
     if(node)
     {
@@ -107,7 +106,7 @@ void BST::PrintTreeFromNode(int key, bool ascendingOrder)
         else PrintTreeDESC(node);
         cout << endl;
     }
-    else cout << "Node with key=" << key << "wasn't found\n";
+    else cout << "Node wasn't found\n";
 }
 
 void BST::PrintTreeASC(BSTNode* node)
@@ -145,29 +144,6 @@ void BST::PrintTreeDESC(BSTNode* node)
 
     PrintTreeDESC(node->getLeftChild());
 }
-
-//
-/*int* BST::CreateArray()
-{
-    int size = this->getSize();
-    int* values = new int[size];
-    return CreateArray(this->root, values, -1);
-}
-
-//Store nodes values in inorder sequence
-int* BST::CreateArray(BSTNode* node, int* arr, int iter)
-{
-    //iter++;
-    if(node == NULL)
-        return arr;
-    CreateArray(node->getLeftChild(), arr, iter);
-
-    arr[++iter] = node->getValue();
-
-    CreateArray(node->getRightChild(), arr, iter);
-    
-    return arr;
-}*/
 
 //Returns NULL if node with KEY not found
 //Returns pointer to node otherwise
@@ -281,7 +257,8 @@ Change roles of parent(given by key) and it's left child
 Return pointer to exChild of parent
 Return NULL if node wasn't found
 key - reference to parent
-*/
+--------------------------------------
+This method is written to be called outside of the class
 BSTNode* BST::RotateRight(int key)
 {
     BSTNode* node = this->Search(key);
@@ -291,6 +268,7 @@ BSTNode* BST::RotateRight(int key)
     }
     else return NULL;
 }
+*/
 
 /*
 Changes roles of PARENT & LEFT CHILD
@@ -329,7 +307,8 @@ Change roles of parent(given by key) and it's right child
 Return pointer to exChild of parent
 Return NULL if node wasn't found
 key - reference to parent
-*/
+--------------------------------
+This method is written to be called from the outside of the class
 BSTNode* BST::RotateLeft(int key)
 {
     BSTNode* node = this->Search(key);
@@ -339,6 +318,7 @@ BSTNode* BST::RotateLeft(int key)
     }
     else return NULL;
 }
+*/
 
 /*
 Change roles of PARENT & RIGHT CHILD
@@ -365,16 +345,7 @@ BSTNode* BST::RotateLeft(BSTNode* parent)
             }
             else parentParent->setRightChild(child);
         }
-        else this->root = child;
-        // BSTNode* temp = node->getParent()->getParent();
-
-        // node->getParent()->setright(node->getLeftChild());
-        // node->getLeftChild()->setParent(node->getParent());
-        // node->getParent()->getParent()->setleft(node);
-        // node->getParent()->setParent(node);
-        // node->setleft(node->getParent());
-        
-        // node->setParent(temp);        
+        else this->root = child;     
         return child;
     }
     
@@ -412,7 +383,7 @@ BSTNode* BST::PutInRoot(BSTNode* node)
 }
 
 //Return root of new balanced BST
-BSTNode* BST::BalanceTree()
+BST* BST::BalanceTree()
 {
     //1. make a storage of tree nodes in sorted order
     vector<BSTNode*> nodes;
@@ -420,7 +391,9 @@ BSTNode* BST::BalanceTree()
     //2. use time complexity O(n) solution to build new bst
     int N = nodes.size();
     //3. return root of new balanced BST
-    return BuildBalancedBST(nodes, 0, N);
+    BST* newTree = new BST();
+    newTree->setRoot(BuildBalancedBST(nodes, 0, N-1));
+    return newTree;
 }
 
 void BST::StoreBSTNodes(BSTNode* node, vector<BSTNode*> &nodes)

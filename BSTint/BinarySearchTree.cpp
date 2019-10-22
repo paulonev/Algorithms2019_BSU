@@ -24,6 +24,15 @@ int main(void)
     tree->PrintInOrder(nodet);
     cout << endl;
 
+    cout << "Tree:\n";
+    tree->PrintTreeFromNode(tree->getRoot());
+    cout << "Root - " << tree->getRoot()->getValue() << endl;
+
+    BST* newTree = tree->BalanceTree();
+    cout << "Balanced tree:\n";
+    newTree->PrintTreeFromNode(newTree->getRoot());
+    cout << "Root - " << newTree->getRoot()->getValue() << endl;
+
     return 0;
 }
 
