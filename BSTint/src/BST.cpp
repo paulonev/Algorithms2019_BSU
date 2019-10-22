@@ -4,6 +4,9 @@
 
 using namespace std;
 
+int height(BSTNode* node);
+int max(int a, int b);
+
 //BSTNode class incapsulation
 BSTNode::BSTNode(int _value, BSTNode* _left, BSTNode* _right)
 {
@@ -97,24 +100,12 @@ void BST::PrintPreOrder(BSTNode* root)
 
 //Prints tree from the specified NODE given by KEY
 //from low to high if ORDER not specified
-void BST::PrintTreeFromNode(BSTNode* node, bool ascendingOrder)
-{
-    //if node == root - prints the whole tree
-    if(node)
-    {
-        if(ascendingOrder) PrintTreeASC(node);
-        else PrintTreeDESC(node);
-        cout << endl;
-    }
-    else cout << "Node wasn't found\n";
-}
-
-void BST::PrintTreeASC(BSTNode* node)
+void BST::PrintTreeFromNode(BSTNode* node)
 {
     if(node == NULL)
         return;
     
-    PrintTreeASC(node->getLeftChild());
+    PrintTreeFromNode(node->getLeftChild());
 
     cout << node->getValue() << "(";
     node->getLeftChild() == NULL ? 
@@ -124,25 +115,7 @@ void BST::PrintTreeASC(BSTNode* node)
             cout << "null) " :
             cout << node->getRightChild()->getValue() <<") ";
 
-    PrintTreeASC(node->getRightChild());
-}
-
-void BST::PrintTreeDESC(BSTNode* node)
-{
-    if(node == NULL)
-        return;
-    
-    PrintTreeDESC(node->getRightChild());
-
-    cout << node->getValue() << "(";
-    node->getLeftChild() == NULL ? 
-            cout << "null," :
-            cout << node->getLeftChild()->getValue() << ",";
-    node->getRightChild() == NULL ? 
-            cout << "null) " :
-            cout << node->getRightChild()->getValue() <<") ";
-
-    PrintTreeDESC(node->getLeftChild());
+    PrintTreeFromNode(node->getRightChild());
 }
 
 //Returns NULL if node with KEY not found
@@ -427,4 +400,41 @@ BSTNode* BST::BuildBalancedBST(vector<BSTNode*> &nodes, int left, int right)
     root->setRightChild(BuildBalancedBST(nodes, mid+1, right));
 
     return root;
+}
+
+//Return 1 if tree is height-balanced or tree is empty
+//Return 0 otherwise
+bool BST::IsBalanced()
+{
+    if(this->root == NULL)
+        return 1;
+    else return IsBalanced(this->root);
+}
+
+bool BST::IsBalanced(BSTNode* node)
+{
+    int left_h, right_h; //left and right subtree heights 
+    if(node == NULL)
+        return 1;
+    left_h = height(node->getLeftChild());
+    right_h = height(node->getRightChild());
+
+    if ( abs(left_h - right_h) <= 1 && IsBalanced(node->getLeftChild())
+            && IsBalanced(node->getRightChild()) )
+        return 1;
+    
+    return 0;
+}
+
+int height(BSTNode* node)
+{
+    if(node == NULL)
+        return 0;
+    return 1+max(height(node->getLeftChild()),
+                 height(node->getRightChild()));
+}
+
+int max(int a, int b)
+{
+    return (a>=b) ? a : b;
 }

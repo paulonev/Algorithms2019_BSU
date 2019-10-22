@@ -54,10 +54,10 @@ public:
         root = _root;
     }
     void Insert(int key);
-    void PrintTreeFromNode(BSTNode* node, bool ascendingOrder=true);
     void PrintInOrder(BSTNode* root);
-    void PrintPreOrder(BSTNode* root);
-
+    void PrintPreOrder(BSTNode* root);  
+    void PrintTreeFromNode(BSTNode* node);
+    
     BSTNode* Search(int key);
     BSTNode* kth_Smallest(int key);
     
@@ -67,14 +67,13 @@ public:
 
     int getSize();
     int getSizeofLeftSubtree(BSTNode* node);
+    bool IsBalanced();
     ~BST();
     
     //BSTNode* RotateRight(int key);
     //BSTNode* RotateLeft(int key);
 private:
     BSTNode* Insert(BSTNode* node, int key);
-    void PrintTreeASC(BSTNode* node);
-    void PrintTreeDESC(BSTNode* node);
     BSTNode* Search(BSTNode* node, int key);
     BSTNode* kth_Smallest(BSTNode* node, int key);
     
@@ -82,6 +81,7 @@ private:
     BSTNode* RotateRight(BSTNode* node);
     BSTNode* RotateLeft(BSTNode* node);
     BSTNode* PutInRoot(BSTNode* node);
+    bool IsBalanced(BSTNode* root);
     void StoreBSTNodes(BSTNode* node, vector<BSTNode*> &nodes);
     BSTNode* BuildBalancedBST(vector<BSTNode*> &nodes, int left, int right);
 

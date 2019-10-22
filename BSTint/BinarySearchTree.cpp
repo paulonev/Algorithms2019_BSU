@@ -27,11 +27,14 @@ int main(void)
     cout << "Tree:\n";
     tree->PrintTreeFromNode(tree->getRoot());
     cout << "Root - " << tree->getRoot()->getValue() << endl;
+    cout << "Tree balanced: " << tree->IsBalanced() << endl;
+
 
     BST* newTree = tree->BalanceTree();
-    cout << "Balanced tree:\n";
+    cout << "After balancing tree:\n";
     newTree->PrintTreeFromNode(newTree->getRoot());
     cout << "Root - " << newTree->getRoot()->getValue() << endl;
+    cout << "Tree balanced: " << newTree->IsBalanced() << endl;
 
     return 0;
 }
