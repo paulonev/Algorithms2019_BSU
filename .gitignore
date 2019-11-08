@@ -1,1 +1,8 @@
-/.vscode/
+/.vscode/*
+/BSTint/.vscode/*
+/searches/.vscode/*
+/sortLab
+/searches/searchMethods/bin/*
+/searches/searchMethods/obj/*
+/searches/searchMethods.Tests/bin/*
+/searches/searchMethods.Tests/obj/*
