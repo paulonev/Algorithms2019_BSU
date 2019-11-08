@@ -6,3 +6,5 @@
 /searches/searchMethods/obj/*
 /searches/searchMethods.Tests/bin/*
 /searches/searchMethods.Tests/obj/*
+/searches/searchMethods.ArrayGenerator/bin/*
+/searches/searchMethods.ArrayGenerator/obj/*

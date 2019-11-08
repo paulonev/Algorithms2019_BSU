@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\searchMethods\searchMethods.csproj" />
+    <ProjectReference Include="..\searchMethods.ArrayGenerator\searchMethods.ArrayGenerator.csproj" />
   </ItemGroup>
 
 </Project>
