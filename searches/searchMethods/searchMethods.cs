@@ -28,8 +28,7 @@ namespace searchMethods
         }
 
         //find mid element according to the proportion
-        int param = ( (key - a[leftI]) / (a[rightI] - a[leftI])  * (rightI - leftI) );
-        int midI = leftI + param;
+        int midI = leftI + ( (key - a[leftI]) / (a[rightI] - a[leftI])  * (rightI - leftI) );
         
         //choose minimum index of equal elements
         if(key == a[midI])
