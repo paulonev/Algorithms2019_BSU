@@ -1,0 +1,3 @@
+Binary: Element 700 was found at position -1 in time 225.7 microsec
+Linear: Element 700 was found at position -1 in time 322.5 microsec
+Interp: Element 700 was found at position -1 in time 2.7 millisec

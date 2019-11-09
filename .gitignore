@@ -2,9 +2,15 @@
 /BSTint/.vscode/*
 /searches/.vscode/*
 /sortLab
+
 /searches/searchMethods/bin/*
 /searches/searchMethods/obj/*
+
 /searches/searchMethods.Tests/bin/*
 /searches/searchMethods.Tests/obj/*
+
 /searches/searchMethods.ArrayGenerator/bin/*
 /searches/searchMethods.ArrayGenerator/obj/*
+
+/searches/searchMethods.Extensions/bin/*
+/searches/searchMethods.Extensions/obj/*

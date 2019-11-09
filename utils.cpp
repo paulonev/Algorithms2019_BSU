@@ -97,7 +97,8 @@ int Utils::partition(int* arr, int left, int right)
 {
 	int pivot = *(arr+right);
 	int i = left; int j = right;
-	
+	//i points in direction --->
+	//j points in direction <---
 	do
 	{
 		while (arr[i] < pivot)  i++; 
