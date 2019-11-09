@@ -37,8 +37,9 @@ namespace searchMethods.Tests
                                                
         }
 
-        //        size    min   max   key
-        [TestCase(100000, -100000, 100000, 700)]
+        //        size     min      max    key
+        [TestCase(100000, -100000, 100000, 999)]
+        [TestCase(100000, -500000, 500000, 11111)]
         public void FindWithBinarySearch(int N, int min, int max, int key)
         {
             //An object that has randomly generated sorted array of N in [min, max] range
@@ -58,8 +59,9 @@ namespace searchMethods.Tests
 
             //Element [key] was found at position [result] in [time] ms - output to file
             using (System.IO.StreamWriter file = 
-            new System.IO.StreamWriter(@"../../../../out/result.txt"))
+            new System.IO.StreamWriter(@"../../../../out/result.txt",true))
             {
+                file.WriteLine(String.Format("\nParams: Size: {0}, Min: {1}, Max: {2}", N,min,max));
                 file.WriteLine(String.Format("Binary: Element {0} was found at position {1} in time {2}", key,res1, st1.GetTimeString()));
                 file.WriteLine(String.Format("Linear: Element {0} was found at position {1} in time {2}", key,res2, st2.GetTimeString()));
                 file.WriteLine(String.Format("Interp: Element {0} was found at position {1} in time {2}", key,res3, st3.GetTimeString()));
