@@ -27,8 +27,9 @@ namespace searchMethods
             return -1;
         }
 
-        int param = (key - a[leftI]) / (a[rightI] - a[leftI]);
-        int midI = leftI + param * (rightI - leftI);
+        //find mid element according to the proportion
+        int param = ( (key - a[leftI]) / (a[rightI] - a[leftI])  * (rightI - leftI) );
+        int midI = leftI + param;
         
         //choose minimum index of equal elements
         if(key == a[midI])

@@ -1,10 +1,10 @@
+Params: Size=100000, Min=0, Max=10000
+Binary: Element 999 was found at position 9896 in time 225.5 microsec
+Linear: Element 999 was found at position 9896 in time 133.2 microsec
+Interp: Element 999 was found at position 9896 in time 642.8 microsec
 
-Params: Size: 100000, Min: -100000, Max: 100000
-Binary: Element 999 was found at position -1 in time 304.3 microsec
-Linear: Element 999 was found at position -1 in time 344.4 microsec
-Interp: Element 999 was found at position -1 in time 3.1 millisec
+Params: Size=10000000, Min=0, Max=5000000
+Binary: Element 11111 was found at position 22213 in time 9.8 microsec
+Linear: Element 11111 was found at position 22213 in time 49.7 microsec
+Interp: Element 11111 was found at position 22213 in time 933.1 microsec
 
-Params: Size: 100000, Min: -500000, Max: 500000
-Binary: Element 11111 was found at position 51025 in time 3.9 microsec
-Linear: Element 11111 was found at position 51025 in time 110.6 microsec
-Interp: Element 11111 was found at position 51025 in time 1.7 millisec
