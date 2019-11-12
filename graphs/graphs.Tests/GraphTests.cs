@@ -1,6 +1,6 @@
 using System;
+using graphs.Floyd;
 using NUnit.Framework;
-using graphs;
 
 namespace graphs.Tests
 {
@@ -33,12 +33,32 @@ namespace graphs.Tests
             gr.PrintGraph();
         }
 
-        [TestCase(1, 5)]
+        [TestCase(1,5)]
         public void FloydTest(int src, int dest)
         {
             //implementation of Floyd-Warshall SSP algorithm
             //out - value of shortest paths from {src} to {dest} and path itself
+            int vertices = 5;
+            Graph gr = new Graph(vertices);
             
+            gr.AddEdge(1,2,8);
+            gr.AddEdge(1,3,3);
+            gr.AddEdge(1,4,-4);
+            gr.AddEdge(1,5,1);
+
+            gr.AddEdge(2,4,7);
+            
+            gr.AddEdge(3,2,6);
+            gr.AddEdge(3,4,3);
+            
+            gr.AddEdge(4,1,5);
+            gr.AddEdge(4,3,-2);
+            gr.AddEdge(4,5,1);
+            
+            gr.AddEdge(5,2,3);
+            
+            Assert.AreEqual(-3,PathFinders.FloydPathfinder(gr,src,dest));
+            //Console.Write(PathFinders.FloydPathfinder(gr,src,dest));
         }
         
     }
