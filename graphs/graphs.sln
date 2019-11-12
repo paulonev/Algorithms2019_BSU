@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "graphs", "graphs\graphs.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "graphs.Tests", "graphs.Tests\graphs.Tests.csproj", "{1FAF736D-F30C-40C8-9912-E2596BA9136C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "graphs.Floyd", "graphs.Floyd\graphs.Floyd.csproj", "{558FB111-9995-4656-94C0-BE42603EA9E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{1FAF736D-F30C-40C8-9912-E2596BA9136C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FAF736D-F30C-40C8-9912-E2596BA9136C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FAF736D-F30C-40C8-9912-E2596BA9136C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{558FB111-9995-4656-94C0-BE42603EA9E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558FB111-9995-4656-94C0-BE42603EA9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558FB111-9995-4656-94C0-BE42603EA9E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558FB111-9995-4656-94C0-BE42603EA9E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

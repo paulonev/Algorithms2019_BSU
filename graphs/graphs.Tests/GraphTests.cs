@@ -37,7 +37,7 @@ namespace graphs.Tests
         public void FloydTest(int src, int dest)
         {
             //implementation of Floyd-Warshall SSP algorithm
-            //out - shortest paths from {src} to {dest} and path itself
+            //out - value of shortest paths from {src} to {dest} and path itself
             
         }
         

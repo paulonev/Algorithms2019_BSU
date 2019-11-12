@@ -1,8 +1,17 @@
-﻿using System;
+﻿using graphs;
 
 namespace graphs.Floyd
 {
-    public class Class1
+    public class PathFinders
     {
+        public static int FloydPathFinder()
+        {
+            
+        }
+
+        private void PathReconstructor()
+        {
+            
+        }
     }
 }
