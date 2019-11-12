@@ -14,3 +14,14 @@
 
 /searches/searchMethods.Extensions/bin/*
 /searches/searchMethods.Extensions/obj/*
+
+/graphs/.idea/*
+/graphs/graphs/bin/*
+/graphs/graphs/obj/*
+
+/graphs/graphs.Tests/bin/*
+/graphs/graphs.Tests/obj/*
+
+/graphs/graphs.Floyd/bin/*
+/graphs/graphs.Floyd/obj/*
+
