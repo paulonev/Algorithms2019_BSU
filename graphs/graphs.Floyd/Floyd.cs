@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace graphs.Floyd
+namespace Graphs.Floyd
 {
     public class PathFinders
     {
@@ -16,7 +16,7 @@ namespace graphs.Floyd
             {
                 for (int j = 0; j < N; j++)
                 {
-                    var edge = graph.Edges[i].Find(item=>item.Dest == j);
+                    var edge = graph.AdjacencyList[i].Find(item=>item.Dest == j);
                     if (edge != null)
                     {
                         paths[i, j] = edge.Weight;

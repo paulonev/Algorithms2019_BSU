@@ -1,8 +1,8 @@
 using System;
-using graphs.Floyd;
+using Graphs.Floyd;
 using NUnit.Framework;
 
-namespace graphs.Tests
+namespace Graphs.Tests
 {
     [TestFixture]
     public class GraphTests
@@ -31,6 +31,25 @@ namespace graphs.Tests
             gr.AddEdge(4,3,-8);
 
             gr.PrintGraph();
+
+            Console.WriteLine();
+            Graph gr1 = new OrientedGraph(vertices);
+            
+            gr1.AddEdge(1,2,8);
+            gr1.AddEdge(1,3,3);
+            
+            gr1.AddEdge(2,1,5);
+            gr1.AddEdge(2,4,2);
+            
+            gr1.AddEdge(3,2,7);
+            gr1.AddEdge(3,4,10);
+         
+            gr1.AddEdge(4,1,18);
+            gr1.AddEdge(4,3,-8);
+
+            gr1.PrintGraph();
+
+//            gr.AreAdjacent(2, 3);
         }
 
         [TestCase(1,5)]
