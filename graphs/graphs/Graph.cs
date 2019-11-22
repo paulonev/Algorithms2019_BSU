@@ -15,7 +15,7 @@ namespace Graphs
     //ARRAY[i] stores a list of adjacent to i vertices
     public class Graph
     {
-        public int Size { get; set; } //size of ARRAY
+        public int Size { get; private set; } //size of ARRAY
         public List<WeightedEdge> []AdjacencyList { get; set; } // array of edges outOfVertex
 
         public Graph() {}
@@ -30,48 +30,118 @@ namespace Graphs
         }
 
         /// <summary>
+        /// Returns Weighted Edge of graph if it exists
+        /// Otherwise return null
+        /// </summary>
+        /// <param name="src">source vertex of edge</param>
+        /// <param name="dest">destination vertex of edge</param>
+        /// <returns></returns>
+        public WeightedEdge GetEdge(int src, int dest)
+        {
+            try
+            {
+                src--;
+                dest--;
+                if (src >= Size || src < 0)
+                {
+                    throw new ArgumentException("Impossible source vertex");
+                }
+                return AdjacencyList[src].Find(e => e.Dest == dest);
+            }
+            catch (ArgumentNullException e)
+            {
+                throw new ArgumentNullException($"Edge ({src},{dest}) wasn't found");
+            }
+            
+        }
+
+        /// <summary>
         /// Add adjacent vertex [dest] to the adjacency list of [src] and vice versa
         /// This pair (src, dest) is an edge of graph G
         /// </summary>
-        /// <param name="src">source vertex</param>
-        /// <param name="dest">destination vertex</param>
+        /// <param name="source">source vertex</param>
+        /// <param name="d">destination vertex</param>
         /// <param name="w">weight of edge (1 by default)</param>
         public virtual void AddEdge(int src, int dest, int w = 1)
         {
-            src--; dest--;
+            src--;
+            dest--;
             if (!AdjacencyList[src].Exists(e => e.Dest == dest))
             {
                 AdjacencyList[src].Add(new WeightedEdge(src, dest, w));   
                 AdjacencyList[dest].Add(new WeightedEdge(dest, src, w));
             }
+            else
+            {
+                AdjacencyList[src].Find(e => e.Dest == dest && e.Weight != w).Weight = w;
+                AdjacencyList[dest].Find(e => e.Dest == src && e.Weight != w).Weight = w;
+            }
         }
 
-        //could pass both edges and vertices
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ob1">Weighted edge or int</param>
+        /// <param name="ob2">Weighted edge or int</param>
+        /// <returns>True if adjacent, false otherwise</returns>
         public bool AreAdjacent(Object ob1, Object ob2)
         {
-            if (ob1.GetType() == ob2.GetType())
+            try
             {
-                if (ob1.GetType().IsValueType)
+                if (ob1.GetType() == ob2.GetType())
                 {
-                    //then they are both vertices
-                    return AdjacencyList[(int) ob1].Exists(e => e.Dest == (int) ob2);
+                    if (ob1.GetType().IsValueType)
+                    {
+                        return AreAdjacentVertices(ob1, ob2);
+                    }
+
+                    if (ob1.GetType() == typeof(WeightedEdge))
+                    {
+                        return AreAdjacentEdges(ob1, ob2);
+                    }
+                    else return false;
                 }
-
-                if (ob1.GetType() == typeof(WeightedEdge))
-                {
-                    //then they are both of WeightedEdge type
-                    WeightedEdge e1 = (WeightedEdge) ob1;
-                    WeightedEdge e2 = (WeightedEdge) ob2;
-
-                    return (e1.IsIncident(e2.Src) || e1.IsIncident(e2.Dest));
-                }
-                return false;
-
+                else return false;
             }
-            return false;
+            catch (ArgumentNullException e)
+            {
+                throw new ArgumentNullException(e.Message);
+            }
         }
 
-        public virtual void PrintGraph(){
+        private bool AreAdjacentVertices(Object ob1, Object ob2)
+        {
+            //when they are both vertices
+            int v1 = (int) ob1;
+            int v2 = (int) ob2;
+            if (v1 > Size || v1 <= 0) return false;  //IndexOutOfRangeException solved
+            v1--;
+            v2--;
+            return AdjacencyList[v1].Contains(new WeightedEdge(v1, v2));
+        }
+
+        private bool AreAdjacentEdges(Object ob1, Object ob2)
+        {
+            //then they are both of WeightedEdge type
+            WeightedEdge e1 = (WeightedEdge) ob1;
+            WeightedEdge e2 = (WeightedEdge) ob2;
+            e1.Src--; e1.Dest--;
+            e2.Src--; e2.Dest--;
+            //if edges exists in graph
+            if (GraphHasEdge(e1) && GraphHasEdge(e2))
+            {
+                return e1.IsIncident(e2.Src) || e1.IsIncident(e2.Dest);
+            }
+
+            else throw new ArgumentException("Your argument(s) is(are) nonexistent edge(s)");
+        }
+
+        private bool GraphHasEdge(WeightedEdge edge)
+        {
+            return AdjacencyList[edge.Src].Exists(e => e.Dest == edge.Dest);
+        }
+        
+        public void PrintGraph(){
             for (int i = 0; i <Size ; i++) {
                 List<WeightedEdge> list = AdjacencyList[i];
                 Console.WriteLine();
@@ -82,6 +152,7 @@ namespace Graphs
                 }
                 Console.Write(" ");
             }
+            Console.WriteLine();
         }
     }
 
@@ -89,31 +160,18 @@ namespace Graphs
     {
         public OrientedGraph(int size) : base(size) {}
 
-        public override void AddEdge(int src, int dest, int w = 1)
+        public override void AddEdge(int source, int d, int w = 1)
         {
-            src--; dest--;
+            source--; d--;
             //if among edges outOf src is edge(dest, w) {w could be different}
-            var edge = AdjacencyList[src].Find(e => dest == e.Dest && w != e.Weight);
-            if (AdjacencyList[src].Count != 0 && edge != null)
+            var edge = AdjacencyList[source].Find(e => d == e.Dest && w != e.Weight);
+            if (AdjacencyList[source].Count != 0 && edge != null)
             {
                 //then change weight of that edge to new weight
                 edge.Weight = w;
             }
-            else AdjacencyList[src].Add(new WeightedEdge(src, dest, w));
+            else AdjacencyList[source].Add(new WeightedEdge(source, d, w));
         }
 
-        public override void PrintGraph()
-        {
-            for (int i = 0; i <Size ; i++) {
-                List<WeightedEdge> list = AdjacencyList[i];
-                Console.WriteLine();
-                Console.Write((i+1) + ":");
-                for (int j = 0; j <list.Count; j++)
-                {
-                    Console.Write($"[({list[j].Src+1},{list[j].Dest+1}):{list[j].Weight}]");
-                }
-                Console.Write(" ");
-            }
-        }
     }
 }

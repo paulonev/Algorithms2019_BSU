@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\graphs\graphs.csproj" />
     <ProjectReference Include="..\graphs.Floyd\graphs.Floyd.csproj" />
+    <ProjectReference Include="..\graphs.SpanningTree\graphs.SpanningTree.csproj" />
   </ItemGroup>
 
 </Project>
