@@ -81,8 +81,9 @@ namespace Graphs.Tests
         [Test]
         public void PrimTests()
         {
+            Console.WriteLine("===Prim MST search implementation on graphs===");
             int minWeight = SpanningAlgorithms.Prim(size, graph);
-            Console.WriteLine($"Weight of spanningTree of minimal weight = {minWeight}");
+            Console.WriteLine($"Weight of spanningTree: {minWeight}");
         }
 
 //        [TestCase(1,5)]
