@@ -15,10 +15,11 @@ int main(void)
     {
         tree->Insert(key);
     }
+    tree->Insert(13);
 
     tree->Insert(8);
 
-    int nodeVal = 5;
+    int nodeVal = 10;
     cout << "SubTree from root=" << nodeVal << ": ";
     BSTNode* nodet = tree->Search(nodeVal);
     tree->PrintInOrder(nodet);
