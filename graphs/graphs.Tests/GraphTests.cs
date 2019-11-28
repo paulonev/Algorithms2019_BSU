@@ -15,21 +15,25 @@ namespace Graphs.Tests
         [SetUp]
         public void Setup()
         {
-            size = 4;
+            size = 7;
             graph = new Graph(size);
 
-            graph.AddEdge(1,2,8);
-            graph.AddEdge(1,3,3);
+            graph.AddEdge(1,2,4);
+            graph.AddEdge(1,7,8);
 
-            graph.AddEdge(2,1, 5);
-            graph.AddEdge(2,4, 2);
-
-            graph.AddEdge(3, 2, 7);
-            graph.AddEdge(3, 4, 10);
-
-            graph.AddEdge(4, 1, 18);
-            graph.AddEdge(4, 3, -8);
+            graph.AddEdge(2,3, 8);
+            graph.AddEdge(2,7,11);
             
+            graph.AddEdge(3, 4, 4);
+            graph.AddEdge(3,6,2);
+            
+            graph.AddEdge(4, 5, 2);
+            
+            graph.AddEdge(5,6,6);
+            graph.AddEdge(5,7,1);
+            
+            graph.AddEdge(6,7,7);
+ 
             //----------------------------------
             graph1 = new OrientedGraph(size);
             
@@ -82,7 +86,15 @@ namespace Graphs.Tests
         public void PrimTests()
         {
             Console.WriteLine("===Prim MST search implementation on graphs===");
-            int minWeight = SpanningAlgorithms.Prim(size, graph);
+            int minWeight = MST.Prim_MST(size, graph);
+            Console.WriteLine($"Weight of spanningTree: {minWeight}");
+        }
+
+        [Test]
+        public void KruskalTests()
+        {
+            Console.WriteLine("===Kruskal MST search implementation on graphs===");
+            int minWeight = MST.Kruskal_MST(size, graph);
             Console.WriteLine($"Weight of spanningTree: {minWeight}");
         }
 

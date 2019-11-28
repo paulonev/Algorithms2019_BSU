@@ -154,6 +154,23 @@ namespace Graphs
             }
             Console.WriteLine();
         }
+
+        public WeightedEdge[] GetSortedEdges()
+        {
+            List<WeightedEdge> edgesList = new List<WeightedEdge>();
+            for (int i = 0; i < AdjacencyList.Length; i++)
+            {
+                foreach (WeightedEdge edge in AdjacencyList[i])
+                {
+                    edgesList.Add(edge);
+                }
+            }
+
+            WeightedEdge[] edges = edgesList.ToArray();
+            Array.Sort(edges, new EdgeComparer());
+            return edges;
+        }
+        
     }
 
     public class OrientedGraph : Graph

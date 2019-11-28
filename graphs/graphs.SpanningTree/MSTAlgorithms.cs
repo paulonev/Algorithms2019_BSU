@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Graphs;
 
 namespace graphs.SpanningTree
 {
-    public static class SpanningAlgorithms
+    public static class MST
     {
         private static int posInf = Int32.MaxValue;
         
@@ -22,7 +23,7 @@ namespace graphs.SpanningTree
         /// 6. Selection is based on taking vtx that has cheapest weight of edge that connects it to T(ANY vtx in T)
         /// </plan>
         /// <returns>weight of spanningTree</returns>
-        public static int Prim(int n, Graph G)
+        public static int Prim_MST(int n, Graph G)
         {
             int firstV = new Random().Next(n); //between 0 and n-1
             int[] minWeights = new int[n]; //for i-th elements contains min weight of edges (w,v) for v
@@ -42,7 +43,7 @@ namespace graphs.SpanningTree
             PrintTree(spanTree);
             return CountWeight(spanTree);
         }
-
+    
         private static List<WeightedEdge> Prim(List<WeightedEdge>[] adjLists, List<int> Q, int curV,
             int[] minWeights, int[] prd)
         {
@@ -95,6 +96,42 @@ namespace graphs.SpanningTree
             {
                 Console.WriteLine($"{edge.Src} - {edge.Dest} : {edge.Weight}");
             }
+        }
+
+        public static int Kruskal_MST(int n, Graph G)
+        {
+            int[] vertices = new int[n];
+            for (int i = 0; i < n; i++) vertices[i] = i;
+
+            List<WeightedEdge> spanTree = Kruskal_MST(G, vertices);
+            return CountWeight(spanTree);
+        }
+
+        private static List<WeightedEdge> Kruskal_MST(Graph gr, int[] vtcs)
+        {
+            List<WeightedEdge> tree = new List<WeightedEdge>();
+            List<DJS> sets = new List<DJS>();
+            foreach (var vtx in vtcs)
+            {
+                sets.Add(new DJS().MAKE_SET(vtx));
+            }
+            DJSUtils ut = new DJSUtils(sets);
+            
+            WeightedEdge[] grE = gr.GetSortedEdges();
+            
+            foreach (WeightedEdge edge in grE)
+            {
+                //consider edge (u,v)
+                int u = edge.Src;
+                int v = edge.Dest;
+                if (ut.FIND_SET(u) != ut.FIND_SET(v))
+                {
+                    tree.Add(edge);
+                    ut.UNION(u,v);
+                }
+            }
+
+            return tree;
         }
     }
 }

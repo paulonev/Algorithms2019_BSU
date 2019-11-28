@@ -27,10 +27,6 @@ namespace Graphs
             Weight = weight;
         }
 
-        public static WeightedEdge Init(int src, int dest, int weight)
-        {
-            return new WeightedEdge(src, dest, weight);
-        }
         public bool IsIncident(int destVert)
         {
             return Dest == destVert;
