@@ -15,7 +15,7 @@ namespace graphs.SpanningTree
         /// <param name="n">size of graph</param>
         /// <param name="G">specified graph</param>
         /// <plan>
-        /// 1. Init c[v] and e[v] foreach v in graph, select starting v randomly
+        /// 1. Init c[v] and e[v] foreach v in graph, select starting vertex V randomly
         /// 2. c[v] = inf, as the cheapest cost to nonexisting yet tree T, e[v] = nothing(-1 as nonexisting vtx), as a vtx in T to which v is connected
         /// 3. Q initially contains all vertices, but then v is excluded from Q whenever it's added to T
         /// 4. Loop while Q.Size > 0 
@@ -25,25 +25,36 @@ namespace graphs.SpanningTree
         /// <returns>weight of spanningTree</returns>
         public static int Prim_MST(int n, Graph G)
         {
-            int firstV = new Random().Next(n); //between 0 and n-1
-            int[] minWeights = new int[n]; //for i-th elements contains min weight of edges (w,v) for v
+            //==========Init block begin============
+            int firstV = new Random().Next(n); //select starting vertex
+            int[] minWeights = new int[n]; //store minimal distances from each vertex to graph
             for (int i = 0; i < n; i++) minWeights[i] = posInf;
             
-            List<int> notUsedV = new List<int>(); //vtcs that haven't been added to tree T
+            List<int> notUsedV = new List<int>(); //vertices that haven't been added to tree T yet
             for (int i = 0; i < n; i++)
             {
                 if (i == firstV) continue;
                 notUsedV.Add(i);
             }
 
-            int[] predecessors = new int [n]; //num of parent vtx
+            int[] predecessors = new int [n]; //num of parent for vertex
             for (int i = 0; i < n; i++) predecessors[i] = -1;
+            //==========Init block end============
             
             List<WeightedEdge> spanTree = Prim(G.AdjacencyList, notUsedV, firstV, minWeights, predecessors);
             PrintTree(spanTree);
             return CountWeight(spanTree);
         }
     
+        /// <summary>
+        /// Main logic of Prim's MST algorithm
+        /// </summary>
+        /// <param name="adjLists"></param>
+        /// <param name="Q"></param>
+        /// <param name="curV"></param>
+        /// <param name="minWeights"></param>
+        /// <param name="prd"></param>
+        /// <returns></returns>
         private static List<WeightedEdge> Prim(List<WeightedEdge>[] adjLists, List<int> Q, int curV,
             int[] minWeights, int[] prd)
         {
@@ -68,6 +79,12 @@ namespace graphs.SpanningTree
             return tree;
         }
 
+        /// <summary>
+        /// To findout which notUsed vertex add to the spanning tree
+        /// </summary>
+        /// <param name="notUsedV">set of notused vertices</param>
+        /// <param name="weights">distances from vtx to spanTree</param>
+        /// <returns></returns>
         private static int GetClosestVtx(List<int> notUsedV, int[] weights)
         {
             int min = notUsedV[0];
@@ -78,6 +95,12 @@ namespace graphs.SpanningTree
             return min;
         }
         
+        
+        /// <summary>
+        /// Summarize weights of weighted edges of spanning tree
+        /// </summary>
+        /// <param name="spanTree">complete spanning tree of graph</param>
+        /// <returns></returns>
         private static int CountWeight(List<WeightedEdge> spanTree)
         {
             int sum = 0;
@@ -89,24 +112,22 @@ namespace graphs.SpanningTree
             return sum;
         }
 
-        private static void PrintTree(List<WeightedEdge> tree)
-        {
-            Console.WriteLine("Edge  : Weight");
-            foreach (var edge in tree)
-            {
-                Console.WriteLine($"{edge.Src} - {edge.Dest} : {edge.Weight}");
-            }
-        }
-
         public static int Kruskal_MST(int n, Graph G)
         {
             int[] vertices = new int[n];
             for (int i = 0; i < n; i++) vertices[i] = i;
 
             List<WeightedEdge> spanTree = Kruskal_MST(G, vertices);
+            PrintTree(spanTree);
             return CountWeight(spanTree);
         }
 
+        /// <summary>
+        /// Main logic of Kruskal's MST algorithm using disjoint sets
+        /// </summary>
+        /// <param name="gr"></param>
+        /// <param name="vtcs"></param>
+        /// <returns></returns>
         private static List<WeightedEdge> Kruskal_MST(Graph gr, int[] vtcs)
         {
             List<WeightedEdge> tree = new List<WeightedEdge>();
@@ -132,6 +153,16 @@ namespace graphs.SpanningTree
             }
 
             return tree;
+        }
+        
+        
+        private static void PrintTree(List<WeightedEdge> tree)
+        {
+            Console.WriteLine("Edge  : Weight");
+            foreach (var edge in tree)
+            {
+                Console.WriteLine($"{edge.Src} - {edge.Dest} : {edge.Weight}");
+            }
         }
     }
 }

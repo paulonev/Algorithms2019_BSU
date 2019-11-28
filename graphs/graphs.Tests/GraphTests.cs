@@ -56,6 +56,7 @@ namespace Graphs.Tests
         public void PrintTest()
         {
             graph.PrintGraph();
+//            Console.WriteLine(graph.GetDegree(6));
             Console.WriteLine();
             graph1.PrintGraph();
         }
@@ -97,7 +98,8 @@ namespace Graphs.Tests
             int minWeight = MST.Kruskal_MST(size, graph);
             Console.WriteLine($"Weight of spanningTree: {minWeight}");
         }
-
+        
+        //Floyd-Warshall searchPaths
 //        [TestCase(1,5)]
 //        public void FloydTest(int src, int dest)
 //        {

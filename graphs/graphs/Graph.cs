@@ -170,6 +170,34 @@ namespace Graphs
             Array.Sort(edges, new EdgeComparer());
             return edges;
         }
+
+        /// <summary>
+        /// Method that counts vertices in neighborhood of VTX
+        /// </summary>
+        /// <param name="vtx">specified vertex</param>
+        /// <returns>non-negative integer</returns>
+        /// <exception cref="ArgumentException"></exception>
+        public int GetDegree(int vtx)
+        {
+            vtx--;
+            if (vtx >= Size || vtx < 0) throw new ArgumentException("Input vertex isn't belonging to graph");
+            List<int> vtxNeighbors = Neighborhood(vtx);
+            return vtxNeighbors.Count;
+        }
+        
+        //a set of neighbors of vertex
+        private List<int> Neighborhood(int vtx)
+        {
+            List<int> neighbors = new List<int>();
+            foreach (var edge in AdjacencyList[vtx])
+            {
+                neighbors.Add(edge.Dest);
+            }
+
+            return neighbors;
+        }
+        
+        
         
     }
 
