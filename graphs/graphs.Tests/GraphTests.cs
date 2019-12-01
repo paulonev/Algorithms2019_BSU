@@ -64,23 +64,12 @@ namespace Graphs.Tests
         [Test]
         public void AdjacencyTest()
         {
-            try
-            {
-                WeightedEdge we1 = new WeightedEdge(1,3);
-                WeightedEdge we2 = new WeightedEdge(3,4);
+            WeightedEdge we1 = new WeightedEdge(6,7);
+            WeightedEdge we2 = new WeightedEdge(4,6);
 
-                if (graph.AreAdjacent(we1, we2)) Console.WriteLine("v1 and v2 are adjacent");
-                else Console.WriteLine("v1 and v2 aren't adjacent");
-            }
-            catch (ArgumentNullException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            catch (ArgumentException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
+            bool? result = graph.AreAdjacent(we1, we2);
+            if (result.HasValue) Console.WriteLine("v1 and v2 are adjacent");
+            else Console.WriteLine("v1 and v2 aren't adjacent");
         }
 
         [Test]

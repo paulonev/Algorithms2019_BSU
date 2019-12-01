@@ -84,29 +84,22 @@ namespace Graphs
         /// <param name="ob1">Weighted edge or int</param>
         /// <param name="ob2">Weighted edge or int</param>
         /// <returns>True if adjacent, false otherwise</returns>
-        public bool AreAdjacent(Object ob1, Object ob2)
+        public bool? AreAdjacent(Object ob1, Object ob2)
         {
-            try
+            if (ob1.GetType() == ob2.GetType())
             {
-                if (ob1.GetType() == ob2.GetType())
+                if (ob1 is int)
                 {
-                    if (ob1.GetType().IsValueType)
-                    {
-                        return AreAdjacentVertices(ob1, ob2);
-                    }
+                    return AreAdjacentVertices(ob1, ob2);
+                }
 
-                    if (ob1.GetType() == typeof(WeightedEdge))
-                    {
-                        return AreAdjacentEdges(ob1, ob2);
-                    }
-                    else return false;
+                if (ob1 is WeightedEdge)
+                {
+                    return AreAdjacentEdges(ob1, ob2);
                 }
                 else return false;
             }
-            catch (ArgumentNullException e)
-            {
-                throw new ArgumentNullException(e.Message);
-            }
+            else return false;
         }
 
         private bool AreAdjacentVertices(Object ob1, Object ob2)
@@ -120,7 +113,7 @@ namespace Graphs
             return AdjacencyList[v1].Contains(new WeightedEdge(v1, v2));
         }
 
-        private bool AreAdjacentEdges(Object ob1, Object ob2)
+        private bool? AreAdjacentEdges(Object ob1, Object ob2)
         {
             //then they are both of WeightedEdge type
             WeightedEdge e1 = (WeightedEdge) ob1;
@@ -133,7 +126,7 @@ namespace Graphs
                 return e1.IsIncident(e2.Src) || e1.IsIncident(e2.Dest);
             }
 
-            else throw new ArgumentException("Your argument(s) is(are) nonexistent edge(s)");
+            return null;
         }
 
         private bool GraphHasEdge(WeightedEdge edge)
