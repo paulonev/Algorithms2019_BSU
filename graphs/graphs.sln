@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "graphs.Floyd", "graphs.Floy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "graphs.SpanningTree", "graphs.SpanningTree\graphs.SpanningTree.csproj", "{0705FD1C-A517-480E-8D3F-893862648BD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "graphs.Searches", "graphs.Searches\graphs.Searches.csproj", "{3B3CBB69-4606-43E9-A22B-B9B56AAE0645}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "graphs.Utils", "graphs.Utils\graphs.Utils.csproj", "{09BDC7D3-93D9-4E3E-9404-48CD38B3DE8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,5 +35,13 @@ Global
 		{0705FD1C-A517-480E-8D3F-893862648BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0705FD1C-A517-480E-8D3F-893862648BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0705FD1C-A517-480E-8D3F-893862648BD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B3CBB69-4606-43E9-A22B-B9B56AAE0645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B3CBB69-4606-43E9-A22B-B9B56AAE0645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B3CBB69-4606-43E9-A22B-B9B56AAE0645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B3CBB69-4606-43E9-A22B-B9B56AAE0645}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09BDC7D3-93D9-4E3E-9404-48CD38B3DE8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09BDC7D3-93D9-4E3E-9404-48CD38B3DE8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09BDC7D3-93D9-4E3E-9404-48CD38B3DE8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09BDC7D3-93D9-4E3E-9404-48CD38B3DE8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

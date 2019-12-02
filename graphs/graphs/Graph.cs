@@ -7,17 +7,42 @@ namespace Graphs
 {
     //implement following methods
     //a)addEdge                    DONE
-    //b)AreAdjacent                
-    //c)N(v) v as vertex of graph  
+    //b)AreAdjacent                DONE
+    //c)N(v) v as vertex of graph  DONE
 
     //implement adjacency-list approach of storing graphs
     //in which graph is an ARRAY, which index represents a vertex
     //ARRAY[i] stores a list of adjacent to i vertices
     public class Graph
     {
-        public int Size { get; private set; } //size of ARRAY
+        public int Size { get; } //size of ARRAY
         public List<WeightedEdge> []AdjacencyList { get; set; } // array of edges outOfVertex
 
+        /// <summary>
+        /// Colors: white/grey/black of vertices for DFS search
+        /// </summary>
+        public int[] Colors { get; set; }
+
+        /// <summary>
+        /// Predecessor for each vtx
+        /// </summary>
+        public int[] Preds { get; set; }
+
+        /// <summary>
+        /// Built-in timer that shows when vtx was first reached in DFS
+        /// </summary>
+        public int[] TimeIn { get; set; }
+        
+        /// <summary>
+        /// Built-in timer that shows when DFS finished working with vtx
+        /// </summary>
+        public int[] TimeOut { get; set; }
+
+        /// <summary>
+        /// Topologically sorted vertices of graph
+        /// </summary>
+        public List<int> TpgSortList { get; }
+        
         public Graph() {}
         public Graph(int size)
         {
@@ -26,7 +51,13 @@ namespace Graphs
             for (int i = 0; i < Size; i++)
             {
                 AdjacencyList[i] = new List<WeightedEdge>();
-            } 
+            }
+
+            Colors = new int[Size];
+            Preds = new int[Size];
+            TimeIn = new int[Size];
+            TimeOut = new int[Size];
+            TpgSortList = new List<int>(size);
         }
 
         /// <summary>
@@ -190,25 +221,23 @@ namespace Graphs
             return neighbors;
         }
         
-        
-        
     }
 
     public class OrientedGraph : Graph
     {
         public OrientedGraph(int size) : base(size) {}
 
-        public override void AddEdge(int source, int d, int w = 1)
+        public override void AddEdge(int src, int dest, int w = 1)
         {
-            source--; d--;
+            src--; dest--;
             //if among edges outOf src is edge(dest, w) {w could be different}
-            var edge = AdjacencyList[source].Find(e => d == e.Dest && w != e.Weight);
-            if (AdjacencyList[source].Count != 0 && edge != null)
+            var edge = AdjacencyList[src].Find(e => dest == e.Dest && w != e.Weight);
+            if (AdjacencyList[src].Count != 0 && edge != null)
             {
                 //then change weight of that edge to new weight
                 edge.Weight = w;
             }
-            else AdjacencyList[source].Add(new WeightedEdge(source, d, w));
+            else AdjacencyList[src].Add(new WeightedEdge(src, dest, w));
         }
 
     }

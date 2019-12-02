@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Graphs.Floyd;
 using graphs.SpanningTree;
+using graphs.Utils;
 using NUnit.Framework;
 
 namespace Graphs.Tests
@@ -8,15 +10,14 @@ namespace Graphs.Tests
     [TestFixture]
     public class GraphTests
     {
-        private int size;
         private Graph graph;
         private Graph graph1;
+        private Graph graph2;
         
         [SetUp]
         public void Setup()
         {
-            size = 7;
-            graph = new Graph(size);
+            graph = new Graph(7);
 
             graph.AddEdge(1,2,4);
             graph.AddEdge(1,7,8);
@@ -35,7 +36,7 @@ namespace Graphs.Tests
             graph.AddEdge(6,7,7);
  
             //----------------------------------
-            graph1 = new OrientedGraph(size);
+            graph1 = new OrientedGraph(4);
             
             graph1.AddEdge(1,2,8);
             graph1.AddEdge(1,3,3);
@@ -48,8 +49,25 @@ namespace Graphs.Tests
          
             graph1.AddEdge(4,1,18);
             graph1.AddEdge(4,3,-8);
-
-
+            //-----------------------------------
+            
+            graph2 = new OrientedGraph(8);
+            graph2.AddEdge(1,5);
+            
+            graph2.AddEdge(2,1);
+            graph2.AddEdge(2,6);
+            
+            graph2.AddEdge(3,2);
+            
+            graph2.AddEdge(4,8);
+            graph2.AddEdge(4,7);
+            
+            graph2.AddEdge(6,5);
+            
+            graph2.AddEdge(7,2);
+            graph2.AddEdge(7,6);
+            
+            graph2.AddEdge(8,7);
         }
 
         [Test]
@@ -76,7 +94,7 @@ namespace Graphs.Tests
         public void PrimTests()
         {
             Console.WriteLine("===Prim MST search implementation on graphs===");
-            int minWeight = MST.Prim_MST(size, graph);
+            int minWeight = MST.Prim_MST(graph.Size, graph);
             Console.WriteLine($"Weight of spanningTree: {minWeight}");
         }
 
@@ -84,8 +102,24 @@ namespace Graphs.Tests
         public void KruskalTests()
         {
             Console.WriteLine("===Kruskal MST search implementation on graphs===");
-            int minWeight = MST.Kruskal_MST(size, graph);
+            int minWeight = MST.Kruskal_MST(graph.Size, graph);
             Console.WriteLine($"Weight of spanningTree: {minWeight}");
+        }
+
+        [Test]
+        public void TopologicalSortTest()
+        {
+            Utils ut = new Utils();
+            List<int> topSort = ut.Topological_Sort(graph2);
+
+            Console.Write("Graph: ");
+            graph2.PrintGraph();
+            Console.Write("Topological sort output: ");
+            foreach (var vtx in topSort)
+            {
+                Console.Write(vtx + " ");
+            }
+            
         }
         
         //Floyd-Warshall searchPaths
@@ -122,6 +156,7 @@ namespace Graphs.Tests
         {
             graph = null;
             graph1 = null;
+            graph2 = null;
         }
         
     }
