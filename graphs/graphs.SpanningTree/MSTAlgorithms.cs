@@ -23,9 +23,10 @@ namespace graphs.SpanningTree
         /// 6. Selection is based on taking vtx that has cheapest weight of edge that connects it to T(ANY vtx in T)
         /// </plan>
         /// <returns>weight of spanningTree</returns>
-        public static int Prim_MST(int n, Graph G)
+        public static int Prim_MST(Graph G)
         {
             //==========Init block begin============
+            int n = G.Size;
             int firstV = new Random().Next(n); //select starting vertex
             int[] minWeights = new int[n]; //store minimal distances from each vertex to graph
             for (int i = 0; i < n; i++) minWeights[i] = posInf;
@@ -114,9 +115,9 @@ namespace graphs.SpanningTree
         }
 
         //====================<KRUSKAL>====================
-        public static int Kruskal_MST(int n, Graph G)
+        public static int Kruskal_MST(Graph graph)
         {
-            List<WeightedEdge> spanTree = Kruskal_MST(G);
+            List<WeightedEdge> spanTree = Kruskal_MST_sec(graph);
             PrintTree(spanTree);
             return CountWeight(spanTree);
         }
@@ -126,7 +127,7 @@ namespace graphs.SpanningTree
         /// </summary>
         /// <param name="gr">Researched graph</param>
         /// <returns></returns>
-        private static List<WeightedEdge> Kruskal_MST(Graph gr)
+        private static List<WeightedEdge> Kruskal_MST_sec(Graph gr)
         {
             List<WeightedEdge> tree = new List<WeightedEdge>();
             List<DJS> sets = new List<DJS>();
@@ -144,10 +145,14 @@ namespace graphs.SpanningTree
                 //consider edge (u,v)
                 int u = edge.Src;
                 int v = edge.Dest;
-                if (ut.FIND_SET(u) != ut.FIND_SET(v))
+                DJS uSet = ut.FIND_SET(u).Set;
+                DJS vSet = ut.FIND_SET(v).Set;
+                
+                if (uSet != vSet)
                 {
                     tree.Add(edge);
-                    ut.UNION(u,v);
+                    if(uSet.Size >= vSet.Size) ut.UNION(uSet,vSet);
+                    else ut.UNION(vSet,uSet);
                 }
             }
 

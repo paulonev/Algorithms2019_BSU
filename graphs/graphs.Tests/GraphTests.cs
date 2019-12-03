@@ -97,7 +97,7 @@ namespace Graphs.Tests
         public void PrimTests()
         {
             Console.WriteLine("===Prim MST search implementation on graphs===");
-            int minWeight = MST.Prim_MST(graph.Size, graph);
+            int minWeight = MST.Prim_MST(graph);
             Console.WriteLine($"Weight of spanningTree: {minWeight}");
         }
 
@@ -105,7 +105,7 @@ namespace Graphs.Tests
         public void KruskalTests()
         {
             Console.WriteLine("===Kruskal MST search implementation on graphs===");
-            int minWeight = MST.Kruskal_MST(graph.Size, graph);
+            int minWeight = MST.Kruskal_MST(graph);
             Console.WriteLine($"Weight of spanningTree: {minWeight}");
         }
 

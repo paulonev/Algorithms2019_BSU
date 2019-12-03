@@ -6,7 +6,7 @@ namespace Graphs
     /// <summary>
     /// Class refers to disjoint-set data structure
     /// And implements methods MAKE-SET(x)
-    /// TODO: Try euristics
+    /// TODO: Try weight-union heuristics
     /// </summary>
     public class DJS
     {
@@ -14,6 +14,7 @@ namespace Graphs
         //a head(or representative) of DJS
         private Node head;
         private Node tail;
+        private int size;
 
         public List<Node> Nodes
         {
@@ -25,13 +26,13 @@ namespace Graphs
             get => head;
             set => head = value;
         }
-
         public Node Tail
         {
             get => tail;
             set => tail = value;
         }
 
+        public int Size => Nodes.Count;
 
         public DJS()
         {

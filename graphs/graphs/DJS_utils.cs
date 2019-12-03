@@ -22,7 +22,6 @@ namespace Graphs
             djs.Nodes = new List<Node> {new Node(djs,x)}; //initialization list
             djs.Head = djs.Nodes[0];
             djs.Tail = djs.Head;
-            
             sets.Add(djs);
         }
         
@@ -41,19 +40,22 @@ namespace Graphs
             return tempNode;
         }
         
-        public void UNION(int x, int y)
+        /// <summary>
+        /// Using weight-union heuristics append smaller set to larger
+        /// </summary>
+        /// <param name="lg">larger set</param>
+        /// <param name="sm">smaller set</param>
+        public void UNION(DJS lg, DJS sm)
         {
-            DJS s1 = FIND_SET(x).Set;//pointers to set objects
-            DJS s2 = FIND_SET(y).Set;
-            foreach (var node in s2.Nodes)
+            foreach (var node in sm.Nodes)
             {
-                s1.Nodes.Add(node);
-                node.Set = s1;
+                lg.Nodes.Add(node);
+                node.Set = lg;
             }
-            s1.Tail.NextNode = s2.Head;
-            s1.Tail = s2.Tail;
+            lg.Tail.NextNode = sm.Head;
+            lg.Tail = sm.Tail;
             
-            sets.Remove(s2);
+            sets.Remove(sm);
         }
 
     }

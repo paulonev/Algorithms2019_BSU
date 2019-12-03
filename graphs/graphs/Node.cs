@@ -7,45 +7,33 @@ namespace Graphs
     public class Node
     {
         //pointer to set
-        private DJS set;
+        public DJS Set { get; set; }
+        
         //storable value
-        private int vtx;
-
-        public int Vtx => vtx;
+        public int Vtx { get; }
 
         //pointer to next node
-        private Node nextNode;
-
-        public DJS Set
-        {
-            get => set;
-            set => set = value;
-        }
-
-        public Node NextNode
-        {
-            get => nextNode;
-            set => nextNode = value;
-        }
+        public Node NextNode { get; set; }
 
         public Node(int vtx)
         {
-            set = null;
-            this.vtx = vtx;
-            nextNode = null;
+            Set = null;
+            Vtx = vtx;
+            NextNode = null;
         }
+ 
         public Node(DJS set, int vtx)
         {
-            this.set = set;
-            this.vtx = vtx;
-            nextNode = null;
+            Set = set;
+            Vtx = vtx;
+            NextNode = null;
         }
         
         public Node(DJS set, int vtx, Node nextNode)
         {
-            this.set = set;
-            this.vtx = vtx;
-            this.nextNode = nextNode;
+            Set = set;
+            Vtx = vtx;
+            NextNode = nextNode;
         }
     }
 }
