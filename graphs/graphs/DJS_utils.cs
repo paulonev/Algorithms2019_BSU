@@ -1,9 +1,13 @@
+using System;
 using System.Collections.Generic;
 
 namespace Graphs
 {
     public class DJSUtils
     {
+        //return 1 if s1.Size > s2.Size, -1 if s1.Size < s2.Size, 0 if they're equally sized
+        public delegate int SmallerSet(DJS s1, DJS s2);
+
         //a list of dis-joint sets
         private List<DJS> sets;
 
@@ -39,14 +43,28 @@ namespace Graphs
             if (tempNode != null) return tempNode.Set.Head;
             return tempNode;
         }
-        
+
         /// <summary>
         /// Using weight-union heuristics append smaller set to larger
         /// </summary>
-        /// <param name="lg">larger set</param>
-        /// <param name="sm">smaller set</param>
-        public void UNION(DJS lg, DJS sm)
+        /// <param name="s1">first set</param>
+        /// <param name="s2">second set</param>
+        /// <param name="func">delegate which defines which set is Larger</param>
+        public void UNION(DJS s1, DJS s2, SmallerSet func)
         {
+            DJS lg = new DJS();
+            DJS sm = new DJS();
+            if (func(s1,s2) >= 0)
+            {
+                lg = s1;
+                sm = s2;
+            }
+            else if (func(s1,s2) < 0)
+            {
+                lg = s2;
+                sm = s1;
+            }
+            
             foreach (var node in sm.Nodes)
             {
                 lg.Nodes.Add(node);

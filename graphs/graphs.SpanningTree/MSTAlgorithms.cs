@@ -151,8 +151,11 @@ namespace graphs.SpanningTree
                 if (uSet != vSet)
                 {
                     tree.Add(edge);
-                    if(uSet.Size >= vSet.Size) ut.UNION(uSet,vSet);
-                    else ut.UNION(vSet,uSet);
+                    ut.UNION(uSet, vSet, (s1, s2) => {
+                        if (s1.Size > s2.Size) return 1;
+                        if (s1.Size < s2.Size) return -1;
+                        return 0;
+                    });
                 }
             }
 
