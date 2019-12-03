@@ -41,7 +41,8 @@ namespace graphs.SpanningTree
             for (int i = 0; i < n; i++) predecessors[i] = -1;
             //==========Init block end============
             
-            List<WeightedEdge> spanTree = Prim(G.AdjacencyList, notUsedV, firstV, minWeights, predecessors);
+            List<WeightedEdge> spanTree = 
+                Prim(G.AdjacencyList, notUsedV,firstV, minWeights, predecessors);
             PrintTree(spanTree);
             return CountWeight(spanTree);
         }
@@ -112,12 +113,10 @@ namespace graphs.SpanningTree
             return sum;
         }
 
+        //====================<KRUSKAL>====================
         public static int Kruskal_MST(int n, Graph G)
         {
-            int[] vertices = new int[n];
-            for (int i = 0; i < n; i++) vertices[i] = i;
-
-            List<WeightedEdge> spanTree = Kruskal_MST(G, vertices);
+            List<WeightedEdge> spanTree = Kruskal_MST(G);
             PrintTree(spanTree);
             return CountWeight(spanTree);
         }
@@ -125,22 +124,22 @@ namespace graphs.SpanningTree
         /// <summary>
         /// Main logic of Kruskal's MST algorithm using disjoint sets
         /// </summary>
-        /// <param name="gr"></param>
-        /// <param name="vtcs"></param>
+        /// <param name="gr">Researched graph</param>
         /// <returns></returns>
-        private static List<WeightedEdge> Kruskal_MST(Graph gr, int[] vtcs)
+        private static List<WeightedEdge> Kruskal_MST(Graph gr)
         {
             List<WeightedEdge> tree = new List<WeightedEdge>();
             List<DJS> sets = new List<DJS>();
-            foreach (var vtx in vtcs)
-            {
-                sets.Add(new DJS().MAKE_SET(vtx));
-            }
             DJSUtils ut = new DJSUtils(sets);
+
+            for (int i = 0; i < gr.Size; i++)
+            {
+                ut.MAKE_SET(i); //O(V)
+            }
             
-            WeightedEdge[] grE = gr.GetSortedEdges();
+            WeightedEdge[] grE = gr.GetSortedEdges(); //O(E logE)
             
-            foreach (WeightedEdge edge in grE)
+            foreach (WeightedEdge edge in grE) //O(E)
             {
                 //consider edge (u,v)
                 int u = edge.Src;
@@ -155,13 +154,12 @@ namespace graphs.SpanningTree
             return tree;
         }
         
-        
         private static void PrintTree(List<WeightedEdge> tree)
         {
             Console.WriteLine("Edge  : Weight");
             foreach (var edge in tree)
             {
-                Console.WriteLine($"{edge.Src} - {edge.Dest} : {edge.Weight}");
+                Console.WriteLine($"{edge.Src+1} - {edge.Dest+1} : {edge.Weight}");
             }
         }
     }

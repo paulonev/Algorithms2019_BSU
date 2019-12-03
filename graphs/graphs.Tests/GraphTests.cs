@@ -23,12 +23,15 @@ namespace Graphs.Tests
             graph.AddEdge(1,7,8);
 
             graph.AddEdge(2,3, 8);
-            graph.AddEdge(2,7,11);
+            graph.AddEdge(2,4,3);
+            graph.AddEdge(2,5,2);
+            graph.AddEdge(2,7,1);
             
             graph.AddEdge(3, 4, 4);
             graph.AddEdge(3,6,2);
             
             graph.AddEdge(4, 5, 2);
+            graph.AddEdge(4,6,2);
             
             graph.AddEdge(5,6,6);
             graph.AddEdge(5,7,1);
