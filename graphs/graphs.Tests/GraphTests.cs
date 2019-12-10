@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Graphs.Floyd;
+using graphs.ShortestPaths;
 using graphs.SpanningTree;
 using graphs.Utils;
 using NUnit.Framework;
@@ -13,64 +14,65 @@ namespace Graphs.Tests
         private Graph graph;
         private Graph graph1;
         private Graph graph2;
-        
+
         [SetUp]
         public void Setup()
         {
             graph = new Graph(7);
 
-            graph.AddEdge(1,2,4);
-            graph.AddEdge(1,7,8);
+            graph.AddEdge(1, 2, 4);
+            graph.AddEdge(1, 7, 8);
 
-            graph.AddEdge(2,3, 8);
-            graph.AddEdge(2,4,3);
-            graph.AddEdge(2,5,2);
-            graph.AddEdge(2,7,1);
-            
+            graph.AddEdge(2, 3, 8);
+            graph.AddEdge(2, 4, 3);
+            graph.AddEdge(2, 5, 2);
+            graph.AddEdge(2, 7, 1);
+
             graph.AddEdge(3, 4, 4);
-            graph.AddEdge(3,6,2);
-            
+            graph.AddEdge(3, 6, 2);
+
             graph.AddEdge(4, 5, 2);
-            graph.AddEdge(4,6,2);
-            
-            graph.AddEdge(5,6,6);
-            graph.AddEdge(5,7,1);
-            
-            graph.AddEdge(6,7,7);
- 
+            graph.AddEdge(4, 6, 2);
+
+            graph.AddEdge(5, 6, 6);
+            graph.AddEdge(5, 7, 1);
+
+            graph.AddEdge(6, 7, 7);
+
             //----------------------------------
             graph1 = new OrientedGraph(4);
-            
-            graph1.AddEdge(1,2,8);
-            graph1.AddEdge(1,3,3);
-            
-            graph1.AddEdge(2,1,5);
-            graph1.AddEdge(2,4,2);
-            
-            graph1.AddEdge(3,2,7);
-            graph1.AddEdge(3,4,10);
-         
-            graph1.AddEdge(4,1,18);
-            graph1.AddEdge(4,3,-8);
+
+            graph1.AddEdge(1, 2, 8);
+            graph1.AddEdge(1, 3, 3);
+
+            graph1.AddEdge(2, 1, 5);
+            graph1.AddEdge(2, 4, 2);
+
+            graph1.AddEdge(3, 2, 7);
+            graph1.AddEdge(3, 4, 10);
+
+            graph1.AddEdge(4, 1, 18);
+            graph1.AddEdge(4, 3, -8);
             //-----------------------------------
-            
+
             graph2 = new OrientedGraph(8);
-            graph2.AddEdge(1,5);
-            
-            graph2.AddEdge(2,1);
-            graph2.AddEdge(2,6);
-            
-            graph2.AddEdge(3,2);
-            
-            graph2.AddEdge(4,8);
-            graph2.AddEdge(4,7);
-            
-            graph2.AddEdge(6,5);
-            
-            graph2.AddEdge(7,2);
-            graph2.AddEdge(7,6);
-            
-            graph2.AddEdge(8,7);
+            graph2.AddEdge(1, 5,5);
+
+            graph2.AddEdge(2, 1,4);
+            graph2.AddEdge(2, 6,7);
+
+            graph2.AddEdge(3, 2,3);
+
+            graph2.AddEdge(4, 8,4);
+            graph2.AddEdge(4, 7,3);
+
+            graph2.AddEdge(6, 3,1);
+            graph2.AddEdge(6, 5,2);
+
+            graph2.AddEdge(7, 2,5);
+            graph2.AddEdge(7, 6,4);
+
+            graph2.AddEdge(8, 7,6);
         }
 
         [Test]
@@ -85,8 +87,8 @@ namespace Graphs.Tests
         [Test]
         public void AdjacencyTest()
         {
-            WeightedEdge we1 = new WeightedEdge(6,7);
-            WeightedEdge we2 = new WeightedEdge(4,6);
+            WeightedEdge we1 = new WeightedEdge(6, 7);
+            WeightedEdge we2 = new WeightedEdge(4, 6);
 
             bool? result = graph.AreAdjacent(we1, we2);
             if (result.HasValue) Console.WriteLine("v1 and v2 are adjacent");
@@ -122,10 +124,21 @@ namespace Graphs.Tests
             {
                 Console.Write(vtx + " ");
             }
-            
+
         }
-        
-        //Floyd-Warshall searchPaths
+
+        [Test]
+        public void DijkstraTest()
+        {
+            Utils ut = new Utils();
+
+            int src = 1;
+            int dest = 6;
+            ShortestPathsProblem.Dijkstra(graph2, src);
+            ut.Print_Path(graph2, src, dest);
+        }
+
+    //Floyd-Warshall searchPaths
 //        [TestCase(1,5)]
 //        public void FloydTest(int src, int dest)
 //        {

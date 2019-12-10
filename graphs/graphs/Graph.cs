@@ -42,6 +42,11 @@ namespace Graphs
         /// Topologically sorted vertices of graph
         /// </summary>
         public List<int> TpgSortList { get; }
+
+        /// <summary>
+        /// Minimal distances from i-th vertex to spanning tree or source vtx in Dijkstra
+        /// </summary>
+        public Dictionary<int, int> MinWeights { get; set; }
         
         public Graph() {}
         public Graph(int size)
@@ -58,6 +63,7 @@ namespace Graphs
             TimeIn = new int[Size];
             TimeOut = new int[Size];
             TpgSortList = new List<int>(size);
+//            MinWeights = new int[Size];
         }
 
         /// <summary>

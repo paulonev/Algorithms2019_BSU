@@ -8,7 +8,8 @@ namespace graphs.SpanningTree
     public static class MST
     {
         private static int posInf = Int32.MaxValue;
-        
+        private static Utils.Utils util = new Utils.Utils();
+
         /// <summary>
         /// Method is used to find a spanningTree of Graph G using Prim's algorithm
         /// </summary>
@@ -29,7 +30,11 @@ namespace graphs.SpanningTree
             int n = G.Size;
             int firstV = new Random().Next(n); //select starting vertex
             int[] minWeights = new int[n]; //store minimal distances from each vertex to graph
-            for (int i = 0; i < n; i++) minWeights[i] = posInf;
+            for (int i = 0; i < n; i++)
+            {
+                minWeights[i] = posInf;
+                G.Preds[i] = -1;
+            }
             
             List<int> notUsedV = new List<int>(); //vertices that haven't been added to tree T yet
             for (int i = 0; i < n; i++)
@@ -38,12 +43,12 @@ namespace graphs.SpanningTree
                 notUsedV.Add(i);
             }
 
-            int[] predecessors = new int [n]; //num of parent for vertex
-            for (int i = 0; i < n; i++) predecessors[i] = -1;
+//            int[] predecessors = new int [n]; //num of parent for vertex
+//            for (int i = 0; i < n; i++) 
             //==========Init block end============
             
             List<WeightedEdge> spanTree = 
-                Prim(G.AdjacencyList, notUsedV,firstV, minWeights, predecessors);
+                Prim(G.AdjacencyList, notUsedV,firstV, minWeights, G.Preds);
             PrintTree(spanTree);
             return CountWeight(spanTree);
         }
@@ -73,7 +78,7 @@ namespace graphs.SpanningTree
                     }
                 }
                 //find vtx in Q that has minimal minWeights
-                curV = GetClosestVtx(Q, minWeights);
+                curV = util.GetClosestVtx(Q, minWeights);
                 Q.Remove(curV);
                 tree.Add(new WeightedEdge(prd[curV],curV,minWeights[curV]));
             }
@@ -81,21 +86,7 @@ namespace graphs.SpanningTree
             return tree;
         }
 
-        /// <summary>
-        /// To findout which notUsed vertex add to the spanning tree
-        /// </summary>
-        /// <param name="notUsedV">set of notused vertices</param>
-        /// <param name="weights">distances from vtx to spanTree</param>
-        /// <returns></returns>
-        private static int GetClosestVtx(List<int> notUsedV, int[] weights)
-        {
-            int min = notUsedV[0];
-            foreach (int vtx in notUsedV)
-            {
-                if (weights[vtx] < weights[min]) min = vtx;
-            }
-            return min;
-        }
+        
         
         
         /// <summary>
