@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\graphs.Searches\graphs.Searches.csproj" />
+    <ProjectReference Include="..\graphs.ADT\graphs.ADT.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

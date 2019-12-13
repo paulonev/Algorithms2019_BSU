@@ -45,8 +45,10 @@ namespace Graphs
 
         /// <summary>
         /// Minimal distances from i-th vertex to spanning tree or source vtx in Dijkstra
+        /// Marks which indicate the length of path {source -> i} 
         /// </summary>
-        public Dictionary<int, int> MinWeights { get; set; }
+//        public Dictionary<int, int> MinWeights { get; set; }
+        public int[] Marks { get; set; }
         
         public Graph() {}
         public Graph(int size)
@@ -63,7 +65,7 @@ namespace Graphs
             TimeIn = new int[Size];
             TimeOut = new int[Size];
             TpgSortList = new List<int>(size);
-//            MinWeights = new int[Size];
+            Marks = new int[Size];
         }
 
         /// <summary>

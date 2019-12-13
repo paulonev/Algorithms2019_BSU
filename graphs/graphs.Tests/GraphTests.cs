@@ -14,7 +14,9 @@ namespace Graphs.Tests
         private Graph graph;
         private Graph graph1;
         private Graph graph2;
-
+        private Graph graph3;
+        private Graph graph4;
+        
         [SetUp]
         public void Setup()
         {
@@ -73,6 +75,38 @@ namespace Graphs.Tests
             graph2.AddEdge(7, 6,4);
 
             graph2.AddEdge(8, 7,6);
+            //---------------------------------
+            
+            graph3 = new OrientedGraph(8);
+            graph3.AddEdge(1,2,7);
+            graph3.AddEdge(1,4,5);
+            graph3.AddEdge(1,6,1);
+
+            graph3.AddEdge(2,3,4);
+            graph3.AddEdge(2,5,2);
+
+            graph3.AddEdge(3,8,6);
+            
+            graph3.AddEdge(4,2,1);
+            graph3.AddEdge(4,3,3);
+            graph3.AddEdge(4,5,4);
+            
+            graph3.AddEdge(5,8,1);
+            
+            graph3.AddEdge(6,4,3);
+            graph3.AddEdge(6,7,1);
+            
+            graph3.AddEdge(7,4,1);
+            graph3.AddEdge(7,5,1);
+            graph3.AddEdge(7,8,8);
+            //---------------------------------
+            
+            graph4 = new OrientedGraph(4);
+            graph4.AddEdge(1,4);
+            graph4.AddEdge(1,2);
+            graph4.AddEdge(2,4);
+            graph4.AddEdge(3,2);
+            graph4.AddEdge(3,4);
         }
 
         [Test]
@@ -115,10 +149,10 @@ namespace Graphs.Tests
         public void TopologicalSortTest()
         {
             Utils ut = new Utils();
-            List<int> topSort = ut.Topological_Sort(graph2);
+            List<int> topSort = ut.Topological_Sort(graph4);
 
             Console.Write("Graph: ");
-            graph2.PrintGraph();
+            graph4.PrintGraph();
             Console.Write("Topological sort output: ");
             foreach (var vtx in topSort)
             {
@@ -130,42 +164,46 @@ namespace Graphs.Tests
         [Test]
         public void DijkstraTest()
         {
-            Utils ut = new Utils();
-
+            ShortestPathsProblem spp = new ShortestPathsProblem(graph3);
             int src = 1;
-            int dest = 6;
-            ShortestPathsProblem.Dijkstra(graph2, src);
-            ut.Print_Path(graph2, src, dest);
+            spp.Dijkstra(src);
+
+            int dest = 8;
+            Console.Write("dest=");
+            spp.Print_Path(src, dest);
+            Console.WriteLine("=src");
+            Console.Write($"Length of path = {graph3.Marks[--dest]}");
+            
         }
 
-    //Floyd-Warshall searchPaths
-//        [TestCase(1,5)]
-//        public void FloydTest(int src, int dest)
-//        {
-//            //implementation of Floyd-Warshall SSP algorithm
-//            //out - value of shortest paths from {src} to {dest} and path itself
-//            int vertices = 5;
-//            Graph gr = new Graph(vertices);
-//            
-//            gr.AddEdge(1,2,8);
-//            gr.AddEdge(1,3,3);
-//            gr.AddEdge(1,4,-4);
-//            gr.AddEdge(1,5,1);
-//
-//            gr.AddEdge(2,4,7);
-//            
-//            gr.AddEdge(3,2,6);
-//            gr.AddEdge(3,4,3);
-//            
-//            gr.AddEdge(4,1,5);
-//            gr.AddEdge(4,3,-2);
-//            gr.AddEdge(4,5,1);
-//            
-//            gr.AddEdge(5,2,3);
-//            
-//            Assert.AreEqual(-3,PathFinders.FloydPathfinder(gr,src,dest));
-//            //Console.Write(PathFinders.FloydPathfinder(gr,src,dest));
-//        }
+        //Floyd-Warshall searchPaths
+    //        [TestCase(1,5)]
+    //        public void FloydTest(int src, int dest)
+    //        {
+    //            //implementation of Floyd-Warshall SSP algorithm
+    //            //out - value of shortest paths from {src} to {dest} and path itself
+    //            int vertices = 5;
+    //            Graph gr = new Graph(vertices);
+    //            
+    //            gr.AddEdge(1,2,8);
+    //            gr.AddEdge(1,3,3);
+    //            gr.AddEdge(1,4,-4);
+    //            gr.AddEdge(1,5,1);
+    //
+    //            gr.AddEdge(2,4,7);
+    //            
+    //            gr.AddEdge(3,2,6);
+    //            gr.AddEdge(3,4,3);
+    //            
+    //            gr.AddEdge(4,1,5);
+    //            gr.AddEdge(4,3,-2);
+    //            gr.AddEdge(4,5,1);
+    //            
+    //            gr.AddEdge(5,2,3);
+    //            
+    //            Assert.AreEqual(-3,PathFinders.FloydPathfinder(gr,src,dest));
+    //            //Console.Write(PathFinders.FloydPathfinder(gr,src,dest));
+    //        }
 
         [TearDown]
         public void CleanSource()

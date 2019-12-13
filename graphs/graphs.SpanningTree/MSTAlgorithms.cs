@@ -85,8 +85,6 @@ namespace graphs.SpanningTree
 
             return tree;
         }
-
-        
         
         
         /// <summary>
