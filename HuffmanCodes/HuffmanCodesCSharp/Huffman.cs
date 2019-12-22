@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Channels;
 
@@ -247,8 +248,35 @@ namespace Huffman_Encoding
             encoding.Reverse();
             return encoding;
         }
- 
- 
+
+        //string is IEnumerable<char>
+        public string GetEncodedText(IEnumerable<T> source, Dictionary<T, List<int>> huffmanDictionary)
+        {
+            string encodeText = "";
+            foreach (T c in source)
+            {
+                List<int> bitString = huffmanDictionary[c];
+                encodeText += string.Join("", bitString);
+            }
+
+            return encodeText;
+        }
+
+        public void WriteEncodedToFile(string path, string source)
+        {
+            int numBytes = (int) Math.Ceiling(source.Length / 8m);
+            var bytesAsStrings =
+                Enumerable.Range(0, numBytes)
+                    .Select(i => source.Substring(8 * i, Math.Min(8, source.Length - 8 * i)));
+
+            byte[] bytes = bytesAsStrings.Select(s => Convert.ToByte(s, 2)).ToArray();
+            using (FileStream fs = File.OpenWrite(path))
+            {
+                fs.Write(bytes);
+                fs.Close();
+            }
+        }
+        
         public T Decode(List<int> bitString, ref int position)
         {
             HuffmanNode<T> nodeCur = _root;
