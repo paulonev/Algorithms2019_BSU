@@ -27,3 +27,25 @@
 
 /graphs/graphs.SpanningTree/bin/*
 /graphs/graphs.SpanningTree/obj/*
+
+/graphs/graphs.Searches/bin/*
+/graphs/graphs.Searches/obj/*
+
+/graphs/graphs.Utils/bin/*
+/graphs/graphs.Utils/obj/*
+
+/graphs/graphs.ShortestPaths/bin/*
+/graphs/graphs.ShortestPaths/obj/*
+
+/graphs/graphs.ADT/bin/*
+/graphs/graphs.ADT/obj/*
+
+
+/HuffmanCodes/HuffmanCodesCSharp/bin/*
+/HuffmanCodes/HuffmanCodesCSharp/obj/*
+
+/HuffmanCodes/HuffmanCodesCSharp.Tests/bin/*
+/HuffmanCodes/HuffmanCodesCSharp.Tests/obj/*
+
+
+
