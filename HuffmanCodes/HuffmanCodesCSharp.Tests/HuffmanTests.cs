@@ -150,6 +150,29 @@ namespace HuffmanCodesCSharp.Tests
 
 
         }
-        
-}
+
+
+        [TestCase(6,6)]
+        [TestCase(3,4)]
+        [TestCase(50,51)]
+        public void Can_Count_Paths_To(int n, int m)
+        {
+            long[,] matrix = new long[n,m];
+            
+            long result = CountPathsProblem.GetAmountOfWaysTo(n, m, matrix);
+            
+            if(n == 3 && m == 4)
+                Assert.AreEqual(10, result);
+            
+            
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write(matrix[i,j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
 }
