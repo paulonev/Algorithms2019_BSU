@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Threading.Channels;
 
 namespace Huffman_Encoding
@@ -214,7 +216,7 @@ namespace Huffman_Encoding
 //        }
 
         /// <summary>
-        ///  
+        ///  Makes a dictionary where {Keys}:symbols in source, {Values}:prefix code for symbol  
         /// </summary>
         /// <param name="values"></param>
         /// <returns></returns>
@@ -231,9 +233,9 @@ namespace Huffman_Encoding
 
 
         /// <summary>
-        /// For any symbol looks over the binary tree and makes a BitString - binary representation
+        /// For any symbol looks over the binary tree and makes a encoding - binary string representation
         /// </summary>
-        /// <param name="key"></param>
+        /// <param name="key">HuffmanNode</param>
         /// <exception cref="ArgumentException"></exception>
         private List<int> Encode(HuffmanNode<T> key)
         {
@@ -249,6 +251,31 @@ namespace Huffman_Encoding
             return encoding;
         }
 
+//        public static string GetBits( byte inByte )
+//        {
+//            // Go through each bit with a mask
+//            StringBuilder builder = new StringBuilder();
+//            for ( int j = 0; j < 8; j++ )
+//            {
+//                // Shift each bit by 1 starting at zero shift
+//                byte tmp =  (byte) ( inByte >> j );
+//
+//                // Check byte with mask 00000001 for LSB
+//                int expect1 = tmp & 0x01; 
+//
+//                builder.Append(expect1);
+//            }
+//            return builder.ToString();
+//        }
+        
+        public static String GetByteString(byte b) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 7; i >= 0; --i) {
+                sb.Append(b >> i & 1);
+            }
+            return sb.ToString();
+        }
+        
         //string is IEnumerable<char>
         public string GetEncodedText(IEnumerable<T> source, Dictionary<T, List<int>> huffmanDictionary)
         {
@@ -262,7 +289,20 @@ namespace Huffman_Encoding
             return encodeText;
         }
 
-        public void WriteEncodedToFile(string path, string source)
+        public int WriteEncodedToFile(string path, string source)
+        {
+            byte[] bytes = To_Byte_Array(source);
+            int numOfBytes = bytes.Length;
+            using (FileStream fs = File.OpenWrite(path))
+            {
+                fs.Write(bytes);
+                fs.Close();
+            }
+
+            return numOfBytes;
+        }
+
+        public byte[] To_Byte_Array(string source)
         {
             int numBytes = (int) Math.Ceiling(source.Length / 8m);
             var bytesAsStrings =
@@ -270,10 +310,55 @@ namespace Huffman_Encoding
                     .Select(i => source.Substring(8 * i, Math.Min(8, source.Length - 8 * i)));
 
             byte[] bytes = bytesAsStrings.Select(s => Convert.ToByte(s, 2)).ToArray();
-            using (FileStream fs = File.OpenWrite(path))
+            return bytes;
+        }
+
+        public string ReadBytesFromFile(string path, int numOfBytes)
+        {
+            string binaryString = "";
+            using (FileStream fs = File.OpenRead(path))
             {
-                fs.Write(bytes);
+                BinaryReader br = new BinaryReader(fs);
+                byte[] outBytes = br.ReadBytes(numOfBytes);
+                foreach (var b in outBytes)
+                {
+                    binaryString += HuffmanWrapper<char>.GetByteString(b);
+                }
                 fs.Close();
+            }
+
+            return binaryString;
+        }
+
+        public List<T> Decode(string binaryString)
+        {
+            List<T> ans = new List<T>();
+
+            HuffmanNode<T> nodeCur = _root;
+            foreach (var c in binaryString)
+            {
+                if (c == '0')
+                    nodeCur = nodeCur.LeftSon;
+                else nodeCur = nodeCur.RightSon;
+
+                if (nodeCur.LeftSon == null && nodeCur.RightSon == null)
+                {
+                    ans.Add(nodeCur.Value);
+                    nodeCur = _root;
+                }
+            }
+            return ans;
+        }
+
+        public void WriteDecodedToFile(List<T> text, string pathToFile)
+        {
+            using (StreamWriter sw = new StreamWriter(pathToFile))
+            {
+                foreach (var ch in text)
+                {
+                    sw.Write(ch);
+                }
+                sw.Close();
             }
         }
         

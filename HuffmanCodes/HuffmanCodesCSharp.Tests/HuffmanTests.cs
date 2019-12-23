@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using Huffman_Encoding;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace HuffmanCodesCSharp.Tests
 {
     public class Tests
     {
+        public int BytesCount { get; set; }
         private static string Source { get; set; }
         private readonly string PathDir = "/home/paul/coding/algorithms-data-structures/HuffmanCodes/";
 
@@ -22,7 +24,7 @@ namespace HuffmanCodesCSharp.Tests
         {
             try
             {
-                using (StreamReader sr = new StreamReader(PathDir+"test.txt", Encoding.UTF8))
+                using (StreamReader sr = new StreamReader(PathDir + "test.txt", Encoding.UTF8))
                 {
                     Source = sr.ReadToEnd().ToLower();
                     sr.Close();
@@ -34,8 +36,8 @@ namespace HuffmanCodesCSharp.Tests
             }
         }
 
-        private readonly string PathTest =
-            "/home/paul/coding/algorithms-data-structures/HuffmanCodes/geighartburgenstrauss.txt";
+        private readonly string PathTestDir =
+            "/home/paul/coding/algorithms-data-structures/HuffmanCodes/";
 
         [TestCase("/home/paul/coding/algorithms-data-structures/HuffmanCodesCSharp/test.txt")]
         public void ReadFromFileTest(string path)
@@ -55,14 +57,14 @@ namespace HuffmanCodesCSharp.Tests
         }
 
         [Test]
-        public void HuffmanCompressTest()
+        public void HuffmanCompressDecompressTest()
         {
             var hufWrapper = new HuffmanWrapper<char>();
             hufWrapper.Huffman(Source);
 
             Dictionary<char, List<int>> huffmanDictionary =
                 hufWrapper.Encode();
-            
+
             foreach (char c in huffmanDictionary.Keys)
             {
                 Console.Write("{0}:  ", c);
@@ -73,15 +75,53 @@ namespace HuffmanCodesCSharp.Tests
 
                 Console.WriteLine();
             }
-            
+
             // write in file encoded text
-            hufWrapper.WriteEncodedToFile(PathDir + "testEncoded", 
+            BytesCount = hufWrapper.WriteEncodedToFile(PathDir + "testEncoded",
                 hufWrapper.GetEncodedText(Source, huffmanDictionary));
+            
+            //Decompress
+            string binaryString = hufWrapper.ReadBytesFromFile(PathDir + "testEncoded", BytesCount);
+            List<char> decodedList = hufWrapper.Decode(binaryString);
+
+            hufWrapper.WriteDecodedToFile(decodedList, PathDir + "testDecoded.txt");
+            
         }
 
         [Test]
-        public void HuffmanDecompressTest()
+        public void Can_Read_Bytes_From_File()
         {
+            //1)read bytes from file into GLOBAL string in the form of zeros and ones
+            //2)loop over this string(IEnumerable<char>) and when finding prefix code
+            //delete it from GLOBAL and append symbol(which has that prefix code) to DECODED_TEXT string
+            //3)write DECODED_TEXT into file with name <previous_Name>_decoded.txt
+            string input = "01110100011001010111001101110100";
+            string pathForFile = PathTestDir + "geig_encoded";
+            
+            int numBytes = (int) Math.Ceiling(input.Length / 8m);
+            var bytesAsStrings =
+                Enumerable.Range(0, numBytes)
+                    .Select(i => input.Substring(8 * i, Math.Min(8, input.Length - 8 * i)));
+
+            byte[] bytes = bytesAsStrings.Select(s => Convert.ToByte(s, 2)).ToArray();
+            using (FileStream fs = File.OpenWrite(pathForFile))
+            {
+                fs.Write(bytes);
+                fs.Close();
+            }
+
+            using (FileStream fs = File.OpenRead(pathForFile))
+            {
+                BinaryReader br = new BinaryReader(fs);
+                byte[] outBytes= br.ReadBytes(numBytes);
+                string bRepresent = "";
+                foreach (var b in outBytes)
+                {
+                    bRepresent += HuffmanWrapper<char>.GetByteString(b);
+                }
+                
+                Assert.AreEqual(input, bRepresent);
+            }
             
         }
         
@@ -110,5 +150,6 @@ namespace HuffmanCodesCSharp.Tests
 
 
         }
+        
 }
 }
