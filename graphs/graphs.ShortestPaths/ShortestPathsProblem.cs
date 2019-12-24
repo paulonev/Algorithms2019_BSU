@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Graphs;
 using graphs.ADT;
+using graphs.Utils;
 
 namespace graphs.ShortestPaths
 {
@@ -12,9 +13,6 @@ namespace graphs.ShortestPaths
     /// </summary>
     public class ShortestPathsProblem
     {
-//        private static readonly Utils.Utils util = new Utils.Utils();
-        private static int posInf = 99999999;
-
         private Graph graph;
 
         public ShortestPathsProblem(Graph graph)
@@ -28,7 +26,7 @@ namespace graphs.ShortestPaths
         /// <param name="src"></param>
         public void Dijkstra(int src)
         {
-           InitializeSingleSource(src); //for each vtx set predecessor[vtx]=NULL, Mark[vtx]=INF, but for *src* Mark(src)=0
+           graph.InitializeSingleSource(src); //for each vtx set predecessor[vtx]=NULL, Mark[vtx]=INF, but for *src* Mark(src)=0
            MinHeap Q = new MinHeap(graph); //implement Extract-Min in (log n), InsertKey in (log n), DecreaseKey in (log n) 
            for (int i = 0; i < graph.Size; i++)
            {
@@ -48,24 +46,19 @@ namespace graphs.ShortestPaths
         }
         
         
-        /// <summary>
-        /// Method that initializes predecessors and minimal paths for each vertex from src 
-        /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="src"></param>
-        private void InitializeSingleSource(int src)
-        {
-            src--;
-            int size = graph.Size;
-//            graph.MinWeights = new Dictionary<int, int>();
-            for (int i = 0; i < size; i++)
-            {
-                graph.Preds[i] = -1;
-                graph.Marks[i] = posInf;
-//                graph.MinWeights.Add(i, posInf);
-            }
-            graph.Marks[src] = 0; //for source vtx predecessor is 0
-        }
+        //        private void InitializeSingleSource(int src)
+//        {
+//            src--;
+//            int size = graph.Size;
+////            graph.MinWeights = new Dictionary<int, int>();
+//            for (int i = 0; i < size; i++)
+//            {
+//                graph.Preds[i] = -1;
+//                graph.Marks[i] = posInf;
+////                graph.MinWeights.Add(i, posInf);
+//            }
+//            graph.Marks[src] = 0; //for source vtx predecessor is 0
+//        }
 
         /// <summary>
         /// Optimizes distances from src to edge.Dest through edge.Src

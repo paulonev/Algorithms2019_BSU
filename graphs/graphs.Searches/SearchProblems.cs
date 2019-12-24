@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Graphs;
@@ -16,6 +18,7 @@ namespace graphs.Searches
         /// <summary>
         /// Deep-first search of graph
         /// This method goes over a directed/undirected graph G
+        /// Recursive strategy..
         /// </summary>
         public static void DFS(Graph g)
         {
@@ -51,6 +54,42 @@ namespace graphs.Searches
             graph.TimeOut[u] = ++Time;
             graph.TpgSortList.Add(u+1);
         }
-        
+
+        /// <summary>
+        /// Way of traversing directed acyclic graph from source vtx
+        /// Returns vertices that belong to connected component 
+        /// </summary>
+        /// <param name="graph">directed acyclic graph</param>
+        /// <param name="vertices">vertices not yet been examined</param>
+        public static List<int> BFS(Graph graph, List<int> vertices)
+        {
+            int src = vertices[0];
+            graph.InitializeSingleSource(src+1);
+            Queue<int> Q = new Queue<int>();
+            Q.Enqueue(src);
+            List<int> verticesPerComponent = new List<int>();
+            verticesPerComponent.Add(src);
+            
+            while (Q.Count != 0)
+            {
+                int u = Q.Dequeue();
+                foreach (var edge in graph.AdjacencyList[u])
+                {
+                    int v = edge.Dest;
+                    if (graph.Colors[v] == 0)
+                    {
+                        graph.Colors[v] = 1;
+                        graph.Marks[v] = graph.Marks[u] + 1;
+                        graph.Preds[v] = u;
+                        Q.Enqueue(v);
+                        verticesPerComponent.Add(v);
+                    }
+                }
+
+                graph.Colors[u] = 2;
+            }
+
+            return verticesPerComponent;
+        }
     }
 }

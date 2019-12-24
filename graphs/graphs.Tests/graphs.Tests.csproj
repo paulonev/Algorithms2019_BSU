@@ -18,6 +18,7 @@
     <ProjectReference Include="..\graphs.Floyd\graphs.Floyd.csproj" />
     <ProjectReference Include="..\graphs.SpanningTree\graphs.SpanningTree.csproj" />
     <ProjectReference Include="..\graphs.Utils\graphs.Utils.csproj" />
+    <ProjectReference Include="..\graphs.Searches\graphs.Searches.csproj" />
   </ItemGroup>
 
 </Project>

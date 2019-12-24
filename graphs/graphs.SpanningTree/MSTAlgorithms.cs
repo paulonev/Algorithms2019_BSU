@@ -8,7 +8,7 @@ namespace graphs.SpanningTree
     public static class MST
     {
         private static int posInf = Int32.MaxValue;
-        private static Utils.Utils util = new Utils.Utils();
+        private static Utils.GraphUtils _graphUtil = new Utils.GraphUtils();
 
         /// <summary>
         /// Method is used to find a spanningTree of Graph G using Prim's algorithm
@@ -78,7 +78,7 @@ namespace graphs.SpanningTree
                     }
                 }
                 //find vtx in Q that has minimal minWeights
-                curV = util.GetClosestVtx(Q, minWeights);
+                curV = _graphUtil.GetClosestVtx(Q, minWeights);
                 Q.Remove(curV);
                 tree.Add(new WeightedEdge(prd[curV],curV,minWeights[curV]));
             }

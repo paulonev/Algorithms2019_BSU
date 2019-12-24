@@ -15,8 +15,9 @@ namespace Graphs
     //ARRAY[i] stores a list of adjacent to i vertices
     public class Graph
     {
+        private int posInf = 999999;
         public int Size { get; } //size of ARRAY
-        public List<WeightedEdge> []AdjacencyList { get; set; } // array of edges outOfVertex
+        public List<WeightedEdge>[] AdjacencyList { get; set; } // array of edges outOfVertex
 
         /// <summary>
         /// Colors: white/grey/black of vertices for DFS search
@@ -32,7 +33,7 @@ namespace Graphs
         /// Built-in timer that shows when vtx was first reached in DFS
         /// </summary>
         public int[] TimeIn { get; set; }
-        
+
         /// <summary>
         /// Built-in timer that shows when DFS finished working with vtx
         /// </summary>
@@ -49,8 +50,11 @@ namespace Graphs
         /// </summary>
 //        public Dictionary<int, int> MinWeights { get; set; }
         public int[] Marks { get; set; }
-        
-        public Graph() {}
+
+        public Graph()
+        {
+        }
+
         public Graph(int size)
         {
             Size = size;
@@ -85,13 +89,14 @@ namespace Graphs
                 {
                     throw new ArgumentException("Impossible source vertex");
                 }
+
                 return AdjacencyList[src].Find(e => e.Dest == dest);
             }
             catch (ArgumentNullException e)
             {
                 throw new ArgumentNullException($"Edge ({src},{dest}) wasn't found");
             }
-            
+
         }
 
         /// <summary>
@@ -107,7 +112,7 @@ namespace Graphs
             dest--;
             if (!AdjacencyList[src].Exists(e => e.Dest == dest))
             {
-                AdjacencyList[src].Add(new WeightedEdge(src, dest, w));   
+                AdjacencyList[src].Add(new WeightedEdge(src, dest, w));
                 AdjacencyList[dest].Add(new WeightedEdge(dest, src, w));
             }
             else
@@ -146,7 +151,7 @@ namespace Graphs
             //when they are both vertices
             int v1 = (int) ob1;
             int v2 = (int) ob2;
-            if (v1 > Size || v1 <= 0) return false;  //IndexOutOfRangeException solved
+            if (v1 > Size || v1 <= 0) return false; //IndexOutOfRangeException solved
             v1--;
             v2--;
             return AdjacencyList[v1].Contains(new WeightedEdge(v1, v2));
@@ -157,8 +162,10 @@ namespace Graphs
             //then they are both of WeightedEdge type
             WeightedEdge e1 = (WeightedEdge) ob1;
             WeightedEdge e2 = (WeightedEdge) ob2;
-            e1.Src--; e1.Dest--;
-            e2.Src--; e2.Dest--;
+            e1.Src--;
+            e1.Dest--;
+            e2.Src--;
+            e2.Dest--;
             //if edges exists in graph
             if (GraphHasEdge(e1) && GraphHasEdge(e2))
             {
@@ -172,18 +179,22 @@ namespace Graphs
         {
             return AdjacencyList[edge.Src].Exists(e => e.Dest == edge.Dest);
         }
-        
-        public void PrintGraph(){
-            for (int i = 0; i <Size ; i++) {
+
+        public void PrintGraph()
+        {
+            for (int i = 0; i < Size; i++)
+            {
                 List<WeightedEdge> list = AdjacencyList[i];
                 Console.WriteLine();
-                Console.Write((i+1) + ":");
-                for (int j = 0; j <list.Count; j++)
+                Console.Write((i + 1) + ":");
+                for (int j = 0; j < list.Count; j++)
                 {
-                    Console.Write($"[({list[j].Src+1},{list[j].Dest+1}):{list[j].Weight}]");
+                    Console.Write($"[({list[j].Src + 1},{list[j].Dest + 1}):{list[j].Weight}]");
                 }
+
                 Console.Write(" ");
             }
+
             Console.WriteLine();
         }
 
@@ -216,7 +227,7 @@ namespace Graphs
             List<int> vtxNeighbors = Neighborhood(vtx);
             return vtxNeighbors.Count;
         }
-        
+
         //a set of neighbors of vertex
         private List<int> Neighborhood(int vtx)
         {
@@ -229,6 +240,21 @@ namespace Graphs
             return neighbors;
         }
         
+        /// <summary>
+        /// Method that initializes predecessors and minimal paths for each vertex from src 
+        /// </summary>
+        /// <param name="src"></param>
+        public void InitializeSingleSource(int src)
+        {
+            src--;
+            int size = this.Size;
+            for (int i = 0; i < size; i++)
+            {
+                Preds[i] = -1;
+                Marks[i] = posInf;
+            }
+            Marks[src] = 0; //for source vtx predecessor is 0
+        }
     }
 
     public class OrientedGraph : Graph

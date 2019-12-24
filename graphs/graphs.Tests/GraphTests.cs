@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Graphs.Floyd;
+using graphs.Searches;
 using graphs.ShortestPaths;
 using graphs.SpanningTree;
 using graphs.Utils;
+using Microsoft.VisualBasic.CompilerServices;
 using NUnit.Framework;
 
 namespace Graphs.Tests
@@ -16,7 +18,8 @@ namespace Graphs.Tests
         private Graph graph2;
         private Graph graph3;
         private Graph graph4;
-        
+        private Graph graph5;
+
         [SetUp]
         public void Setup()
         {
@@ -58,55 +61,69 @@ namespace Graphs.Tests
             //-----------------------------------
 
             graph2 = new OrientedGraph(8);
-            graph2.AddEdge(1, 5,5);
+            graph2.AddEdge(1, 5, 5);
 
-            graph2.AddEdge(2, 1,4);
-            graph2.AddEdge(2, 6,7);
+            graph2.AddEdge(2, 1, 4);
+            graph2.AddEdge(2, 6, 7);
 
-            graph2.AddEdge(3, 2,3);
+            graph2.AddEdge(3, 2, 3);
 
-            graph2.AddEdge(4, 8,4);
-            graph2.AddEdge(4, 7,3);
+            graph2.AddEdge(4, 8, 4);
+            graph2.AddEdge(4, 7, 3);
 
-            graph2.AddEdge(6, 3,1);
-            graph2.AddEdge(6, 5,2);
+            graph2.AddEdge(6, 3, 1);
+            graph2.AddEdge(6, 5, 2);
 
-            graph2.AddEdge(7, 2,5);
-            graph2.AddEdge(7, 6,4);
+            graph2.AddEdge(7, 2, 5);
+            graph2.AddEdge(7, 6, 4);
 
-            graph2.AddEdge(8, 7,6);
+            graph2.AddEdge(8, 7, 6);
             //---------------------------------
-            
+
             graph3 = new OrientedGraph(8);
-            graph3.AddEdge(1,2,7);
-            graph3.AddEdge(1,4,5);
-            graph3.AddEdge(1,6,1);
+            graph3.AddEdge(1, 2, 7);
+            graph3.AddEdge(1, 4, 5);
+            graph3.AddEdge(1, 6, 1);
 
-            graph3.AddEdge(2,3,4);
-            graph3.AddEdge(2,5,2);
+            graph3.AddEdge(2, 3, 4);
+            graph3.AddEdge(2, 5, 2);
 
-            graph3.AddEdge(3,8,6);
-            
-            graph3.AddEdge(4,2,1);
-            graph3.AddEdge(4,3,3);
-            graph3.AddEdge(4,5,4);
-            
-            graph3.AddEdge(5,8,1);
-            
-            graph3.AddEdge(6,4,3);
-            graph3.AddEdge(6,7,1);
-            
-            graph3.AddEdge(7,4,1);
-            graph3.AddEdge(7,5,1);
-            graph3.AddEdge(7,8,8);
+            graph3.AddEdge(3, 8, 6);
+
+            graph3.AddEdge(4, 2, 1);
+            graph3.AddEdge(4, 3, 3);
+            graph3.AddEdge(4, 5, 4);
+
+            graph3.AddEdge(5, 8, 1);
+
+            graph3.AddEdge(6, 4, 3);
+            graph3.AddEdge(6, 7, 1);
+
+            graph3.AddEdge(7, 4, 1);
+            graph3.AddEdge(7, 5, 1);
+            graph3.AddEdge(7, 8, 8);
             //---------------------------------
-            
+
             graph4 = new OrientedGraph(4);
-            graph4.AddEdge(1,4);
-            graph4.AddEdge(1,2);
-            graph4.AddEdge(2,4);
-            graph4.AddEdge(3,2);
-            graph4.AddEdge(3,4);
+            graph4.AddEdge(1, 4);
+            graph4.AddEdge(1, 2);
+            graph4.AddEdge(2, 4);
+            graph4.AddEdge(3, 2);
+            graph4.AddEdge(3, 4);
+            
+            //----------------------------------
+            graph5 = new Graph(7);
+            graph5.AddEdge(1,2);
+            graph5.AddEdge(1,3);
+            
+            graph5.AddEdge(2,3);
+            
+            graph5.AddEdge(4,3);
+            
+            graph5.AddEdge(5,6);
+            graph5.AddEdge(5,7);
+            
+            graph5.AddEdge(6,7);
         }
 
         [Test]
@@ -148,8 +165,7 @@ namespace Graphs.Tests
         [Test]
         public void TopologicalSortTest()
         {
-            Utils ut = new Utils();
-            List<int> topSort = ut.Topological_Sort(graph4);
+            List<int> topSort = GraphUtils.Topological_Sort(graph4);
 
             Console.Write("Graph: ");
             graph4.PrintGraph();
@@ -173,10 +189,17 @@ namespace Graphs.Tests
             spp.Print_Path(src, dest);
             Console.WriteLine("=src");
             Console.Write($"Length of path = {graph3.Marks[--dest]}");
-            
+
         }
 
-        //Floyd-Warshall searchPaths
+        [Test]
+        public void Define_Connected_Components()
+        {
+            graph5.PrintGraph();
+            GraphUtils.GetConnectedComponents(graph5);
+        }
+
+    //Floyd-Warshall searchPaths
     //        [TestCase(1,5)]
     //        public void FloydTest(int src, int dest)
     //        {
