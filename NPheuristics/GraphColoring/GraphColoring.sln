@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# 
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphColoring", "GraphColoring\GraphColoring.csproj", "{8DF061F0-FED2-49E0-9FF7-4E91E6455F00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphColoring.DSatur", "GraphColoring.DSatur\GraphColoring.DSatur.csproj", "{9E252559-B20E-4569-A1D3-DFF8F8FA2B75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphColoring.Test", "GraphColoring.Test\GraphColoring.Test.csproj", "{BE42610C-9E28-4763-A479-08A26EFF835E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DF061F0-FED2-49E0-9FF7-4E91E6455F00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DF061F0-FED2-49E0-9FF7-4E91E6455F00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DF061F0-FED2-49E0-9FF7-4E91E6455F00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DF061F0-FED2-49E0-9FF7-4E91E6455F00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E252559-B20E-4569-A1D3-DFF8F8FA2B75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E252559-B20E-4569-A1D3-DFF8F8FA2B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E252559-B20E-4569-A1D3-DFF8F8FA2B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E252559-B20E-4569-A1D3-DFF8F8FA2B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE42610C-9E28-4763-A479-08A26EFF835E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE42610C-9E28-4763-A479-08A26EFF835E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE42610C-9E28-4763-A479-08A26EFF835E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE42610C-9E28-4763-A479-08A26EFF835E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
