@@ -1,0 +1,31 @@
+# state,readSymb : nextState, writeSymb, shift
+# strings which start from > and not readable by MachineBuilder
+# e - end state
+
+# task 1.7 - leave only middle char in word of odd length
+ 0,a : 0,a,1
+ 0,b : 0,b,1
+ 0,c : 0,c,1
+ 0,# : 1,#,-1
+
+ 1,a : 2,a,-1
+ 1,b : 2,b,-1
+ 1,c : 2,c,-1
+
+ 2,# : e,#,1
+ 2,a : 3,a,1
+ 2,b : 3,b,1
+ 2,c : 3,c,1
+
+ 3,a : 4,#,-1
+ 3,b : 4,#,-1
+ 3,c : 4,#,-1
+
+ 4,a : 4,a,-1
+ 4,b : 4,b,-1
+ 4,c : 4,c,-1
+ 4,# : 5,#,1
+
+ 5,a : 0,#,1
+ 5,b : 0,#,1
+ 5,c : 0,#,1

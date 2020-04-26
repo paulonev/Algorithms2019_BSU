@@ -47,5 +47,28 @@
 /HuffmanCodes/HuffmanCodesCSharp.Tests/bin/*
 /HuffmanCodes/HuffmanCodesCSharp.Tests/obj/*
 
+/graphs#extra/GraphSearch/DepthFirstSearch/bin/*
+/graphs#extra/GraphSearch/DepthFirstSearch/obj/*
 
+/graphs#extra/GraphSearch/Graph/bin/*
+/graphs#extra/GraphSearch/Graph/obj/*
+
+/graphs#extra/GraphSearch/GraphBuilder/bin/*
+/graphs#extra/GraphSearch/GraphBuilder/obj/*
+
+/graphs#extra/GraphSearch/GraphSearch/bin/*
+/graphs#extra/GraphSearch/GraphSearch/obj/*
+
+/NPheuristics/GraphColoring/GraphColoring/bin/*
+/NPheuristics/GraphColoring/GraphColoring/obj/*
+
+/NPheuristics/GraphColoring/GraphColoring.DSatur/bin/*
+/NPheuristics/GraphColoring/GraphColoring.DSatur/obj/*
+
+/NPheuristics/GraphColoring/GraphColoring.Test/bin/*
+/NPheuristics/GraphColoring/GraphColoring.Test/obj/*
+
+/TuringMachines/TuringMachines/bin/*
+/TuringMachines/TuringMachines/obj/*
+/TuringMachines/TuringMachines/.idea/*
 
