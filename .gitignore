@@ -65,6 +65,7 @@
 /NPheuristics/GraphColoring/GraphColoring.DSatur/bin/*
 /NPheuristics/GraphColoring/GraphColoring.DSatur/obj/*
 
+/NPheuristics/GraphColoring/.idea/*
 /NPheuristics/GraphColoring/GraphColoring.Test/bin/*
 /NPheuristics/GraphColoring/GraphColoring.Test/obj/*
 
@@ -72,3 +73,4 @@
 /TuringMachines/TuringMachines/obj/*
 /TuringMachines/TuringMachines/.idea/*
 
+/GeneticAlgorithm/__pycache__/*
