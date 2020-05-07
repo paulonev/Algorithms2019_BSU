@@ -9,6 +9,7 @@ namespace TuringMachines
     {
         public static void Main(string[] args)
         {
+//            for running Task17() and Task28() - "old" Turing Automates
 //            while (true)
 //            {
 //                Console.WriteLine($"Output {Task17()}");
@@ -20,7 +21,7 @@ namespace TuringMachines
 //            string pattern = "music";
             
             using StreamReader sr =
-                new StreamReader("/home/paul/coding/algorithms-data-structures/TuringMachines/TuringMachines/worldandpeace_oneline.txt");
+                new StreamReader("/home/paul/coding/algorithms-data-structures/TuringMachines/TuringMachines/data/worldandpeace_oneline.txt");
             string text = sr.ReadLine()?.Trim();
 
             var machine = new KmpAutomate(pattern: args[0]);
