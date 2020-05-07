@@ -1,9 +1,7 @@
 using System.Linq;
 using System.IO;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 
 namespace TuringMachines
 {
@@ -18,6 +16,10 @@ namespace TuringMachines
 
         public virtual void AddOperation(string state, string character, string[] operation)
         {}
+        
+        public virtual void AddOperation(int[] prefixTable)
+        {}
+
     }
 
     public class TuringMachine : Machine
@@ -40,6 +42,57 @@ namespace TuringMachines
         }
     }
 
+    public class KmpAutomate : Machine
+    {
+        /// <summary>
+        /// Matching pattern
+        /// </summary>
+        public string Pattern { get; }
+
+        public KmpAutomate(string pattern)
+        {
+            Pattern = pattern;
+        }
+        
+        public override void AddOperation(int[] prefixTable)
+        {
+            // Add for first symbol in pattern
+            ShiftTable.Add("0", new Dictionary<char, Move>
+            {
+                {Pattern[0], new Move(nextState:"1", symb:Pattern[0], shift:1)}
+            });
+            ShiftTable["0"].Add('$', new Move(nextState:"0", symb:'$', shift:1));
+
+            
+            for (int i = 1; i < prefixTable.Length; i++)
+            {
+                string state = i.ToString();
+                var patChar = Pattern[i];
+                if (!ShiftTable.ContainsKey(state))
+                {
+                    if (i == prefixTable.Length - 1)
+                    {
+                        ShiftTable.Add(state, new Dictionary<char, Move>
+                        {
+                            {patChar, new Move(nextState:"y", symb:patChar, shift:1)}
+                        });     
+                    }
+                    else
+                    {
+                        ShiftTable.Add(state, new Dictionary<char, Move>
+                        {
+                            {patChar, new Move(nextState:(i+1).ToString(), symb:patChar, shift:1)}
+                        });    
+                    }
+                }
+                ShiftTable[state].Add('$', new Move(nextState:prefixTable[i-1].ToString(), symb:'$', shift:0));
+            }   
+            
+            
+        }
+    }
+    
+    
     public class MachineBuilder
     {
         public static TuringMachine BuildMachine(string filePath)

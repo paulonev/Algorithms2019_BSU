@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using System.IO;
 using System.Text;
 
 namespace TuringMachines
@@ -8,13 +9,38 @@ namespace TuringMachines
     {
         public static void Main(string[] args)
         {
-            while (true)
-            {
-                Console.WriteLine($"Output {Task17()}");
-                Console.WriteLine($"Output {Task28()}");
-                return;
-            }
+//            while (true)
+//            {
+//                Console.WriteLine($"Output {Task17()}");
+//                Console.WriteLine($"Output {Task28()}");
+//                return;
+//            }
+
+//            string text = "adsgwadsxdsgwadsgz";
+//            string pattern = "music";
             
+            using StreamReader sr =
+                new StreamReader("/home/paul/coding/algorithms-data-structures/TuringMachines/TuringMachines/worldandpeace_oneline.txt");
+            string text = sr.ReadLine()?.Trim();
+
+            var machine = new KmpAutomate(pattern: args[0]);
+            machine.AddOperation(prefixTable: machine.Pattern.PrefixSuffix());
+            List<string> endStates = new List<string>{"y", "n"};
+            
+            var answer = MachineRunner.RunPatternSearch(
+                text: text, 
+                machine: machine, 
+                pattern: machine.Pattern,
+                endStates: endStates,
+                log: true);
+
+            Console.WriteLine($"{machine.Pattern} found in {answer.Count} places");
+            Console.Write($"Indexes of occurence: ");
+            foreach (var item in answer)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
         }
 
         public static string Task17()

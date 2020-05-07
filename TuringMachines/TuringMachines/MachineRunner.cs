@@ -16,12 +16,50 @@ namespace TuringMachines
             ReplaceWith = symb;
             NextState = nextState;
         }
-    };
-
+    }
+    
     public class MachineRunner
     {
-        //run instructions "machine" on the given input word
-        public static string Run(string input, TuringMachine machine, 
+
+        public static List<int> RunPatternSearch(string text, Machine machine, string pattern,
+            List<string> endStates, bool log, int head = 0)
+        {
+            int patLen = pattern.Length;
+            int pos = head;
+            string state = "0";
+            var matchIndexes = new List<int>();
+            
+            while (true)
+            {
+                if (pos == text.Length)
+                {
+                    if (state.Equals("y"))
+                        matchIndexes.Add(pos - patLen);
+                    return matchIndexes;
+                }
+                
+                if (endStates.Contains(state))
+                {
+                    matchIndexes.Add(pos - patLen); // found a match of pattern and added index of occurence
+                    state = "0";
+                }
+                
+                char curSymbol = text[pos];
+                var mv = machine.ShiftTable[state].ContainsKey(curSymbol) 
+                    ? machine.ShiftTable[state][text[pos]] 
+                    : machine.ShiftTable[state]['$'];
+                
+                if (log)
+                {
+                    Console.WriteLine($"--- head on: {pos} -> nextState: {mv.NextState}, move: {mv.Shift}");    
+                }
+                pos += mv.Shift;
+                state = mv.NextState;
+            }
+        }
+        
+        
+        public static string Run(string input, Machine machine, 
                         List<string> endProgramStates, bool log, int head = 0)
         {
             StringBuilder sb = new StringBuilder(input);
@@ -49,8 +87,10 @@ namespace TuringMachines
                 sb[pos]= mv.ReplaceWith;
                 pos += mv.Shift;
             }
-        }
+        }        
+
         
+
         /*
         prerequisites of solving problems using turing machine:
         1) finite state set ( including initial and end )
