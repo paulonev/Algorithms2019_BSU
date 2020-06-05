@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using Graphs;
 using DepthFirstSearch;
-using Graphs.Builder;
+using GraphsBuilder;
 
 namespace GraphSearch
 {
@@ -38,11 +37,23 @@ namespace GraphSearch
                 
                 //Try Programming Assignment #1
                 //Reading edges from file
+
+                string kosarajuPath =
+                    "/home/paul/coding/algorithms-data-structures/graphs#extra/GraphSearch/SCC.txt";
+//                Graph graph = new GraphBuilder().BuildFromFileForSCC(kosarajuPath);
+//                Compute.StronglyConnectedComponents(graph);
                 
-                Graph graph = new GraphBuilder().BuildFromFile("/home/paul/coding/algorithms-data-structures/graphs#extra/GraphSearch/SCC.txt");
-//                graph.PrintGraph();
-                Compute.StronglyConnectedComponents(graph);
                 
+//                string dijkstraTestPath =
+//                    "/home/paul/coding/algorithms-data-structures/graphs#extra/GraphSearch/dijkstraDataTest.txt";
+//                
+                string dijkstraPath =
+                    "/home/paul/coding/algorithms-data-structures/graphs#extra/GraphSearch/dijkstraData.txt";
+                DirectedGraph graph1 = new GraphBuilder().BuildFromFileForDijkstra(dijkstraPath);
+                SingleSourceShortestPaths ssp = new SingleSourceShortestPaths();
+                ssp.Dijkstra(graph1, 1);
+
+                Console.WriteLine(ssp.GetDijkstraOutput());
             }
             catch (Exception ex)
             {

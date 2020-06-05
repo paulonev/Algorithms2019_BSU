@@ -2,10 +2,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Graph\Graph.csproj" />
+    <ProjectReference Include="..\GraphSearch.MinHeap\GraphSearch.MinHeap.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>DepthFirstSearch</RootNamespace>
   </PropertyGroup>
 
 </Project>

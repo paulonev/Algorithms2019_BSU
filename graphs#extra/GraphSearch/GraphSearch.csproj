@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
+      <ProjectReference Include="..\GraphApplications\GraphApplications.csproj" />
       <ProjectReference Include="..\Graph\Graph.csproj" />
-      <ProjectReference Include="..\DepthFirstSearch\DepthFirstSearch.csproj" />
       <ProjectReference Include="..\GraphBuilder\GraphBuilder.csproj" />
     </ItemGroup>
 

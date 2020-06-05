@@ -7,11 +7,58 @@ using System.Runtime.CompilerServices;
 
 namespace Graphs
 {
+    /// Graph component
+    /// Represents any edge of graph (tail, head, weight)
+    /// where tail - start of edge, head - end of edge, weight - integral characteristic of edge
+    public struct GraphEdge
+    {
+        public ushort Source { get; set; }
+        public ushort Dest { get; set; }
+        public ushort Weight { get; set; }
+        
+        public GraphEdge(ushort src, ushort dest, ushort w)
+        {
+            Source = src;
+            Dest = dest;
+            Weight = w;
+        }
+        
+    }
+    
     public class DirectedGraph : Graph
     {
-        public DirectedGraph() : base()
-        {}
+        public Dictionary<int, List<GraphEdge>> Edges { get; set; }
 
+        public DirectedGraph() : base()
+        {
+            Edges = new Dictionary<int, List<GraphEdge>>();
+        }
+
+        public override void AddEdge(ushort src, ushort dest, ushort weight, bool readFromFile = false)
+        {
+            if (!readFromFile)
+            {
+                if (src < 1 || src > Size)
+                {
+                    throw new ArgumentException("Can't add this edge // Wrong Source Vertex!");
+                }
+                if (dest < 1 || dest > Size)
+                {
+                    throw new ArgumentException("Can't add this edge // Wrong Destination Vertex!");
+                }    
+            }
+
+            bool containsSrc = Edges.ContainsKey(src);
+            bool containsDest = Edges.ContainsKey(dest);
+
+            if(!containsDest)
+                Edges.Add(dest,new List<GraphEdge>());
+            if (!containsSrc)
+                Edges.Add(src, new List<GraphEdge>{new GraphEdge(src, dest, weight)});
+            else
+                Edges[src].Add(new GraphEdge(src, dest, weight));
+            //Console.WriteLine($"Add directed edge [{src},{dest}] to graph");
+        }
         public override void AddEdge(int src, int dest, bool readFromFile = false)
         {
             if (!readFromFile)
@@ -25,7 +72,7 @@ namespace Graphs
                     throw new ArgumentException("Can't add this edge // Wrong Destination Vertex!");
                 }    
             }
-            
+
             bool containsSrc = Adjacents.ContainsKey(src);
             bool containsDest = Adjacents.ContainsKey(dest);
             
@@ -51,11 +98,12 @@ namespace Graphs
             else Console.WriteLine("Can't remove directed edge // 404 - Edge not found!");
         }
     }
-    
+
     public class Graph
     {
         public int Size => Adjacents.Keys.Count;
         public Dictionary<int, List<int>> Adjacents { get; private set; }
+
         public Dictionary<int, List<int>> ConnectedComponentsDict { get; set; }
         //new edges will be added in the form of
         //graph.AddEdge(src,dest)
@@ -90,6 +138,28 @@ namespace Graphs
         }
         
         public virtual void AddEdge(int src, int dest, bool readFromFile = false)
+        {
+            if(!readFromFile)
+            {
+                if (src < 1 || src > Size)
+                {
+                    throw new ArgumentException("Can't add this edge // Wrong Source Vertex!");
+                }
+                if (dest < 1 || dest > Size)
+                {
+                    throw new ArgumentException("Can't add this edge // Wrong Destination Vertex!");
+                }    
+            }
+
+            if (!Adjacents[src].Contains(dest))
+            {
+                Adjacents[src].Add(dest);
+                Adjacents[dest].Add(src);
+                Console.WriteLine($"Add edge [{src},{dest}] to graph");
+            }
+        }
+        
+        public virtual void AddEdge(ushort src, ushort dest, ushort weight, bool readFromFile = false)
         {
             if(!readFromFile)
             {

@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# 
+#
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSearch", "GraphSearch\GraphSearch.csproj", "{920B798E-1FA4-43DF-86BF-87C3A6B7AB41}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj", "{C72EBF3C-3CE5-492B-AA11-FC4A41F76EB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepthFirstSearch", "DepthFirstSearch\DepthFirstSearch.csproj", "{C3C98FDF-4C6E-464C-9C07-BF2AFEBB4E82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphApplications", "GraphApplications\GraphApplications.csproj", "{C3C98FDF-4C6E-464C-9C07-BF2AFEBB4E82}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphBuilder", "GraphBuilder\GraphBuilder.csproj", "{36714A30-26DE-487C-8984-0A170ABFAC1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSearch.MinHeap", "GraphSearch.MinHeap\GraphSearch.MinHeap.csproj", "{149E62BE-817C-4F3F-AB8D-C0DDC5D9AEF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,5 +33,9 @@ Global
 		{36714A30-26DE-487C-8984-0A170ABFAC1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36714A30-26DE-487C-8984-0A170ABFAC1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36714A30-26DE-487C-8984-0A170ABFAC1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{149E62BE-817C-4F3F-AB8D-C0DDC5D9AEF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{149E62BE-817C-4F3F-AB8D-C0DDC5D9AEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{149E62BE-817C-4F3F-AB8D-C0DDC5D9AEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{149E62BE-817C-4F3F-AB8D-C0DDC5D9AEF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
