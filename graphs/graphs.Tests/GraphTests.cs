@@ -45,7 +45,7 @@ namespace Graphs.Tests
             graph.AddEdge(6, 7, 7);
 
             //----------------------------------
-            graph1 = new OrientedGraph(4);
+            graph1 = new DirectedGraph(4);
 
             graph1.AddEdge(1, 2, 8);
             graph1.AddEdge(1, 3, 3);
@@ -60,7 +60,7 @@ namespace Graphs.Tests
             graph1.AddEdge(4, 3, -8);
             //-----------------------------------
 
-            graph2 = new OrientedGraph(8);
+            graph2 = new DirectedGraph(8);
             graph2.AddEdge(1, 5, 5);
 
             graph2.AddEdge(2, 1, 4);
@@ -80,7 +80,7 @@ namespace Graphs.Tests
             graph2.AddEdge(8, 7, 6);
             //---------------------------------
 
-            graph3 = new OrientedGraph(8);
+            graph3 = new DirectedGraph(8);
             graph3.AddEdge(1, 2, 7);
             graph3.AddEdge(1, 4, 5);
             graph3.AddEdge(1, 6, 1);
@@ -104,7 +104,7 @@ namespace Graphs.Tests
             graph3.AddEdge(7, 8, 8);
             //---------------------------------
 
-            graph4 = new OrientedGraph(4);
+            graph4 = new DirectedGraph(4);
             graph4.AddEdge(1, 4);
             graph4.AddEdge(1, 2);
             graph4.AddEdge(2, 4);
@@ -184,7 +184,7 @@ namespace Graphs.Tests
             int src = 1;
             spp.Dijkstra(src);
 
-            int dest = 8;
+            int dest = 3;
             Console.Write("dest=");
             spp.Print_Path(src, dest);
             Console.WriteLine("=src");

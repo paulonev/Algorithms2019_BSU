@@ -21,26 +21,31 @@ namespace graphs.ShortestPaths
         }
         
         /// <summary>
-        /// Finds shortest paths(sequence of edges connecting any v to src) for any vertex of Graph
+        /// Finds shortest paths(sequence of edges connecting src to any v) for any vertex of Graph
         /// </summary>
         /// <param name="src"></param>
         public void Dijkstra(int src)
         {
            graph.InitializeSingleSource(src); //for each vtx set predecessor[vtx]=NULL, Mark[vtx]=INF, but for *src* Mark(src)=0
-           MinHeap Q = new MinHeap(graph); //implement Extract-Min in (log n), InsertKey in (log n), DecreaseKey in (log n) 
+           MinHeap heap = new MinHeap(graph); //implement Extract-Min in (log n), InsertKey in (log n), DecreaseKey in (log n) 
            for (int i = 0; i < graph.Size; i++)
            {
-               Q.InsertKey(i);
+               heap.InsertKey(i);
            }
            
-           while (Q.Heap_size > 0)
+           while (heap.Heap_size > 0)
            {
-               var u = Q.ExtractMin();
+               var u = heap.ExtractMin();
                 
                foreach (var edge in graph.AdjacencyList[u])
                {
                    //decrease the value of path if it's possible to
-                   Relaxation(Q, edge);
+                   //foreach (u,v) where v in V-X do
+                   //1.delete v from heap
+                   //2.update key(v)
+                   //3.insert v into heap
+                   //in logarithmic time
+                   Relaxation(heap, edge);
                }
            }
         }
@@ -63,20 +68,19 @@ namespace graphs.ShortestPaths
         /// <summary>
         /// Optimizes distances from src to edge.Dest through edge.Src
         /// </summary>
-        /// <param name="graph">Graph with src vertex</param>
+        /// <param name="heap">Heap that stores non-proceeded vertices</param>
         /// <param name="edge">Adjacent edge to temp vertex</param>
-        private void Relaxation(MinHeap Q, WeightedEdge edge)
+        private void Relaxation(MinHeap heap, WeightedEdge edge)
         {
             //consider (u,v) edge
             int src = edge.Src;
             int dest = edge.Dest;
             int uvWeight = edge.Weight;
-//            int uvWeight = graph.AdjacencyList[u].Find(it => it.Dest == v).Weight;
             if (graph.Marks[dest] > graph.Marks[src] + uvWeight)
             {
                 graph.Marks[dest] = graph.Marks[src] + uvWeight;
                 graph.Preds[dest] = src;
-                Q.DecreaseKey(dest, graph.Marks[dest]);
+                heap.DecreaseKey(dest, graph.Marks[dest]);
             }
 
         }

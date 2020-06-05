@@ -103,8 +103,8 @@ namespace Graphs
         /// Add adjacent vertex [dest] to the adjacency list of [src] and vice versa
         /// This pair (src, dest) is an edge of graph G
         /// </summary>
-        /// <param name="source">source vertex</param>
-        /// <param name="d">destination vertex</param>
+        /// <param name="src">source vertex</param>
+        /// <param name="dest">destination vertex</param>
         /// <param name="w">weight of edge (1 by default)</param>
         public virtual void AddEdge(int src, int dest, int w = 1)
         {
@@ -141,9 +141,9 @@ namespace Graphs
                 {
                     return AreAdjacentEdges(ob1, ob2);
                 }
-                else return false;
+                return false;
             }
-            else return false;
+            return false;
         }
 
         private bool AreAdjacentVertices(Object ob1, Object ob2)
@@ -253,13 +253,13 @@ namespace Graphs
                 Preds[i] = -1;
                 Marks[i] = posInf;
             }
-            Marks[src] = 0; //for source vtx predecessor is 0
+            Marks[src] = 0; //for source vtx dist is 0
         }
     }
 
-    public class OrientedGraph : Graph
+    public class DirectedGraph : Graph
     {
-        public OrientedGraph(int size) : base(size) {}
+        public DirectedGraph(int size) : base(size) {}
 
         public override void AddEdge(int src, int dest, int w = 1)
         {

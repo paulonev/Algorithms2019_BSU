@@ -8,15 +8,35 @@ using Graphs;
 
 namespace graphs.Searches
 {
+//    public enum SearchTypes{ DFS, BFS }
     /// <summary>
     /// This static class is used to implement BFS and DFS search algorithms
     /// </summary>
-    public class Searches
+    public class Search
     {
         public static int Time { get; set; }
-        
+        //        private SearchTypes searchType;
+
+//        public Search(string type)
+//        {
+//            if (type.ToLower() == "dfs")
+//            {
+//                searchType = SearchTypes.DFS;
+//            }
+//            else searchType = SearchTypes.BFS;
+//        }
+//        public List<int> DoSearch(Graph g, List<int> vertices)
+//        {
+//            if (searchType == SearchTypes.BFS)
+//            {
+//                return BFS(g, vertices);
+//            }
+//
+//            return null;
+//        }
+
         /// <summary>
-        /// Deep-first search of graph
+        /// Depth-first search of graph
         /// This method goes over a directed/undirected graph G
         /// Recursive strategy..
         /// </summary>
@@ -56,8 +76,13 @@ namespace graphs.Searches
         }
 
         /// <summary>
-        /// Way of traversing directed acyclic graph from source vtx
-        /// Returns vertices that belong to connected component 
+        /// Way of traversing directed/undirected graph from source vtx
+        /// Returns vertices that belong to connected component
+        /// In linear to N(src) & M(src) time, where Ns and Ms are number of vertices and edges, respectively,
+        /// reachable from src
+        /// Applications:
+        /// - Shortest Path problem
+        /// - CC problem of undirected graph
         /// </summary>
         /// <param name="graph">directed acyclic graph</param>
         /// <param name="vertices">vertices not yet been examined</param>

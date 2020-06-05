@@ -7,12 +7,12 @@ namespace graphs.ADT
     public struct HeapNode
     {
         public int Vtx { get; set; }
-        public int Mark { get; set; }
+        public int Key { get; set; }
 
-        public HeapNode(int v, int m)
+        public HeapNode(int v, int key)
         {
             Vtx = v;
-            Mark = m;
+            Key = key;
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace graphs.ADT
                 return false;
             }
 
-            return this.Vtx == node.Vtx && this.Mark == node.Mark;
+            return this.Vtx == node.Vtx && this.Key == node.Key;
         }
 
         public override int GetHashCode()
@@ -61,7 +61,7 @@ namespace graphs.ADT
         /// </summary>
         /// <param name="i">specified element</param>
         /// <returns></returns>
-        public int parent(int i) => (i-1) / 2;
+        public int Parent(int i) => (i-1) / 2;
         
         
         /// <summary>
@@ -69,7 +69,7 @@ namespace graphs.ADT
         /// </summary>
         /// <param name="i">specified element</param>
         /// <returns></returns>
-        public int left(int i)   =>  2*i + 1;
+        public int Left(int i)   =>  2*i + 1;
         
         
         /// <summary>
@@ -77,7 +77,7 @@ namespace graphs.ADT
         /// </summary>
         /// <param name="i">specified element</param>
         /// <returns></returns>
-        public int right(int i)  =>  2*i + 2;
+        public int Right(int i)  =>  2*i + 2;
         
         
         public MinHeap(Graph graph)
@@ -85,10 +85,6 @@ namespace graphs.ADT
             this.graph = graph;
             Capacity = this.graph.Size;
             Heap_array = new HeapNode[Capacity];
-//            for (int i = 0; i < Capacity; i++)
-//            {
-//                Heap_array[i] = new HeapNode(i, this.graph.Marks[i]);
-//            }
             Heap_size = 0;
         }
 
@@ -106,10 +102,11 @@ namespace graphs.ADT
 
             //insert it in right(according to min-heap) position
             //so that any it's child node has bigger Mark 
-            while (i != 0 && Heap_array[parent(i)].Mark > Heap_array[i].Mark)
+            //Bubble-Upping node
+            while (i != 0 && Heap_array[Parent(i)].Key > Heap_array[i].Key)
             {
-                Swap(i,  parent(i));
-                i = parent(i);
+                Swap(i,  Parent(i));
+                i = Parent(i);
             }
         }
 
@@ -139,40 +136,41 @@ namespace graphs.ADT
         /// Changes Mark for i-th Node to the new_value
         /// </summary>
         /// <param name="vtx">Node</param>
-        /// <param name="new_value">smaller Mark than before</param>
-        public void DecreaseKey(int vtx, int new_value)
+        /// <param name="newValue">smaller Mark than before</param>
+        public void DecreaseKey(int vtx, int newValue)
         {
             var heapNode = Heap_array.First(n => n.Vtx == vtx);
             int i = Array.IndexOf(Heap_array, heapNode);
-            Heap_array[i].Mark = new_value;
+            Heap_array[i].Key = newValue;
 
-            while (i != 0 && Heap_array[parent(i)].Mark > Heap_array[i].Mark) 
+            while (i != 0 && Heap_array[Parent(i)].Key > Heap_array[i].Key) 
             { 
-                Swap(i, parent(i)); 
-                i = parent(i); 
+                Swap(i, Parent(i)); 
+                i = Parent(i); 
             } 
         }
         
         /// <summary>
-        /// Convert "broken" array to heap
+        /// Maintain heap property
         /// </summary>
         /// <param name="i">index of Node that's in wrong position</param>
         private void MinHeapify(int i)
         {
             //take children of i-th Node
-            int l = left(i);
-            int r = right(i);
+            int l = Left(i);
+            int r = Right(i);
             int smallest = i;
 
-            if (l < Heap_size && Heap_array[l].Mark < Heap_array[i].Mark) 
-                smallest = l; 
-            if (r < Heap_size && Heap_array[r].Mark < Heap_array[smallest].Mark) 
+            if (l < Heap_size && Heap_array[l].Key < Heap_array[i].Key)
+                smallest = l;
+            if (r < Heap_size && Heap_array[r].Key < Heap_array[smallest].Key) 
                 smallest = r; 
             if (smallest != i) 
             { 
                 Swap(i, smallest); 
                 MinHeapify(smallest); 
-            } 
+            }
+
         }
         
         /// <summary>

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.NetworkInformation;
 using Graphs;
-using graphs.ADT;
 using graphs.Searches;
 
 namespace graphs.Utils
@@ -23,11 +21,11 @@ namespace graphs.Utils
         /// <returns></returns>
         public static List<int> Topological_Sort(Graph graph)
         {
-            Searches.Searches.DFS(graph);
+            Search.DFS(graph);
             graph.TpgSortList.Reverse();
             return graph.TpgSortList;
         }
-        
+
         /// <summary>
         /// Constructor Euler path in graph if it's Euler graph(deg v = 2*k)
         /// Otherwise throw an Exception
@@ -47,7 +45,7 @@ namespace graphs.Utils
 
         }
 
-        
+
         /// <summary>
         /// Define connected components of the given graph
         /// And print vertices of each components per line
@@ -62,12 +60,12 @@ namespace graphs.Utils
             int temp = 1;
             while (vertices.Count > 0)
             {
-                List<int> verticesInComponent = Searches.Searches.BFS(g,vertices);
+                List<int> verticesInComponent = Search.BFS(g, vertices);
                 componentsMap[temp] = verticesInComponent;
                 vertices = vertices.Except(verticesInComponent).ToList();
                 temp++;
             }
-            
+
             PrintComponents(componentsMap);
         }
 
@@ -99,7 +97,5 @@ namespace graphs.Utils
             }
             return min;
         }
-        
-        
     }
 }
