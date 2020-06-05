@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\GraphColoring\GraphColoring.csproj" />
+    <ProjectReference Include="..\GraphColoring.Objects\GraphColoring.Objects.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

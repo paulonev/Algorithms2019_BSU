@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Xml.Serialization;
 
 namespace GraphColoring
 {
@@ -10,11 +9,9 @@ namespace GraphColoring
         public int Size { get; set; }
         public List<Vertex> Vertices { get; private set; }
 
-        public Dictionary<int,List<int>> ConnectedComponentsDict { get; set; }
-        //new edges will be added in the form of
-        //graph.AddEdge(src,dest)
         public Graph()
         {
+            Vertices = new List<Vertex>();
         }
 
         public Graph(int size)
@@ -32,21 +29,23 @@ namespace GraphColoring
         {
             return !(v1 < 1 || v1 > Size) || (v2 < 1 || v2 > Size);
         }
-        
+
         public virtual void AddEdge(int src, int dest)
         {
-            if (src < 1 || src > Size)
-            {
-                throw new ArgumentException("Can't add this edge // Wrong Source Vertex!");
-            }
-            if (dest < 1 || dest > Size)
-            {
-                throw new ArgumentException("Can't add this edge // Wrong Destination Vertex!");
-            }
 
-            Vertex srcVtx = Vertices.Find(v => v.Value == src);
-            Vertex destVtx = Vertices.Find(v => v.Value == dest);
-            if (!srcVtx.AdjVertices.Exists(v=>v.Value == destVtx.Value))
+//            if (src < 1 || src > Size)
+//            {
+//                throw new ArgumentException($"Can't add this edge // Wrong Source Vertex - {src}");
+//            }
+//            if (dest < 1 || dest > Size)
+//            {
+//                throw new ArgumentException("Can't add this edge // Wrong Destination Vertex!");
+//            }
+
+            Vertex srcVtx = FindVertex(src);
+            Vertex destVtx = FindVertex(dest);
+            
+            if (!srcVtx.AdjVertices.Exists(v=>v.Value == dest))
             {
                 srcVtx.AdjVertices.Add(destVtx);
                 destVtx.AdjVertices.Add(srcVtx);
@@ -54,6 +53,23 @@ namespace GraphColoring
             }
         }
 
+        /// <summary>
+        /// Given vertex value search for Vertex in graph
+        /// If it's not in graph, create new vertex and add to graph
+        /// </summary>
+        /// <param name="val">search parameter</param>
+        /// <returns>vertex, whether found or created</returns>
+        private Vertex FindVertex(int val)
+        {
+            if (!Vertices.Exists(v => v.Value == val))
+            {
+                Vertex vertex = new Vertex(val);
+                Vertices.Add(vertex);
+                return vertex;
+            }
+            return Vertices.Find(v => v.Value == val);
+        }
+        
         /// <summary>
         /// Attempts to remove edge from list of vertices of graph
         /// Otherwise throw an ArgumentException
@@ -119,4 +135,36 @@ namespace GraphColoring
             return GetGraph();
         }
     }
+
+//    public class GraphBuilder
+//    {
+//        public GraphBuilder()
+//        {}
+//        
+//        public Graph BuildGraphFromFile(string filePath)
+//        {
+//            Graph graph = new Graph();
+//            try
+//            {
+//                using var fileReader = new StreamReader(filePath);
+//                string line;
+//                while ((line = fileReader.ReadLine()) != null)
+//                {
+//                    // each line: i<space>j, where i and j are series of digits, representing label of a vertex
+//                    string[] oneLineNumbers = line.Split(' ');
+//                    int src = Int32.Parse(oneLineNumbers[0]);
+//                    int dest = Int32.Parse(oneLineNumbers[1]);
+//                    graph.AddEdge(src, dest);
+//                }
+//            }
+//            catch (NullReferenceException e)
+//            {
+//                Console.WriteLine(e.Message);
+//                throw e;
+//            }
+//
+//            //File.ReadAllLines()
+//            return graph;
+//        }
+//    }
 }

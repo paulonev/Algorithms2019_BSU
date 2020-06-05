@@ -13,9 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GraphColoring.Apps\GraphColoring.Apps.csproj" />
-    <ProjectReference Include="..\GraphColoring.Objects\GraphColoring.Objects.csproj" />
-    <ProjectReference Include="..\GraphColoring.GraphBuilder\GraphColoring.GraphBuilder.csproj" />
+    <ProjectReference Include="..\PackingHeuristics\PackingHeuristics.csproj" />
   </ItemGroup>
 
 </Project>

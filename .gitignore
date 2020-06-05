@@ -3,6 +3,10 @@
 /searches/.vscode/*
 /sortLab
 
+/**/bin/
+/**/obj/
+/**/.idea/
+
 /searches/searchMethods/bin/*
 /searches/searchMethods/obj/*
 
@@ -62,10 +66,12 @@
 /NPheuristics/GraphColoring/GraphColoring/bin/*
 /NPheuristics/GraphColoring/GraphColoring/obj/*
 
-/NPheuristics/GraphColoring/GraphColoring.DSatur/bin/*
-/NPheuristics/GraphColoring/GraphColoring.DSatur/obj/*
+/NPheuristics/GraphColoring/GraphColoring.Apps/bin/*
+/NPheuristics/GraphColoring/GraphColoring.Apps/obj/*
 
-/NPheuristics/GraphColoring/.idea/*
+/NPheuristics/GraphColoring/GraphColoring.GraphBuilder/bin/*
+/NPheuristics/GraphColoring/GraphColoring.GraphBuilder/obj/*
+
 /NPheuristics/GraphColoring/GraphColoring.Test/bin/*
 /NPheuristics/GraphColoring/GraphColoring.Test/obj/*
 

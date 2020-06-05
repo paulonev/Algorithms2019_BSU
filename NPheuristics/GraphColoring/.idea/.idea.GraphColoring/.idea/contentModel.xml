@@ -13,27 +13,40 @@
     <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
-      <e p="GraphColoring" t="IncludeRecursive">
+      <e p="GraphColoring.Apps" t="IncludeRecursive">
+        <e p="DSaturAlgorithm.cs" t="Include" />
+        <e p="GIS.cs" t="Include" />
+        <e p="GraphColoring.Apps.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="GraphColoring.Apps.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="GraphColoring.GraphBuilder" t="IncludeRecursive">
+        <e p="GraphBuilder.cs" t="Include" />
+        <e p="GraphColoring.GraphBuilder.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="GraphColoring.GraphBuilder.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="GraphColoring.Objects" t="IncludeRecursive">
         <e p="Graph.cs" t="Include" />
-        <e p="GraphColoring.csproj" t="IncludeRecursive" />
+        <e p="GraphColoring.Objects.csproj" t="IncludeRecursive" />
         <e p="Vertex.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="GraphColoring.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-      </e>
-      <e p="GraphColoring.DSatur" t="IncludeRecursive">
-        <e p="DSaturAlgorithm.cs" t="Include" />
-        <e p="GraphColoring.DSatur.csproj" t="IncludeRecursive" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.1" t="Include">
-              <e p="GraphColoring.DSatur.AssemblyInfo.cs" t="Include" />
+              <e p="GraphColoring.Objects.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # 
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphColoring", "GraphColoring\GraphColoring.csproj", "{8DF061F0-FED2-49E0-9FF7-4E91E6455F00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphColoring.Objects", "GraphColoring.Objects\GraphColoring.Objects.csproj", "{8DF061F0-FED2-49E0-9FF7-4E91E6455F00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphColoring.DSatur", "GraphColoring.DSatur\GraphColoring.DSatur.csproj", "{9E252559-B20E-4569-A1D3-DFF8F8FA2B75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphColoring.Apps", "GraphColoring.Apps\GraphColoring.Apps.csproj", "{9E252559-B20E-4569-A1D3-DFF8F8FA2B75}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphColoring.Test", "GraphColoring.Test\GraphColoring.Test.csproj", "{BE42610C-9E28-4763-A479-08A26EFF835E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphColoring.GraphBuilder", "GraphColoring.GraphBuilder\GraphColoring.GraphBuilder.csproj", "{1D3709C0-5513-471A-B75E-31AEF056D54C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,5 +27,9 @@ Global
 		{BE42610C-9E28-4763-A479-08A26EFF835E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE42610C-9E28-4763-A479-08A26EFF835E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE42610C-9E28-4763-A479-08A26EFF835E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D3709C0-5513-471A-B75E-31AEF056D54C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D3709C0-5513-471A-B75E-31AEF056D54C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D3709C0-5513-471A-B75E-31AEF056D54C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D3709C0-5513-471A-B75E-31AEF056D54C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

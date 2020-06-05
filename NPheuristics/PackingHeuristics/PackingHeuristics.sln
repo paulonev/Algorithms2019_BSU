@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# 
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackingHeuristics", "PackingHeuristics\PackingHeuristics.csproj", "{18B285B4-BACA-496D-AFA5-7C450CE49E80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackingHeuristics.Test", "PackingHeuristics.Test\PackingHeuristics.Test.csproj", "{B6C845FE-78D1-480C-B832-AB0251725C9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18B285B4-BACA-496D-AFA5-7C450CE49E80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18B285B4-BACA-496D-AFA5-7C450CE49E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18B285B4-BACA-496D-AFA5-7C450CE49E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18B285B4-BACA-496D-AFA5-7C450CE49E80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6C845FE-78D1-480C-B832-AB0251725C9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6C845FE-78D1-480C-B832-AB0251725C9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6C845FE-78D1-480C-B832-AB0251725C9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6C845FE-78D1-480C-B832-AB0251725C9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
