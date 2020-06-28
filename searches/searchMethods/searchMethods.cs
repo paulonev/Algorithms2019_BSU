@@ -4,7 +4,7 @@ namespace searchMethods
 {
     public class SearchMethods
     {
-    
+        public int Iterations { get; set;}
     /*
     Returns [position of element] if it exists
     Returns [-1] - if key not found or pointer is NULL
@@ -15,6 +15,7 @@ namespace searchMethods
     */
     public int InterpolationSearch(int[] a, int key)
     {
+        Iterations = 0;
         if(a == null) return -1;
         else if (a.Length == 0) throw new ArgumentException("Empty array");
         return InterpolationSearch(a, 0, a.Length - 1, key);
@@ -22,29 +23,31 @@ namespace searchMethods
 
     private int InterpolationSearch(int[] a, int leftI, int rightI, int key)
     {
+        Iterations++;
         if(a == null || leftI > rightI)
         {
             return -1;
         }
 
         //find mid element according to the proportion
-        int midI = leftI + ( (key - a[leftI]) / (a[rightI] - a[leftI])  * (rightI - leftI) );
+        int midI = leftI + (int) ( ((key - a[leftI])*1.0) / (a[rightI] - a[leftI])  * (rightI - leftI) );
         
         //choose minimum index of equal elements
-        if(key == a[midI])
-        {
-            if(a[midI-1] == key)
-            {
-                return InterpolationSearch(a, leftI, midI-1, key);
-            }    
-            else return midI;
-        }
-        else if(key > a[midI])
+        // if(key == a[midI])
+        // {
+        //     if(a[midI-1] == key)
+        //     {
+        //         return InterpolationSearch(a, leftI, midI-1, key);
+        //     }    
+        //     else return midI;
+        // }
+        // else 
+         if(key > a[midI])
         {
             return InterpolationSearch(a, midI+1, rightI, key);
         }
-        else return InterpolationSearch(a, leftI, midI-1, key);
-
+        else if (key < a[midI]) return InterpolationSearch(a, leftI, midI-1, key);
+        return midI;
     }
 
     /*
@@ -58,6 +61,7 @@ namespace searchMethods
     */
     public int BinarySearch(int[] a, int key)
     {
+        Iterations = 0;
         if(a == null) return -1;
         else if (a.Length == 0) throw new ArgumentException("Empty array");
         return BinarySearch(a, 0, a.Length - 1, key);
@@ -65,6 +69,7 @@ namespace searchMethods
 
     private int BinarySearch(int[] arr, int leftI, int rightI, int key)
     {
+        Iterations++;
         if(leftI > rightI)
         {
             return -1;
@@ -91,6 +96,7 @@ namespace searchMethods
     //Returns [-1] if element wasn't in array
     public int LinearSearch(int[] a, int key)
     {
+        Iterations = 0;
         //do exception if a.length is wrong or a is null
         if(a == null) return -1;
         else if (a.Length == 0) throw new ArgumentException("Empty array");
@@ -101,6 +107,7 @@ namespace searchMethods
     {
         for (int i = 0; i < size; i++)
         {
+            Iterations++;
             if (a[i] == key) return i;
         }
         return -1;

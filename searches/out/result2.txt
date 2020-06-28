@@ -1,0 +1,20 @@
+Params: Size=100000, Min=0, Max=5000000
+Binary: Element 35 was found at position -1 in time 304 microsec in 18 iterations
+Linear: Element 35 was found at position -1 in time 745.1 microsec in 100000 iterations
+Interp: Element 35 was found at position -1 in time 193.7 microsec in 3 iterations
+
+Params: Size=10000000, Min=0, Max=5000000
+Binary: Element 12892 was found at position 25820 in time 6.9 microsec in 23 iterations
+Linear: Element 12892 was found at position 25820 in time 147.9 microsec in 25821 iterations
+Interp: Element 12892 was found at position 25820 in time 1.3 millisec in 25821 iterations
+
+Params: Size=100000, Min=0, Max=5000000
+Binary: Element 35 was found at position -1 in time 340.3 microsec in 18 iterations
+Linear: Element 35 was found at position -1 in time 711.5 microsec in 100000 iterations
+Interp: Element 35 was found at position -1 in time 207.7 microsec in 3 iterations
+
+Params: Size=10000000, Min=0, Max=5000000
+Binary: Element 12892 was found at position 25790 in time 8.6 microsec in 22 iterations
+Linear: Element 12892 was found at position 25790 in time 148.5 microsec in 25791 iterations
+Interp: Element 12892 was found at position 25791 in time 1.6 microsec in 2 iterations
+
