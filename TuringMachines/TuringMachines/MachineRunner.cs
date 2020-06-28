@@ -25,39 +25,42 @@ namespace TuringMachines
             List<string> endStates, bool log, int head = 0)
         {
             int patLen = pattern.Length;
-            int pos = head;
+            int textPos = head;
             string state = "0";
             var matchIndexes = new List<int>();
             
             while (true)
             {
-                if (pos == text.Length)
+                if (textPos == text.Length)
                 {
                     if (state.Equals("y"))
-                        matchIndexes.Add(pos - patLen);
+                        matchIndexes.Add(textPos - patLen);
                     return matchIndexes;
                 }
                 
                 if (endStates.Contains(state))
                 {
-                    matchIndexes.Add(pos - patLen); // found a match of pattern and added index of occurence
+                    matchIndexes.Add(textPos - patLen); // found a match of pattern and added index of occurence
                     state = "0";
                 }
                 
-                char curSymbol = text[pos];
-                var mv = machine.ShiftTable[state].ContainsKey(curSymbol) 
-                    ? machine.ShiftTable[state][text[pos]] 
-                    : machine.ShiftTable[state]['$'];
+                char tSymbol = text[textPos];
+                //get rid of if logic
+//                var mv = machine.ShiftTable[state].ContainsKey(tSymbol) 
+//                    ? machine.ShiftTable[state][tSymbol] 
+//                    : machine.ShiftTable[state]['#'];
+
+                var mv = machine.ShiftTable[state][tSymbol];
                 
                 if (log)
                 {
-                    Console.WriteLine($"--- head on: {pos} -> nextState: {mv.NextState}, move: {mv.Shift}");    
+                    Console.WriteLine($"--- head on: {textPos} -> nextState: {mv.NextState}, move: {mv.Shift}");    
                 }
-                pos += mv.Shift;
+                
+                textPos += mv.Shift;
                 state = mv.NextState;
             }
         }
-        
         
         public static string Run(string input, Machine machine, 
                         List<string> endProgramStates, bool log, int head = 0)

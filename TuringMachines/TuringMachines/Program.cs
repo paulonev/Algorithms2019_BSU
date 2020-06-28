@@ -9,41 +9,15 @@ namespace TuringMachines
     {
         public static void Main(string[] args)
         {
-//            for running Task17() and Task28() - "old" Turing Automates
-//            while (true)
-//            {
-//                Console.WriteLine($"Output {Task17()}");
-//                Console.WriteLine($"Output {Task28()}");
-//                return;
-//            }
-
-//            string text = "adsgwadsxdsgwadsgz";
-//            string pattern = "music";
-            
-            using StreamReader sr =
-                new StreamReader("/home/paul/coding/algorithms-data-structures/TuringMachines/TuringMachines/data/worldandpeace_oneline.txt");
-            string text = sr.ReadLine()?.Trim();
-
-            var machine = new KmpAutomate(pattern: args[0]);
-            machine.AddOperation(prefixTable: machine.Pattern.PrefixSuffix());
-            List<string> endStates = new List<string>{"y", "n"};
-            
-            var answer = MachineRunner.RunPatternSearch(
-                text: text, 
-                machine: machine, 
-                pattern: machine.Pattern,
-                endStates: endStates,
-                log: true);
-
-            Console.WriteLine($"{machine.Pattern} found in {answer.Count} places");
-            Console.Write($"Indexes of occurence: ");
-            foreach (var item in answer)
+            while (true)
             {
-                Console.Write(item + " ");
-            }
-            Console.WriteLine();
+                Console.WriteLine($"Output {Task17()}");
+                Console.WriteLine($"Output {Task28()}");
+                return;
+            }   
         }
-
+    
+        //    for running Task17() and Task28() - "old" Turing Automates
         public static string Task17()
         {
             Console.WriteLine("Task 1.7, alphabet {a,b,c,#} - In odd word delete all symbols except for the middle");
@@ -53,7 +27,7 @@ namespace TuringMachines
             
             var machine =
                 MachineBuilder.BuildMachine(
-                    "/home/paul/coding/algorithms-data-structures/TuringMachines/TuringMachines/17.txt");
+                    "/home/paul/coding/algorithms-data-structures/TuringMachines/TuringMachines/data/17.txt");
             return MachineRunner.Run(input, machine,
                 endProgramStates: new List<string> {"e"}, head: headPos, log: true);
         }
@@ -67,7 +41,7 @@ namespace TuringMachines
             
             var machine =
                 MachineBuilder.BuildMachine(
-                    "/home/paul/coding/algorithms-data-structures/TuringMachines/TuringMachines/28.txt");
+                    "/home/paul/coding/algorithms-data-structures/TuringMachines/TuringMachines/data/28.txt");
 
             return MachineRunner.Run(input, machine,
                 endProgramStates: new List<string> {"e"}, head: headPos, log: true);
@@ -81,3 +55,34 @@ namespace TuringMachines
         }
     }
 }
+
+
+
+//string pattern = "dsgwadsgz";
+//            string text = "adsgwadsxdsgwadsgz";
+//            
+////            Console.Write("Pattern: ");
+////            string pattern = Console.ReadLine();
+////            
+////            using StreamReader sr =
+////                new StreamReader("/home/paul/coding/algorithms-data-structures/TuringMachines/TuringMachines/data/worldandpeace_oneline.txt");
+////            string text = sr.ReadLine()?.Trim();
+//            
+//            var machine = new KmpAutomate(pattern: pattern);
+//            machine.AddOperation(prefixTable: machine.Pattern.PrefixSuffix());
+//            List<string> endStates = new List<string>{"y", "n"};
+//            
+//            var answer = MachineRunner.RunPatternSearch(
+//                text: text, 
+//                machine: machine, 
+//                pattern: machine.Pattern,
+//                endStates: endStates,
+//                log: true);
+//
+//            Console.WriteLine($"\"{machine.Pattern}\" found in {answer.Count} places");
+//            Console.Write($"Indexes of occurence: ");
+//            foreach (var item in answer)
+//            {
+//                Console.Write(item + " ");
+//            }
+//            Console.WriteLine();
