@@ -4,7 +4,8 @@
 #include <iostream>
 #include <ctime>
 #include <chrono>
-#include "class.h"
+#include "/home/paul/coding/algorithms-data-structures/sorters-in-c++/h/class.h"
+#include "class.cpp"
 // K N MAXRANGE
 using namespace std;
 
