@@ -24,7 +24,7 @@ namespace HuffmanCodesCSharp.Tests
         {
             try
             {
-                using (StreamReader sr = new StreamReader(PathDir + "test.txt", Encoding.UTF8))
+                using (StreamReader sr = new StreamReader(PathDir + "WarAndPeace1.txt", Encoding.UTF8))
                 {
                     Source = sr.ReadToEnd().ToLower();
                     sr.Close();
@@ -77,14 +77,14 @@ namespace HuffmanCodesCSharp.Tests
             }
 
             // write in file encoded text
-            BytesCount = hufWrapper.WriteEncodedToFile(PathDir + "testEncoded",
+            BytesCount = hufWrapper.WriteEncodedToFile(PathDir + "WarAndPeace1_encoded",
                 hufWrapper.GetEncodedText(Source, huffmanDictionary));
             
             //Decompress
-            string binaryString = hufWrapper.ReadBytesFromFile(PathDir + "testEncoded", BytesCount);
+            string binaryString = hufWrapper.ReadBytesFromFile(PathDir + "WarAndPeace1_encoded", BytesCount);
             List<char> decodedList = hufWrapper.Decode(binaryString);
 
-            hufWrapper.WriteDecodedToFile(decodedList, PathDir + "testDecoded.txt");
+            hufWrapper.WriteDecodedToFile(decodedList, PathDir + "WarAndPeace1_decoded.txt");
             
         }
 
@@ -155,6 +155,7 @@ namespace HuffmanCodesCSharp.Tests
         [TestCase(6,6)]
         [TestCase(3,4)]
         [TestCase(50,51)]
+        [TestCase(15,15)]
         public void Can_Count_Paths_To(int n, int m)
         {
             long[,] matrix = new long[n,m];

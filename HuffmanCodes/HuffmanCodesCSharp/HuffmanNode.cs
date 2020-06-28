@@ -39,13 +39,9 @@ public class HuffmanNode<T> : IComparable
     /// </summary>
     public bool IsZero { get; set; }
 
+  
     /// <summary>
-    /// String of binary digits(0,1) for each HuffmanNode generated in Encode procedure
-    /// </summary>
-//    public List<char> BitString { get; set; }
-        
-    /// <summary>
-    /// 
+    ///  
     /// </summary>
     public int Bit => IsZero ? 0 : 1;
     public bool IsRoot => Parent == null;

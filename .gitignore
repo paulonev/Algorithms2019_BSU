@@ -79,4 +79,4 @@
 /TuringMachines/TuringMachines/obj/*
 /TuringMachines/TuringMachines/.idea/*
 
-/GeneticAlgorithm/__pycache__/*
+/**/__pycache__/*

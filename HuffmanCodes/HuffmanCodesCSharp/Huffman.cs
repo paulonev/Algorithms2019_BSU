@@ -291,7 +291,7 @@ namespace Huffman_Encoding
 
         public int WriteEncodedToFile(string path, string source)
         {
-            byte[] bytes = To_Byte_Array(source);
+            byte[] bytes = ToByteArray(source);
             int numOfBytes = bytes.Length;
             using (FileStream fs = File.OpenWrite(path))
             {
@@ -302,7 +302,7 @@ namespace Huffman_Encoding
             return numOfBytes;
         }
 
-        public byte[] To_Byte_Array(string source)
+        public byte[] ToByteArray(string source)
         {
             int numBytes = (int) Math.Ceiling(source.Length / 8m);
             var bytesAsStrings =
@@ -313,6 +313,12 @@ namespace Huffman_Encoding
             return bytes;
         }
 
+        /// <summary>
+        /// Returns binary string representation from bytes of file
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="numOfBytes"></param>
+        /// <returns></returns>
         public string ReadBytesFromFile(string path, int numOfBytes)
         {
             string binaryString = "";
@@ -362,31 +368,35 @@ namespace Huffman_Encoding
             }
         }
         
-        public T Decode(List<int> bitString, ref int position)
-        {
-            HuffmanNode<T> nodeCur = _root;
-            while (!nodeCur.IsLeaf)
-            {
-                if (position > bitString.Count)
-                {
-                    throw new ArgumentException("Invalid bitstring in Decode");
-                }
-                nodeCur = bitString[position++] == 0 ? nodeCur.LeftSon : nodeCur.RightSon;
-            }
-            return nodeCur.Value;
-        }
- 
-        public List<T> Decode(List<int> bitString)
-        {
-            int position = 0;
-            var returnValue = new List<T>();
- 
-            while (position != bitString.Count)
-            {
-                returnValue.Add(Decode(bitString, ref position));
-            }
-            return returnValue;
-        }
     }
  
 }
+
+
+
+
+//        public T Decode(List<int> bitString, ref int position)
+//        {
+//            HuffmanNode<T> nodeCur = _root;
+//            while (!nodeCur.IsLeaf)
+//            {
+//                if (position > bitString.Count)
+//                {
+//                    throw new ArgumentException("Invalid bitstring in Decode");
+//                }
+//                nodeCur = bitString[position++] == 0 ? nodeCur.LeftSon : nodeCur.RightSon;
+//            }
+//            return nodeCur.Value;
+//        }
+// 
+//        public List<T> Decode(List<int> bitString)
+//        {
+//            int position = 0;
+//            var returnValue = new List<T>();
+// 
+//            while (position != bitString.Count)
+//            {
+//                returnValue.Add(Decode(bitString, ref position));
+//            }
+//            return returnValue;
+//        }
