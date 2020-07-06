@@ -1,11 +1,11 @@
-/.vscode/*
+/**/.vscode/*
 /BSTint/.vscode/*
 /searches/.vscode/*
 /sortLab
 
-/**/bin/
-/**/obj/
-/**/.idea/
+/**/bin/*
+/**/obj/*
+/**/.idea/*
 
 /searches/searchMethods/bin/*
 /searches/searchMethods/obj/*
