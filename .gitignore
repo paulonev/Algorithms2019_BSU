@@ -80,3 +80,6 @@
 /TuringMachines/TuringMachines/.idea/*
 
 /**/__pycache__/*
+
+/HashingTables/src/bin/*
+/HashingTables/src/obj/*
