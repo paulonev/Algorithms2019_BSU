@@ -3,7 +3,7 @@ namespace src.funcs
 {
     public class MultFunc : HashFunc
     {
-        //single precision value with .
+        //double precision value with .
         private Double _constant;
         public MultFunc(double c) : base()
         {
@@ -12,12 +12,23 @@ namespace src.funcs
 
         public override uint GetHash(Object key, int size)
         {
-            return (uint)(size * frac_part(key.GetHashCode() * _constant));
+            // why GetHashCode() returns different results
+            // var keyHashCode = key.GetHashCode();
+            // Console.WriteLine("{0} hash code is {1}", key.GetType(), keyHashCode);
+            // var resDouble = size * frac_part(key.GetHashCode() * _constant);
+            // Console.WriteLine("double index is {0}", resDouble);
+            // var res = (uint)resDouble;
+            var res = (uint)(size * frac_part(key.GetHashCode() * _constant));
+            Console.WriteLine("uint index is {0}", res);
+            return res;
         }
 
         private double frac_part(double v)
         {
-            return v - Math.Floor(v);
+            // Console.WriteLine(v);
+            double fraction = v - ((int)v);
+            // Console.WriteLine(fraction);
+            return fraction < 0 ? 0-fraction : fraction;
         }
 
     }

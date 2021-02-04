@@ -11,7 +11,16 @@ namespace src.funcs
         //     Key = key;
         //     TabSize = size;
         // }
-        public abstract uint GetHash(Object key, int size); 
+        public abstract uint GetHash(Object key, int size);
 
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
