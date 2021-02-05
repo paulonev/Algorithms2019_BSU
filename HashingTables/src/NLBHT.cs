@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Text;
 using src.funcs;
 
@@ -15,8 +14,9 @@ namespace src.NLBHashtable
         public DataBlockNode _next;
         public object  _key;
         public object  _value;
-        public uint    _libHashCode; // hash code produced by my_hash_library
-    
+        public uint    _hcd; // hash code produced by my_hash_library
+        private DataBlockNode item;
+
         // public object Key { get => _key;}
         // public object Value { get => _value; }
         // public uint HashCode { get => _libHashCode; }
@@ -25,15 +25,20 @@ namespace src.NLBHashtable
         {
             _key = null;
             _value = null;
-            _libHashCode = 0;
+            _hcd = 0;
             _next = null;
+        }
+
+        public DataBlockNode(DataBlockNode item)
+        {
+            this._key = item;
         }
 
         public DataBlockNode(object key, object value)
         {
             _key = key;
             _value = value;
-            _libHashCode = 0;
+            _hcd = 0;
             _next = null;
         }
 
@@ -41,7 +46,7 @@ namespace src.NLBHashtable
         {
             _key = key;
             _value = value;
-            _libHashCode = hashCode;
+            _hcd = hashCode;
             _next = null;
         }
 
@@ -57,7 +62,7 @@ namespace src.NLBHashtable
             _key = key;
             _value = value;
             _next = child;
-            _libHashCode = hashCode;
+            _hcd = hashCode;
         }
 
         public bool KeyEquals(object key)
@@ -69,8 +74,17 @@ namespace src.NLBHashtable
         }
     }
 
+    public static class DataBlockExtension
+    {
+        public static void FillBlock(this DataBlock[] obj, int size)
+        {
+            for (int i=0; i<size; i++)
+                obj[i] = new DataBlock();
+            // return blocks;
+        }
+    }
 /// <summary>
-/// 
+/// Collision resolution
 /// </summary>
     public class DataBlock : IEnumerable
     {
@@ -106,7 +120,6 @@ namespace src.NLBHashtable
             }
             Count++;
         }
-
         public void AddFirst(DataBlockNode node)
         {
             if (node == null)
@@ -221,7 +234,7 @@ namespace src.NLBHashtable
 
     public class NLBHT : ICollection
     {
-        const int _DEFAULT_CAPACITY = 7;
+        const int _DEFAULT_CAPACITY = 3;
 
         // =====PRIV========
         DataBlock[] _blocks;
@@ -247,10 +260,7 @@ namespace src.NLBHashtable
         public NLBHT()
         {
             _blocks = new DataBlock[_DEFAULT_CAPACITY];
-            for (int i = 0; i < _blocks.Length; i++)
-            {
-                _blocks[i] = new DataBlock();
-            }
+            _blocks.FillBlock(_blocks.Length);
             hashFunction = null;
         }
         public NLBHT(int size)
@@ -258,10 +268,7 @@ namespace src.NLBHashtable
             if (size < 0) throw new ArgumentException("[EXC01] Please, check size parameter in initialization\n");
 
             _blocks = new DataBlock[size];
-            for (int i = 0; i < _blocks.Length; i++)
-            {
-                _blocks[i] = new DataBlock();
-            }
+            _blocks.FillBlock(_blocks.Length);
             hashFunction = null;
         }
         // public NLBHT(int size, HashFunc fun)
@@ -305,7 +312,6 @@ namespace src.NLBHashtable
             if (LoadFactor > 0.75f) resizeBlocks();
             
             uint hashIdx = hashFunction.GetHash(key, TabSize);
-            // collision resolution
             _blocks[hashIdx].AddFirst(new DataBlockNode(key, value, hashIdx));
             Count++;
             //GetHash(key) & 0x7FFFFFFF
@@ -317,20 +323,26 @@ namespace src.NLBHashtable
             //FIX: newSize is ought to be nearest prime to 2*Size
             int newSize = 2*TabSize;
             DataBlock[] newBlocks = new DataBlock[newSize];
+            newBlocks.FillBlock(newBlocks.Length);
             // 2) rehash all values in smaller array
             // 3) add instances to bigger array
             for (int i = 0; i < TabSize; i++)
             {
                 DataBlock block = _blocks[i];
-                foreach (DataBlockNode item in block)
+                foreach (DataBlockNode item in block) //[BUG] forever loop
                 {
                     uint rehashIdx = rehash(item, newSize);
                     
-                    if (rehashIdx != item._libHashCode)
+                    if (rehashIdx != item._hcd)
                     {
-                        newBlocks[rehashIdx].AddFirst(item); 
+                        newBlocks[rehashIdx].AddFirst(new DataBlockNode(item._key, item._value, rehashIdx)); 
                     }
-                    else throw new Exception($"[EXC02] Rehashing produced the same hashcode on {item._key} item key");
+                    // else throw new Exception($"[EXC02] Rehashing produced the same hashcode on {item._key} item key");
+                    else
+                    {
+                        Console.WriteLine($"Rehashing produced the same hashcode on '{item._key}'");
+                        newBlocks[rehashIdx].AddFirst(new DataBlockNode(item._key, item._value, rehashIdx));
+                    }
                 }
             }
             _blocks = newBlocks;
@@ -365,7 +377,7 @@ namespace src.NLBHashtable
             {
                 foreach(DataBlockNode item in _blocks[hashIdx])
                 {
-                    if(item.KeyEquals(key) && hashIdx == item._libHashCode) 
+                    if(item.KeyEquals(key) && hashIdx == item._hcd) 
                         return true;
                 }
                 return false;
@@ -373,11 +385,12 @@ namespace src.NLBHashtable
         }
 
         /// <summary>
-        /// Imple of removing item of table (from particular chaining list)
+        /// Imple of removing item from table (from particular chaining list)
         /// </summary>
         /// <param name="key"></param>
         /// <returns> 
-        /// <see cref="DataBlock.Remove(DataBlockNode)"/> for return values
+        /// <see cref="DataBlock.Remove(DataBlockNode)"> for return values </see>
+        /// <exception cref="System.ArgumentException">Thrown when search key is null</exception>
         /// </returns>
         public int Remove(object key)
         {
@@ -391,7 +404,7 @@ namespace src.NLBHashtable
             {
                 foreach(DataBlockNode item in _blocks[hashIdx])
                 {
-                    if(item.KeyEquals(key) && hashIdx == item._libHashCode) 
+                    if(item.KeyEquals(key) && hashIdx == item._hcd) 
                     {
                         Count--;
                         return _blocks[hashIdx].Remove(item);
@@ -423,7 +436,7 @@ namespace src.NLBHashtable
                 foreach(DataBlockNode item in _blocks[i])
                 {   
                     if(item._key != null)
-                        sb.Append("\n{").Append($" hash={item._libHashCode}, key={item._key.ToString()}, value={item._value.ToString()}").Append(" }");
+                        sb.Append("\n{").Append($" hash={item._hcd}, key={item._key.ToString()}, value={item._value.ToString()}").Append(" }");
                 }
                 sb.Append("\n ]");
             }
