@@ -18,9 +18,7 @@ namespace src.funcs
             // var resDouble = size * frac_part(key.GetHashCode() * _constant);
             // Console.WriteLine("double index is {0}", resDouble);
             // var res = (uint)resDouble;
-            var res = (uint)(size * frac_part(key.GetHashCode() * _constant));
-            Console.WriteLine("uint index is {0}", res);
-            return res;
+            return (uint)(size * frac_part(key.GetHashCode() * _constant));
         }
 
         private double frac_part(double v)
@@ -28,7 +26,7 @@ namespace src.funcs
             // Console.WriteLine(v);
             double fraction = v - ((int)v);
             // Console.WriteLine(fraction);
-            return fraction < 0 ? 0-fraction : fraction;
+            return fraction < 0 ? (0-fraction) : fraction;
         }
 
     }

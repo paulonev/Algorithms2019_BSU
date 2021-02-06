@@ -15,11 +15,6 @@ namespace src.NLBHashtable
         public object  _key;
         public object  _value;
         public uint    _hcd; // hash code produced by my_hash_library
-        private DataBlockNode item;
-
-        // public object Key { get => _key;}
-        // public object Value { get => _value; }
-        // public uint HashCode { get => _libHashCode; }
 
         public DataBlockNode()
         {
@@ -76,13 +71,13 @@ namespace src.NLBHashtable
 
     public static class DataBlockExtension
     {
-        public static void FillBlock(this DataBlock[] obj, int size)
+        public static void FillBlock(this DataBlock[] obj, int initSize)
         {
-            for (int i=0; i<size; i++)
+            for (int i = 0; i < initSize; i++)
                 obj[i] = new DataBlock();
-            // return blocks;
         }
     }
+    
 /// <summary>
 /// Collision resolution
 /// </summary>
@@ -151,15 +146,18 @@ namespace src.NLBHashtable
             if (node == null)
                 return -1;
 
-            DataBlockNode t = this.head;
-            if(t._key == node._key) // if searched item is head
+            if(head._key == node._key) // if searched item is head
             {
-                head = t._next;
+                head = head._next;
                 return 1;
             }
+
+            DataBlockNode t = this.head;
             while(t._next != null)
             {
-                if (t._next._key == node._key) break;
+                if (t._next._key == node._key && t._next._hcd == node._hcd) 
+                    break;
+
                 t = t._next;
                 if(t == null)
                     return 0;
@@ -271,6 +269,10 @@ namespace src.NLBHashtable
             _blocks.FillBlock(_blocks.Length);
             hashFunction = null;
         }
+        public NLBHT(HashFunc hF) : this()
+        {
+            this.hashFunction = hF;
+        }
         // public NLBHT(int size, HashFunc fun)
         // {
         //     if (size < 0) throw new ArgumentException("[EXC01] Please, check size parameter in initialization\n");
@@ -310,9 +312,13 @@ namespace src.NLBHashtable
                 throw new ArgumentException("[EXC04] Unable to put null reference as a key to the table");
             // LoadFactor is an average amount of items per DataBlock(bucket)
             if (LoadFactor > 0.75f) resizeBlocks();
-            
-            uint hashIdx = hashFunction.GetHash(key, TabSize);
-            _blocks[hashIdx].AddFirst(new DataBlockNode(key, value, hashIdx));
+            uint hashIdx = 0;
+            // try
+            // {
+                hashIdx = hashFunction.GetHash(key, TabSize);
+                Console.WriteLine("hashfunc produced {0} hashcode", hashIdx);
+                _blocks[hashIdx].AddFirst(new DataBlockNode(key, value, hashIdx));
+             
             Count++;
             //GetHash(key) & 0x7FFFFFFF
         }
@@ -332,7 +338,6 @@ namespace src.NLBHashtable
                 foreach (DataBlockNode item in block) //[BUG] forever loop
                 {
                     uint rehashIdx = rehash(item, newSize);
-                    
                     if (rehashIdx != item._hcd)
                     {
                         newBlocks[rehashIdx].AddFirst(new DataBlockNode(item._key, item._value, rehashIdx)); 
