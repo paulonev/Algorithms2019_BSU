@@ -23,9 +23,7 @@ namespace src.funcs
 
         private double frac_part(double v)
         {
-            // Console.WriteLine(v);
             double fraction = v - ((int)v);
-            // Console.WriteLine(fraction);
             return fraction < 0 ? (0-fraction) : fraction;
         }
 

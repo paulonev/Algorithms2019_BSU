@@ -3,223 +3,8 @@ using System.Collections;
 using System.Text;
 using src.funcs;
 
-namespace src.NLBHashtable
+namespace src.instances
 {
-
-/// <summary>
-/// Class which encapsulates basic unit of data 
-/// </summary>
-    public class DataBlockNode
-    {
-        public DataBlockNode _next;
-        public object  _key;
-        public object  _value;
-        public uint    _hcd; // hash code produced by my_hash_library
-
-        public DataBlockNode()
-        {
-            _key = null;
-            _value = null;
-            _hcd = 0;
-            _next = null;
-        }
-
-        public DataBlockNode(DataBlockNode item)
-        {
-            this._key = item;
-        }
-
-        public DataBlockNode(object key, object value)
-        {
-            _key = key;
-            _value = value;
-            _hcd = 0;
-            _next = null;
-        }
-
-        public DataBlockNode(object key, object value, uint hashCode)
-        {
-            _key = key;
-            _value = value;
-            _hcd = hashCode;
-            _next = null;
-        }
-
-        public DataBlockNode(object key, object value, DataBlockNode child)
-        {
-            _key = key;
-            _value = value;
-            _next = child;
-        }
-
-        public DataBlockNode(object key, object value, uint hashCode, DataBlockNode child)
-        {
-            _key = key;
-            _value = value;
-            _next = child;
-            _hcd = hashCode;
-        }
-
-        public bool KeyEquals(object key)
-        {
-             if (this._key.Equals(key))
-                return true;
-            else 
-                return false;
-        }
-    }
-
-    public static class DataBlockExtension
-    {
-        public static void FillBlock(this DataBlock[] obj, int initSize)
-        {
-            for (int i = 0; i < initSize; i++)
-                obj[i] = new DataBlock();
-        }
-    }
-    
-/// <summary>
-/// Collision resolution
-/// </summary>
-    public class DataBlock : IEnumerable
-    {
-        DataBlockNode head;
-
-        public int Count { get; set; }
-        public DataBlockNode Head { get => head; }
-        
-        public DataBlock()
-        {
-            head = null;
-        }
-        public DataBlock(DataBlockNode head)
-        {
-            this.head = head;
-        }
-        public void AddLast(DataBlockNode node)
-        {
-            if (node == null)
-                throw new ArgumentException("[EXC03--AddLast] Failed to add null reference");
-            if (head == null)
-            {
-                head = node;
-            }
-            else
-            {
-                DataBlockNode t = head;
-                while(t._next != null)
-                {
-                    t = t._next;
-                }
-                t._next = node;
-            }
-            Count++;
-        }
-        public void AddFirst(DataBlockNode node)
-        {
-            if (node == null)
-                throw new ArgumentException("[EXC03--AddFirst] Failed to add null reference");
-            if (head == null)
-            {
-                head = node;
-            }
-            else
-            {
-                node._next = head;
-                head = node;
-            }
-            Count++;
-        }
-    
-        /// <summary>
-        /// Method that is called from NLBHT.Remove to take an element out of chaining hashtable
-        /// </summary>
-        /// <param name="block"> </param>
-        /// <param name="node"> </param>
-        /// <returns>
-        /// 1 - if item was found and successfully removed
-        /// 0 - if item wasn't found
-        ///-1 - if some exception happened
-        /// </returns>
-        public int Remove(DataBlockNode node)
-        {
-            if (node == null)
-                return -1;
-
-            if(head._key == node._key) // if searched item is head
-            {
-                head = head._next;
-                return 1;
-            }
-
-            DataBlockNode t = this.head;
-            while(t._next != null)
-            {
-                if (t._next._key == node._key && t._next._hcd == node._hcd) 
-                    break;
-
-                t = t._next;
-                if(t == null)
-                    return 0;
-            }
-            t._next = t._next._next;
-            return 1;
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            return new DataBlockEnumerator(this);
-        }
-    }
-    public class DataBlockEnumerator : IEnumerator
-    {
-        DataBlock _block;
-        DataBlockNode _current;
-        bool _isLast;
-
-        public object Current
-        {
-            get => _current;
-        }
-        public DataBlockEnumerator(DataBlock block)
-        {
-            _block = block;
-            _current = null;
-            _isLast = false;
-        }
-
-        /// <summary></summary>
-        /// <returns>
-        /// false - if reach end of collection
-        /// true - otherwise
-        /// </returns>
-        public bool MoveNext()
-        {
-            if(_current == null)
-            {    
-                if(_isLast) // indicates position of _current when iter thru block
-                    return false;
-                else
-                {
-                    _isLast = true;
-                    _current = _block.Head;
-                }
-            }
-            else
-            {
-                _current = _current._next;
-            }
-            return (_current != null);
-        }
-
-        public void Reset()
-        {
-            throw new NotImplementedException();
-        }
-
-        
-    }
-
     /*
         * Store (key,value) pairs associatively in array
         ** for each (key,value) pair to be added produce
@@ -230,6 +15,13 @@ namespace src.NLBHashtable
         * having a hidden implementation of CRUD operations
     */
 
+    // implement 
+    // - Put (adds one key-value pair) +
+    // - Put (adds ICollection collection)
+    // - Remove(object key) +
+    // - UpdateValue(object key, object new_value)
+    // - Contains(object key) +
+    // - Clear ()
     public class NLBHT : ICollection
     {
         const int _DEFAULT_CAPACITY = 3;
@@ -241,7 +33,7 @@ namespace src.NLBHashtable
         
         // =====PROPS========
         public float LoadFactor { 
-            get => _count / _blocks.Length;
+            get => (float)(_count / (_blocks.Length*1.0));
         }
 
         // Table Capacity
@@ -258,7 +50,7 @@ namespace src.NLBHashtable
         public NLBHT()
         {
             _blocks = new DataBlock[_DEFAULT_CAPACITY];
-            _blocks.FillBlock(_blocks.Length);
+            _blocks.FillBlocks(_blocks.Length);
             hashFunction = null;
         }
         public NLBHT(int size)
@@ -266,7 +58,7 @@ namespace src.NLBHashtable
             if (size < 0) throw new ArgumentException("[EXC01] Please, check size parameter in initialization\n");
 
             _blocks = new DataBlock[size];
-            _blocks.FillBlock(_blocks.Length);
+            _blocks.FillBlocks(_blocks.Length);
             hashFunction = null;
         }
         public NLBHT(HashFunc hF) : this()
@@ -329,7 +121,7 @@ namespace src.NLBHashtable
             //FIX: newSize is ought to be nearest prime to 2*Size
             int newSize = 2*TabSize;
             DataBlock[] newBlocks = new DataBlock[newSize];
-            newBlocks.FillBlock(newBlocks.Length);
+            newBlocks.FillBlocks(newBlocks.Length);
             // 2) rehash all values in smaller array
             // 3) add instances to bigger array
             for (int i = 0; i < TabSize; i++)
@@ -357,14 +149,6 @@ namespace src.NLBHashtable
             // maybe add some new rehashing
             return hashFunction.GetHash(block._key, newSize);
         }
-
-        // implement 
-        // - Put (adds one key-value pair) +
-        // - Put (adds ICollection collection)
-        // - Remove(object key) +
-        // - UpdateValue(object key, object new_value)
-        // - Contains(object key) +
-        // - Clear ()
 
         /// <summary>
         /// Tells if there is any object with that key in a table

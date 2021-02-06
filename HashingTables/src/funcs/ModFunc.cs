@@ -12,8 +12,7 @@ namespace src.funcs
         {
             var keyCode = key.GetHashCode();
             keyCode = keyCode > 0 ? keyCode : 0-keyCode;
-            var result = keyCode % size;
-            return (uint)result;
+            return (uint)(keyCode % size);
         }
     }
 }

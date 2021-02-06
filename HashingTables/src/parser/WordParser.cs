@@ -6,26 +6,25 @@ namespace src.parser
 {
     public class WordParser
     {
-        public static IDictionary<string, int> ParseFromFile(string filePath)
+        public static IList<Tuple<string, int>> ParseFromFile(string filePath, int numLines)
         {
-            var dict = new Dictionary<string, int>();
+            var list = new List<Tuple<string, int>>();
             try
             {
                 using (var fileReader = new StreamReader(filePath))
                 {
-                    char[] separators = {','};
-                    string line;
-                    while ((line = fileReader.ReadLine()) != String.Empty)
+                    for (int i = 0; i < numLines; i++)                    
                     {
-                        string[] oneLineWords = line.Split(separators);
-                        dict.Add(oneLineWords[0], Int32.Parse(oneLineWords[1]));   
+                        string[] oneLineWords = fileReader.ReadLine().Split(',');
+                        var tp = new Tuple<string, int>(oneLineWords[0], Int32.Parse(oneLineWords[1]));
+                        list.Add(tp);   
                     }
                 }
             } catch(Exception ex)
             {
                 Console.Write(ex.Message);
             }
-            return dict;
+            return list;
         }
     }
 }
