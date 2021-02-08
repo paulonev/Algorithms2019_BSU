@@ -4,6 +4,7 @@ using src.instances;
 using src.funcs;
 using src.parser;
 using System;
+using System.Collections.Generic;
 
 namespace test
 {           
@@ -35,6 +36,7 @@ namespace test
             knuthTable.SetHashFunction(new MultFunc((Math.Sqrt(5)-1)/2));
             knuthTable.Put("Paul", new MultFunc(1/3));
             knuthTable.Put("Jacob", 15);
+            knuthTable.Put("Paul", 1234);
             knuthTable.Put("Dog", "Candy");
 
             Console.Write(knuthTable.ToString());
@@ -96,6 +98,47 @@ namespace test
             // Assert.AreEqual(table.Count, 100);
             Console.WriteLine(table.TabSize);
             Console.WriteLine("Table load factor = {0}", table.LoadFactor);
+        }
+
+        [Test]
+        public void AddCollection()
+        {
+            ICollection coll = new List<int>(){13,7,11,8,19};
+            NLBHT table = new NLBHT(new MultFunc((Math.Sqrt(5)-1)/2));
+            table.Put(coll);
+
+            Assert.AreEqual(expected: coll.Count, actual: table.Count);
+        }
+
+        [Test]
+        public void ClearTable()
+        {
+            NLBHT knuthTable = new NLBHT();
+            knuthTable.SetHashFunction(new ModFunc());
+            knuthTable.Put("Paul", new MultFunc(1/3));
+            knuthTable.Put("Jacob", 15);
+            knuthTable.Put("Dog", "Candy");
+            knuthTable.Put("Gregory", 10);
+            Console.WriteLine(knuthTable.ToString());
+
+            knuthTable.Clear();
+            Console.WriteLine(knuthTable.ToString());
+        }
+
+        [Test]
+        public void TryPut()
+        {
+            NLBHT knuthTable = new NLBHT();
+            try
+            {
+                knuthTable.SetHashFunction(new ModFunc());
+                knuthTable.Put('c', new MultFunc(1/3));
+                knuthTable.Put('c', 15);
+            } catch (ArgumentException ex)
+            {
+                Console.WriteLine("Attempted to add duplicated key");
+            }
+            
         }
 
         [Test]

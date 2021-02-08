@@ -14,14 +14,16 @@ namespace src.instances
         ** ICollection, IEnumerable, ICloneable
         * having a hidden implementation of CRUD operations
     */
-
+    
     // implement 
     // - Put (adds one key-value pair) +
-    // - Put (adds ICollection collection)
+    // - Put (adds ICollection collection) +
+    // - TryPut (adds if key != null or duplicate) +
     // - Remove(object key) +
-    // - UpdateValue(object key, object new_value)
-    // - Contains(object key) +
-    // - Clear ()
+    // - bool Contains(object key) +
+    // - void Clear () +
+    // - UpdateValue(object key, object new_value) - indexer
+
     public class NLBHT : ICollection
     {
         const int _DEFAULT_CAPACITY = 3;
@@ -89,6 +91,22 @@ namespace src.instances
         }
 
         /// <summary>
+        /// Put a collection as keys to the table
+        /// </summary>
+        /// <param name="coll"></param>
+        public void Put(ICollection coll)
+        {
+            if (coll == null) 
+                throw new ArgumentException("[EXC06] Unable to put null reference collection to the table");
+            if (coll.Count == 0)
+                return;
+            
+            foreach (var item in coll)
+            {
+                this.Put(item, null /*or item.GetHashCode()*/);
+            }
+        }
+        /// <summary>
         /// Put key-value pair in table
         /// Uses build-in or user-defined hash function
         /// that spread pairs across the whole array
@@ -97,23 +115,64 @@ namespace src.instances
         /// </summary>
         /// <param name="key">unique elem in pair</param>
         /// <param name="value">data of any type</param>
+        /// <exception cref="System.ArgumentException">Thrown when attempt to add duplicated key</exception>
         public void Put(object key, object value)
         {
             // null checking
             if (key == null)
                 throw new ArgumentException("[EXC04] Unable to put null reference as a key to the table");
+            
             // LoadFactor is an average amount of items per DataBlock(bucket)
             if (LoadFactor > 0.75f) resizeBlocks();
-            uint hashIdx = 0;
-            // try
-            // {
-                hashIdx = hashFunction.GetHash(key, TabSize);
-                Console.WriteLine("hashfunc produced {0} hashcode", hashIdx);
-                _blocks[hashIdx].AddFirst(new DataBlockNode(key, value, hashIdx));
-             
+            
+            uint newHCD = hashFunction.GetHash(key, TabSize);
+            Console.WriteLine("hashfunc produced {0} hashcode", newHCD);
+            foreach (DataBlockNode item in _blocks[newHCD])
+            {
+                if (item._hcd == newHCD && item.KeyEquals(key))
+                {
+                    throw new ArgumentException(String.Format("[EXC07] An item with key `{0}` has already been added", key));
+                }
+            }
+            _blocks[newHCD].AddFirst(new DataBlockNode(key, value, newHCD));
             Count++;
-            //GetHash(key) & 0x7FFFFFFF
+            //GetHash(key) & 0x7FFFFFFF = negative number -> 0
         }
+
+        /// <summary>
+        /// Method can be used to let the programmer know if it's possible to
+        /// add a new item to the table without throwing any Exception
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns>
+        /// true - if item was successfully added to the table
+        /// false - if key is null or duplicate
+        /// </returns>
+        public bool TryPut(object key, object value)
+        {
+            // null checking
+            if (key == null)
+                return false;
+
+            // LoadFactor is an average amount of items per DataBlock(bucket)
+            if (LoadFactor > 0.75f) resizeBlocks();
+
+            uint newHCD = hashFunction.GetHash(key, TabSize);
+            Console.WriteLine("hashfunc produced {0} hashcode", newHCD);
+            foreach (DataBlockNode item in _blocks[newHCD])
+            {
+                if (item._hcd == newHCD && item.KeyEquals(key))
+                {
+                    Console.WriteLine("Attempting to add duplicate key `{0}` to the table", key);
+                    return false;
+                }
+            }
+            _blocks[newHCD].AddFirst(new DataBlockNode(key, value, newHCD));
+            Count++;
+            return true;
+        }
+
 
         private void resizeBlocks()
         {
@@ -201,6 +260,23 @@ namespace src.instances
                 }
                 return 0;
             }
+        }
+
+        /// <summary>
+        /// Method that removes all instances stored in the table
+        /// by clearing each DataBlock
+        /// </summary>
+        /// <see cref="src.instances.DataBlock.Clear()"/>
+        /// <returns></returns>
+        public void Clear()
+        {
+            if (Count == 0)
+                return;
+            for (int i = 0; i < _blocks.Length; i++)
+            {
+                DataBlock block = _blocks[i];
+                block.Clear();
+            }    
         }
 
         public void CopyTo(Array array, int index)

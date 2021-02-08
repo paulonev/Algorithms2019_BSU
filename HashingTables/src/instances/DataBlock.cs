@@ -65,6 +65,13 @@ namespace src.instances
             else 
                 return false;
         }
+
+        internal void Erase()
+        {
+            _key = null;
+            _value = null;
+            _next = null;
+        }
     }
 
     /// <summary>
@@ -153,6 +160,21 @@ namespace src.instances
             }
             t._next = t._next._next;
             return 1;
+        }
+
+        /// <summary>
+        /// Method that makes DataBlock empty
+        /// </summary>
+        public void Clear()
+        {
+            DataBlockNode current = this.head;
+            while (current != null)
+            {
+                DataBlockNode temp = current;
+                current = current._next;
+                temp.Erase();
+            }   
+            this.head = null;
         }
 
         public IEnumerator GetEnumerator()
